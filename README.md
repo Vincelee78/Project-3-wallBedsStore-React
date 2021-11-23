@@ -1,5 +1,5 @@
 ## TCG-Project-3-React-Space Saving Furniture Systems
-To create an open-edit educational radiology resource that has been primarily compiled by radiologists and radiology trainees from across the world.
+To create an ...
 
 ## Summary/User objectives:
 Provide medical resources for millions of individuals from around the world and make it available for free, particularly those from low and middle-income regions who do not have access to traditional pay-wall resources.
