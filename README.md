@@ -1,4 +1,4 @@
-## TCG-Project-2-React-MedRadiology
+## TCG-Project-3-React-Space Saving Furniture Systems
 To create an open-edit educational radiology resource that has been primarily compiled by radiologists and radiology trainees from across the world.
 
 ## Summary/User objectives:
