@@ -1,4 +1,4 @@
-## TCG-Project-3-React-Space Saving Furniture Systems
+## TCG-Project-3-React-Space Saving Furniture Systems (template from Project 2)
 To create an ...
 
 ## Summary/User objectives:
