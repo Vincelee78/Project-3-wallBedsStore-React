@@ -1,82 +1,98 @@
-import React from 'react';
-import './App.css';
-import logo from './home-logo.png';
+import React from "react";
+import WallBedsProvider from "./WallBedsProvider";
+import LandingPage from "./LandingPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
-import Carousel from 'react-bootstrap/Carousel'
-import WallBedContext from "./WallBedContext";
+import RegisterForm from "./RegisterForm";
+import WallBedDetails from "./WallBedDetails";
 import WallBedListing from "./WallBedListing";
 
+// import react router stuff
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+export default function App() {
+  return (
+    <Router>
+      <div id="nav">
+        <div class="logo">
+          <img src='https://dp.image-gmkt.com/SG/GMKT.IMG/front_image/minishop/2014/01/02/a6b99c03-175e-40eb-8edb-104c4e3c488e.s_110-w-fs-st_s.jpg' class="main-logo" />
+          <a style={{ 'font-family': 'Stencil Std, fantasy' }}><b>Space-Saving Furniture Systems</b></a>
+        </div>
+
+        <ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+              data-bs-toggle="dropdown">HOME</a>
+            <ul class="dropdown-menu">
+              <li>
+                <Link to="/" class="dropdown-item" href="#">Home Page</Link>
+              </li>
+              <li><a class="dropdown-item" href="#">Directions</a></li>
+              <li><a class="dropdown-item" href="#">Telephone</a></li>
+            </ul>
+          </li>
+
+          <li><a href="" class="navlink">ABOUT </a></li>
+          <li>
+            <Link to="/shop_All_Beds" class="navlink">SHOP WALL BEDS</Link>
+          </li>
+          <li><a href="" class="" style={{'text-decoration': 'none'}}>
+
+            {/* <div
+              class="d-flex"
+            >
+              Hi,
+
+            </div>
+            <a
+              href="/users/logout"
+              class=""
+            >Logout</a> */}
+
+            <div class="d-flex justify-content-center me-4">Welcome, guest.</div>
+            <a
+              href="/users/login"
+              class="btn btn-success btn-sm me-3"
+            >Login</a>
+            <a
+              href="/register"
+              class="btn btn-primary btn-sm me-4"
+            >Register</a>
 
 
+          </a>
+          </li>
+        </ul>
 
-
-
-
-export default class App extends React.Component {
-  state = {
-
-    data: [
-
-    ],
-
-  }
-
-  // Base url
-  url = "https://6000-azure-whitefish-4d0hnk4z.ws-us17.gitpod.io/api/"
-
-
-  // Fetch data once the page loads
-  componentDidMount() {
-    //this.fetchData();
-  }
-
-  
-  fetchData = async () => {
-    try {
-      
-      let response = await axios.get(this.url + "allproducts")
-      this.setState({
-        data: response.data
-      })
-
-    } catch (e) {
-      this.setState({
-        active: 'errorMessage'
-      })
-
-    }
-
-  }
-
-
-
-
-  render() {
-    const context = {
-      getWallBed: async () => {
-        try {
-          let response = await axios.get(this.url + "allproducts")
-          console.log(response.data);
-          return response.data
-        } catch (e) {
-          console.log(e)
-        }
-      },
-    }
-    return (
-      <div className="App">
-        <WallBedContext.Provider value={context}>
-        <h1>WallBed Listing</h1>
-        <div className="row p-0 m-0 d-flex justify-content-between">
-          <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 lg-5 g-xl-3">
-          <WallBedListing />
-          </div>
-          </div>
-        </WallBedContext.Provider>
       </div>
-    );
-  }
+      <Switch>
+      <WallBedsProvider>
+        {/* Home route */}
+        <Route exact path="/">
+          <LandingPage />
+        </Route>
+
+        {/* All Wall Beds route */}
+        <Route exact path="/shop_All_Beds">
+          <WallBedListing />
+        </Route>
+
+        {/* Contact Us route */}
+        <Route exact path="/register">
+          <RegisterForm/>
+        </Route>
+        
+        <Route exact path="/product/:productId">
+          <WallBedDetails/>
+          </Route>
+    
+        {/* <Route exact path="/details">
+          <WallBedDetails/>
+          </Route> */}
+          
+          </WallBedsProvider>
+      </Switch>
+    </Router>
+  );
 }
 
 //       <React.Fragment>
