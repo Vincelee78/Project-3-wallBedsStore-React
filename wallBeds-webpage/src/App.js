@@ -32,7 +32,7 @@ export default function App() {
 
           <li><a href="" class="navlink">ABOUT </a></li>
           <li>
-            <Link to="/shop_All_Beds" class="navlink">SHOP WALL BEDS</Link>
+            <Link to="/shop_All_Beds" class="navlink">CATALOGUE</Link>
           </li>
           <li><a href="" class="" style={{'text-decoration': 'none'}}>
 

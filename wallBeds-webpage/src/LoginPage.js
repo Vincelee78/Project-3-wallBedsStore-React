@@ -2,9 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Redirect } from "react-router";
-import Headers from "./HeaderRegisterForm";
+import Headers from "./HeaderLoginForm";
 
-export default function RegisterForm() {
+export default function LoginForm() {
 
   const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us17.gitpod.io/api/"
 
