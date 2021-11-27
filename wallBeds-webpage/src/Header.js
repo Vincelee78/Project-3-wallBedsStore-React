@@ -5,12 +5,12 @@ export default function Headers () {
 
   return (
     <div style={{ "marginBottom": "10px" }}>
-      <h1 className="h1">
+      <h1 className="h1 text-start">
         <svg
           width="60px"
           height="60px"
           viewBox="0 0 150 150"
-          style={{ top: 9, marginRight: 10 }}
+          style={{ top: 20, marginRight: 10 }}
         >
           <defs />
           <g stroke="none" fill="none">
@@ -21,7 +21,7 @@ export default function Headers () {
                 y="0"
                 width="150"
                 height="150"
-                rx="20"
+                
               />
               <g transform="translate(40.000000, 32.000000)" fill="#FFFFFF">
                 <g id="Group">

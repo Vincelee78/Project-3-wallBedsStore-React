@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import RegisterForm from "./RegisterForm";
 import WallBedDetails from "./WallBedDetails";
 import WallBedListing from "./WallBedListing";
-
 // import react router stuff
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -13,7 +12,7 @@ export default function App() {
   return (
     <Router>
       <div id="nav">
-        <div class="logo">
+        <div class="logo pt-2 ps-2">
           <img src='https://dp.image-gmkt.com/SG/GMKT.IMG/front_image/minishop/2014/01/02/a6b99c03-175e-40eb-8edb-104c4e3c488e.s_110-w-fs-st_s.jpg' class="main-logo" />
           <a style={{ 'font-family': 'Stencil Std, fantasy' }}><b>Space-Saving Furniture Systems</b></a>
         </div>

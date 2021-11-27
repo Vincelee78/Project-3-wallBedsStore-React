@@ -25,17 +25,15 @@ export default function WallBedDetails() {
     return <React.Fragment>
         {product ?
             <React.Fragment>
-                <div class="row">
-                    <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center"
+                <div class="row mx-2 h-100">
+                    <img src={product.image_url} class="wallBedImage col-lg-6 col-sm-12 d-flex align-items-center justify-content-center"
 
                         style={{
-                            backgroundImage: `url("${product.image_url}")`,
-                            "backgroundRepeat": "no-repeat", "backgroundSize": "contain ", "backgroundPosition": "center"
+                            "backgroundRepeat": "no-repeat", "backgroundSize": "contain ", "backgroundPosition": "center", 
                         }}>
-                        <p class="indi-img-container" >
-                        </p>
-                    </div>
-                    <div class="col-12 col-lg-6">
+                        
+                    </img>
+                    <div class=" col-lg-6 pe-2">
                         <h1 class="mb-4 indi-title">{product.name}</h1>
                         <p class="indi-flavour">Stock:{product.stock}</p>
                         <p>
@@ -47,26 +45,26 @@ export default function WallBedDetails() {
                         </p> */}
                         <p class="indi-spacing"></p>
                         <div class="row indi-table-container">
-                            <div class="col-12 col-xl-6 col-md-6">
+                            <div class="col-6 col-lg-6 col-md-6">
                                 <h4 class="indi-table-details">Key Features:</h4>
                                 <div class="pr-5 pr-lg-0">
                                     <table class="table">
                                         <tbody>
                                             <tr class="indi-table-details">
                                                 <td>
-                                                    <i class="fas fa-tint mr-2"></i> BED SIZE
+                                                    <i class="fas fa-tint me-2"></i> BED SIZE
                                                 </td>
                                                 <td>{product?.bedSize?.name}</td>
                                             </tr>
                                             <tr class="indi-table-details">
                                                 <td>
-                                                    <i class="fas fa-hourglass-half mr-2"></i> MATRESS TYPE
+                                                    <i class="fas fa-hourglass-half me-2"></i> MATRESS TYPE
                                                 </td>
                                                 <td>{product?.mattressType?.name}</td>
                                             </tr>
                                             <tr class="indi-table-details">
                                                 <td>
-                                                    <i class="fas fa-mug-hot mr-2"></i>BED ORIENTATION
+                                                    <i class="fas fa-mug-hot me-2"></i>BED ORIENTATION
                                                 </td>
                                                 <td>{product?.bedOrientation?.name}</td>
                                             </tr>
@@ -74,7 +72,7 @@ export default function WallBedDetails() {
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-12 col-xl-6 col-md-6">
+                            <div class="col-6 col-lg-6 col-md-6">
                                 <h4>Specifications</h4>
                                 <div class="pr-5 pr-lg-0">
                                     <table class="table">

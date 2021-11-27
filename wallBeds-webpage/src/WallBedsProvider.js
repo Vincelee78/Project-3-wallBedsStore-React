@@ -50,10 +50,10 @@ export default function WallBedsProvider(props) {
   //   },
   // }
   return (
-    <div className="wallBedListings d-flex justify-content-evenly">
+    // <div className="wallBedListings d-flex justify-content-evenly">
     <WallBedContext.Provider value={context}>
       {props.children}
     </WallBedContext.Provider>
-     </div>
+    //  </div>
   );
 }
