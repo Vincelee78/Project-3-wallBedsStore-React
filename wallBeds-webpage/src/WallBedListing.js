@@ -15,7 +15,9 @@ export default function WallBedListing() {
   const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us17.gitpod.io/api/"
 
   const [data, setData] = useState([]);
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState([]);
+  const [inital, onUpdate] = useState('');
+  const [selectedPanelColours, setSelectedPanelColours] = useState([]);
   let context = useContext(WallBedContext);
 
   useEffect(() => {
@@ -29,14 +31,26 @@ export default function WallBedListing() {
 
   const { register, handleSubmit } = useForm();
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     const search = await axios.post(url + "allproducts", {
       username: data.username,
-      email:data.email,
-      password:data.password
-  });
-  setResult(search)
-}
+      email: data.email,
+      password: data.password
+    });
+    setResult(search)
+  }
+
+  const handleChange = (evt) => {
+    onUpdate(evt.target.value)
+  }
+
+  const handleSelect = function(selectedItems) {
+    const panelColours = [];
+    for (let i=0; i<selectedItems.length; i++) {
+      panelColours.push(selectedItems[i].value);
+    }
+    setSelectedPanelColours(panelColours);
+  }
 
   return (<React.Fragment >
 
@@ -67,17 +81,50 @@ export default function WallBedListing() {
           <input {...register("mincost")} placeholder="Minimum Cost" name='mincost' />
           <br />
           <input {...register("maxcost")} placeholder="Maximum Cost" name='maxcost' />
+
+          <div class='my-1'> Bed Sizes:
+            <select value={inital.value} onChange={handleChange}>
+              <option value="1">Single Bed</option>
+              <option value="2">Double Bed</option>
+            </select>
+          </div>
+
+          <div class='my-1'> Bed Orientation:
+            <select value={inital.value} onChange={handleChange}>
+              <option value="1">Vertical</option>
+              <option value="2">Horizontal</option>
+            </select>
+          </div>
+
+          <div class='my-1'> Mattress Type:
+            <select value={inital.value} onChange={handleChange}>
+              <option value="1">Spring</option>
+              <option value="2">Foam</option>
+            </select>
+          </div>
+
+          <div class='my-1'> Bed Frame Colour:
+            <select value={inital.value} onChange={handleChange}>
+              <option value="1">Black</option>
+              <option value="2">Aluminium</option>
+            </select>
+          </div>
+
+          <div class='my-1'> Wood Panel Colours:
+            <select multiple={true} value={selectedPanelColours} onChange={(e) => { handleSelect(e.target.selectedOptions) }}>
+              <option value="1">White</option>
+              <option value="2">Walnut</option>
+            </select>
+          </div>
+
+          {/* <input {...register("maxcost")} placeholder="Bed Orientation" name='maxcost' />
           <br />
-          <input {...register("maxcost")} placeholder="Maximum Cost" name='maxcost' />
+          <input {...register("maxcost")} placeholder="Mattress Type" name='maxcost' />
           <br />
-          <input {...register("bedsizes")} placeholder="Maximum Cost" name='bedsizes' />
+          <input {...register("maxcost")} placeholder="Bed Frame Colour" name='maxcost' />
           <br />
-          <input {...register("maxcost")} placeholder="Maximum Cost" name='maxcost' />
-          <br />
-          <input {...register("maxcost")} placeholder="Maximum Cost" name='maxcost' />
-          <br />
-          <input {...register("maxcost")} placeholder="Maximum Cost" name='maxcost' />
-          <br />
+          <input {...register("maxcost")} placeholder="Wood panel colours" name='maxcost' />
+          <br /> */}
 
           <input type="submit" class="btn btn-primary btn-sm my-3" value="Search" />
         </form>

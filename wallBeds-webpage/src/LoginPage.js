@@ -13,7 +13,7 @@ export default function LoginForm() {
   const [result, setResult] = useState("");
 
   const onSubmit = async(data) => {
-    const user = await axios.post(url + "users/register", {
+    const user = await axios.post(url + "users/login", {
       username: data.username,
       email:data.email,
       password:data.password
@@ -37,16 +37,8 @@ export default function LoginForm() {
       <br/>
       <input {...register("password")} placeholder="password" name='password'/>
       <br/>
-      {/* <input {...register("email")} placeholder="email" name='username'/>
-      <br/>
-      <select {...register("category")}>
-        <option value="">Select...</option>
-        <option value="A">Category A</option>
-        <option value="B">Category B</option>
-      </select> */}
-      {/* <div>{result}</div> */}
-      <br/>
-      <input type="submit" />
+      
+      <input type="submit" value='Login'/>
     </form>
   );
 }

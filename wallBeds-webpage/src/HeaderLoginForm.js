@@ -35,10 +35,10 @@ export default function Headers () {
             </g>
           </g>
         </svg>
-        <span class='ms-2 mt-3'>Register an account</span>
+        <span class='ms-2 mt-3'>Login</span>
       </h1>
       <p style={{ 'fontSize': '14', 'lineHeight': '1.3', 'marginTop': '20px' }}>
-        Please enter your details in the form below
+        Please enter your details to login
       </p>
       
     </div>

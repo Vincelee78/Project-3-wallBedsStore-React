@@ -37,16 +37,13 @@ export default function RegisterForm() {
       <br/>
       <input {...register("password")} placeholder="password" name='password'/>
       <br/>
-      {/* <input {...register("email")} placeholder="email" name='username'/>
+      <input {...register("billing_address")} placeholder="Billing Address" name='billing_address'/>
       <br/>
-      <select {...register("category")}>
-        <option value="">Select...</option>
-        <option value="A">Category A</option>
-        <option value="B">Category B</option>
-      </select> */}
-      {/* <div>{result}</div> */}
+      <input {...register("shipping_address")} placeholder="Shipping Address" name='shipping_address'/>
       <br/>
-      <input type="submit" />
+      <input {...register("phone")} placeholder="Phone number" name='phone'/>
+      <br/>
+      <input type="submit" value='Register'/>
     </form>
   );
 }

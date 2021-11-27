@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import RegisterForm from "./RegisterForm";
 import WallBedDetails from "./WallBedDetails";
 import WallBedListing from "./WallBedListing";
+import LoginForm from "./LoginPage";
 // import react router stuff
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
@@ -75,11 +76,15 @@ export default function App() {
           <WallBedListing />
         </Route>
 
-        {/* Contact Us route */}
+        {/* User Register route */}
         <Route exact path="/register">
           <RegisterForm/>
         </Route>
         
+        <Route exact path="/users/login">
+          <LoginForm />
+        </Route>
+
         <Route exact path="/product/:productId">
           <WallBedDetails/>
           </Route>
