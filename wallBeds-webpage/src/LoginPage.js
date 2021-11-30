@@ -30,7 +30,6 @@ export default function LoginPage() {
       password: formData.password
     });
 
-    
     setUser(response.data)
     if (response.data.accessToken){
     localStorage.setItem('accesstoken', response.data.accessToken)

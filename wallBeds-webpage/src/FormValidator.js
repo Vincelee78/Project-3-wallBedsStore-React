@@ -41,11 +41,11 @@ export const registerFormSchema = yup.object().shape({
     .string()
     .required("Password is required!")
     .min(9, "Password must be at least 9 characters!")
-    .specialSymb("Password must contain at least one special character!")
-    .IncludeNum("Password must contain at least one number!")
-    .UpperLowerCases(
-      "Password must contain at least one uppercase and lowercase letter!"
-    ),
+    // .specialSymb("Password must contain at least one special character!")
+    .IncludeNum("Password must contain at least one number!"),
+    // .UpperLowerCases(
+    //   "Password must contain at least one uppercase and lowercase letter!"
+    // ),
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password"), null], "Passwords do not match!"),

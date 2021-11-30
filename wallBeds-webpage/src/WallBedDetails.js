@@ -2,6 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 import WallBedContext from "./WallBedContext";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {GiSleepingBag} from "react-icons/gi";
+import {GiBed} from "react-icons/gi";
+
 
 export default function WallBedDetails() {
     //   const [data, setData] = useState([]);
@@ -65,13 +68,13 @@ export default function WallBedDetails() {
                                             </tr>
                                             <tr class="indi-table-details">
                                                 <td>
-                                                    <i class="fas fa-hourglass-half me-2"></i> MATRESS TYPE
+                                                    <span className='me-2 fa-lg'><GiSleepingBag/></span> MATRESS TYPE
                                                 </td>
                                                 <td>{product?.mattressType?.name}</td>
                                             </tr>
                                             <tr class="indi-table-details">
                                                 <td>
-                                                    <i class="fas fa-mug-hot me-2"></i>BED ORIENTATION
+                                                    <span className='me-2 fa-lg'><GiBed/></span>BED ORIENTATION
                                                 </td>
                                                 <td>{product?.bedOrientation?.name}</td>
                                             </tr>

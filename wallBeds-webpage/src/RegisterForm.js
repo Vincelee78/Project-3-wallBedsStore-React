@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Redirect } from "react-router";
 import Headers from "./HeaderRegisterForm";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { addressFormSchema, registerFormSchema } from "./FormValidator";
+import { registerFormSchema } from "./FormValidator";
 
 
 export default function RegisterForm() {
@@ -21,6 +21,7 @@ export default function RegisterForm() {
   const [result, setResult] = useState("");
 
   const onSubmit = async (data) => {
+    console.log('a')
     const user = await axios.post(url + "users/register", {
       username: data.username,
       email: data.email,
@@ -45,49 +46,49 @@ export default function RegisterForm() {
     <form onSubmit={handleSubmit(onSubmit)} class=' d-flex flex-column align-items-start ps-4 mt-3'>
       <Headers />
       <div class='w-50 '>
-      <input {...register("username")} placeholder="Full name" name='username' value={}/>
+      <input {...register("username")} placeholder="Full name" name='username' value={username} onChange={(evt) => setUsername(evt.target.value)}/>
       {errors.username && (
         <p className="register-form-error">
           {errors.username.message}
         </p>
       )}
       <br />
-      <input {...register("email")} placeholder="Email" name='email' />
+      <input {...register("email")} placeholder="Email" name='email' value={email} onChange={(evt) => setEmail(evt.target.value)} />
       {errors.email && (
         <p className="register-form-error">
           {errors.email.message}
         </p>
       )}
       <br />
-      <input {...register("password")} placeholder="Password" type='password' name='password' />
+      <input {...register("password")} placeholder="Password" type='password' name='password' value={password} onChange={(evt) => setPassword(evt.target.value)}/>
       {errors.password && (
         <p className="register-form-error">
           {errors.password.message}
         </p>
       )}
       <br />
-      <input {...register("confirmPassword")} placeholder="Confirm password" name='confirmPassword' />
+      <input {...register("confirmPassword")} placeholder="Confirm password" type='password' name='confirmPassword' />
       {errors.confirmPassword && (
         <p className="register-form-error">
           {errors.confirmPassword.message}
         </p>
       )}
       <br />
-      <input {...register("billing_address")} placeholder="Billing Address" name='billing_address' />
+      <input {...register("billing_address")} placeholder="Billing Address" name='billing_address' value={billing_address} onChange={(evt) => setBilling_address(evt.target.value)}/>
       <br />
       {errors.billing_address && (
         <p className="register-form-error">
           {errors.billing_address.message}
         </p>
       )}
-      <input {...register("shipping_address")} placeholder="Shipping Address" name='shipping_address' />
+      <input {...register("shipping_address")} placeholder="Shipping Address" name='shipping_address' value={shipping_address} onChange={(evt) => setShipping_address(evt.target.value)}/>
       <br />
       {errors.shipping_address && (
         <p className="register-form-error">
           {errors.shipping_address.message}
         </p>
       )}
-      <input {...register("phone")} placeholder="Phone number" name='phone' />
+      <input {...register("phone")} placeholder="Phone number" name='phone' value={phone} onChange={(evt) => setPhone(evt.target.value)}/>
       <br />
       {errors.phone && (
         <p className="register-form-error">
