@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect, useState }from "react";
+import axios from 'axios';
 import WallBedsProvider from "./WallBedsProvider";
 import LandingPage from "./LandingPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,16 +7,56 @@ import RegisterForm from "./RegisterForm";
 import WallBedDetails from "./WallBedDetails";
 import WallBedListing from "./WallBedListing";
 import LoginForm from "./LoginPage";
+import CartProvider from "./CartProvider";
+import UserProvider from "./UserProvider";
 // import react router stuff
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Cart from "./Cart";
+import LoginPage from "./LoginPage";
 
 export default function App() {
+  const [user, setUser] = useState('Guest');
+  const [logout, setlogout] = useState('');
+
+  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us17.gitpod.io/api/"
+
+  //  async function getUsername() {
+
+  //   const results = await axios.get(url + "users/profile")  
+  //   console.log(results.data)
+
+  //   return results.data;
+    
+  // }
+  // getUsername();
+  
+  
+
+  useEffect(() => {
+        if (localStorage.getItem('accesstoken')) {
+            const getUser = async () => {
+                try {
+                    const response = await axios.get(url + "users/profile", {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('accesstoken')}`,
+                        },
+                    });
+                    setUser(response.data.username);
+                } catch (error) {
+                    console.log(error)
+                };
+
+            };
+            getUser();
+          }
+          },[user]);
+
   return (
     <Router>
       <div id="nav">
         <div class="logo pt-2 ps-2">
           <img src='https://dp.image-gmkt.com/SG/GMKT.IMG/front_image/minishop/2014/01/02/a6b99c03-175e-40eb-8edb-104c4e3c488e.s_110-w-fs-st_s.jpg' class="main-logo" />
-          <a style={{ 'font-family': 'Stencil Std, fantasy' }}><b>Space-Saving Furniture Systems</b></a>
+          <Link to="/" href="#" style={{ 'textDecoration': 'none', 'color': 'brown' }}><header class='compName' style={{ 'font-family': 'Stencil Std, fantasy' }}><b>Space-Saving Furniture Systems</b></header></Link>
         </div>
 
         <ul>
@@ -35,7 +76,18 @@ export default function App() {
           <li>
             <Link to="/shop_All_Beds" class="navlink">CATALOGUE</Link>
           </li>
-          <li><a href="" class="" style={{'text-decoration': 'none'}}>
+
+          <li class="font-sans block lg:inline-block">
+            <a href="/cart" role="button" class="pe-4" style={{ 'font-size': '1.4em' }}>
+              <span class="">
+                <i class="fas fa-shopping-cart "></i>
+              </span>
+            </a>
+          </li>
+
+
+          <li><a href="" class="" style={{ 'text-decoration': 'none' }}>
+
 
             {/* <div
               class="d-flex"
@@ -48,7 +100,7 @@ export default function App() {
               class=""
             >Logout</a> */}
 
-            <div class="d-flex justify-content-center me-4">Welcome, guest.</div>
+            <div class="d-flex justify-content-center me-4">Welcome, {user}</div>
             <a
               href="/users/login"
               class="btn btn-success btn-sm me-3"
@@ -65,35 +117,39 @@ export default function App() {
 
       </div>
       <Switch>
-      <WallBedsProvider>
-        {/* Home route */}
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
+        {/* <UserProvider> */}
+          {/* <CartProvider> */}
+            <WallBedsProvider>
+              {/* Home route */}
+              <Route exact path="/">
+                <LandingPage />
+              </Route>
 
-        {/* All Wall Beds route */}
-        <Route exact path="/shop_All_Beds">
-          <WallBedListing />
-        </Route>
+              {/* All Wall Beds route */}
+              <Route exact path="/shop_All_Beds">
+                <WallBedListing />
+              </Route>
 
-        {/* User Register route */}
-        <Route exact path="/register">
-          <RegisterForm/>
-        </Route>
-        
-        <Route exact path="/users/login">
-          <LoginForm />
-        </Route>
+              {/* User Register route */}
+              <Route exact path="/register">
+                <RegisterForm />
+              </Route>
 
-        <Route exact path="/product/:productId">
-          <WallBedDetails/>
-          </Route>
-    
-        {/* <Route exact path="/details">
-          <WallBedDetails/>
-          </Route> */}
-          
-          </WallBedsProvider>
+              <Route exact path="/users/login">
+                <LoginPage/>
+              </Route>
+
+              <Route exact path="/product/:productId">
+                <WallBedDetails />
+              </Route>
+
+              <Route exact path="/cart">
+                <Cart />
+              </Route>
+
+            </WallBedsProvider>
+          {/* </CartProvider> */}
+        {/* </UserProvider> */}
       </Switch>
     </Router>
   );

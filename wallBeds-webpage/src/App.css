@@ -9,6 +9,7 @@ body {
   
 }
 
+
 .logo {
   display: inline-block;
   color: brown;
@@ -165,6 +166,14 @@ button[type="button"]:hover {
 input[type="submit"]:active {
   transition: 0.3s all;
   top: 2px;
+}
+
+.loginFormError{
+color:red;
+}
+
+.register-form-error{
+  color:red
 }
 
 /* end of register form css */

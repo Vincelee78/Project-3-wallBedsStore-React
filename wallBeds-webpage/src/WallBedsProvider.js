@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import WallBedContext from "./WallBedContext";
+import UserContext from "./UserContext";
 import WallBedListing from "./WallBedListing";
 // import { useHistory } from "react-router-dom";
 // import WallBedDetails from './WallBedDetails';
@@ -19,10 +20,6 @@ export default function WallBedsProvider(props) {
     getWallBed: async () => {
 
       const results = await axios.get(url + "allproducts")  
-        // console.log(response.data)
-        // setProducts(response.data);
-      
-      
       return results.data;
     },
 
@@ -34,26 +31,20 @@ export default function WallBedsProvider(props) {
       } catch (e) {
         console.log(e.message)
       }
+    },
+
+    getCartByID: async ()=>{
+      const response = await axios.get(url + "cart") 
+      return response.data
     }
   }
 
 
-  // const context = {
-  //   getWallBed: async () => {
-  //     try {
-  //       let response = await axios.get(this.url + "allproducts")
-  //       console.log(response.data);
-  //       return response.data
-  //     } catch (e) {
-  //       console.log(e)
-  //     }
-  //   },
-  // }
+  
   return (
-    // <div className="wallBedListings d-flex justify-content-evenly">
+
     <WallBedContext.Provider value={context}>
       {props.children}
     </WallBedContext.Provider>
-    //  </div>
   );
 }

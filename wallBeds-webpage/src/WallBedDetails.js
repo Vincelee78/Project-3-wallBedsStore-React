@@ -10,16 +10,20 @@ export default function WallBedDetails() {
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     const context = useContext(WallBedContext);
+    const [woodColour, setwoodColour] = useState([]);
 
     useEffect(() => {
         const getData = async () => {
             let wantedProduct = await context.getProductByID(productId);
             console.log(wantedProduct)
             setProduct(wantedProduct);
+            setwoodColour(wantedProduct.woodColour);
         }
         getData()
+        
     }, [productId])
 
+    
 
 
     return <React.Fragment>
@@ -35,7 +39,10 @@ export default function WallBedDetails() {
                     </img>
                     <div class=" col-lg-6 pe-2">
                         <h1 class="mb-4 indi-title">{product.name}</h1>
-                        <p class="indi-flavour">Stock:{product.stock}</p>
+                        Colours: {woodColour.map((a)=>(
+                                <p class="indi-flavour badge rounded-pill bg-success">{a.name}</p>
+                            )
+                        )}
                         <p>
                             {product.description}
                         </p>
@@ -52,7 +59,7 @@ export default function WallBedDetails() {
                                         <tbody>
                                             <tr class="indi-table-details">
                                                 <td>
-                                                    <i class="fas fa-tint me-2"></i> BED SIZE
+                                                    <i class="fas fa-bed me-2"></i> BED SIZE
                                                 </td>
                                                 <td>{product?.bedSize?.name}</td>
                                             </tr>
@@ -85,10 +92,10 @@ export default function WallBedDetails() {
                                                 <td>WEIGHT</td>
                                                 <td>{product.weight} kg</td>
                                             </tr>
-                                            {/* <tr class="indi-table-details">
-                                                <td>ORIGIN</td>
-                                                <td>Art of tea blend</td>
-                                            </tr> */}
+                                            <tr class="indi-table-details">
+                                                <td>STOCK</td>
+                                                <td>{product.stock}</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

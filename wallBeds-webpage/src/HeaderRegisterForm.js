@@ -4,7 +4,7 @@ import React from "react";
 export default function Headers () {
 
   return (
-    <div style={{ "marginBottom": "10px" }}>
+    <div style={{ "marginBottom": "10px" }} >
       <h1 className="h1 text-start">
         <svg
           width="60px"

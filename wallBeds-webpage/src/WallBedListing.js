@@ -15,9 +15,15 @@ export default function WallBedListing() {
   const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us17.gitpod.io/api/"
 
   const [data, setData] = useState([]);
-  const [result, setResult] = useState([]);
-  const [inital, onUpdate] = useState('');
-  const [selectedPanelColours, setSelectedPanelColours] = useState([]);
+  const [search, setSearch] = useState([]);
+  const [name, setName] = useState('');
+  const [minCost, setminCost] = useState('');
+  const [maxCost, setmaxCost] = useState('');
+  const [bedSize, setBedSize] = useState('1');
+  const [bedOrientation, setBedOrientation] = useState('1');
+  const [mattressType, setMattressType] = useState('1');
+  const [frameColour, setFrameColour] = useState('1');
+  const [woodColour, setwoodColour] = useState(['1']);
   let context = useContext(WallBedContext);
 
   useEffect(() => {
@@ -32,24 +38,33 @@ export default function WallBedListing() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    const search = await axios.post(url + "allproducts", {
-      username: data.username,
-      email: data.email,
-      password: data.password
+    const search = await axios.get(url + "search", {
+      params: {
+        name: data.name,
+        minCost: data.minCost,
+        maxCost: data.maxCost,
+        bedSize: parseInt(data.bedSize),
+        bedOrientation: parseInt(data.bedOrientation),
+        mattressType: parseInt(data.mattressType),
+        frameColour: parseInt(data.frameColour),
+        woodColour: parseInt(data.woodColour.map(a=>(a))),
+      }
+      
     });
-    setResult(search)
+    setSearch(search.data);
+    console.log(data)
+    console.log(search.data)
+    console.log(woodColour)
+    setData(search.data);
   }
 
-  const handleChange = (evt) => {
-    onUpdate(evt.target.value)
-  }
 
-  const handleSelect = function(selectedItems) {
-    const panelColours = [];
-    for (let i=0; i<selectedItems.length; i++) {
-      panelColours.push(selectedItems[i].value);
+  const handleSelect = function (selectedItems) {
+    const woodColour = [];
+    for (let i = 0; i < selectedItems.length; i++) {
+      woodColour.push(selectedItems[i].value);
     }
-    setSelectedPanelColours(panelColours);
+    setwoodColour(woodColour);
   }
 
   return (<React.Fragment >
@@ -67,7 +82,7 @@ export default function WallBedListing() {
           <div class="m-1 pl-3 pr-2 flex">
             <button type="submit" class="text-white btn btn-success btn-sm px-2 rounded-3 me-2">Filter
               Wall Beds</button>
-            <a href="/" class="btn btn-primary btn-sm px-2 ml-2 rounded-3">Reset</a>
+            <a href="/shop_All_Beds" class="btn btn-primary btn-sm px-2 ml-2 rounded-3">Reset</a>
           </div>
           <div class="m-1 pl-3 pr-2 font-light text-sm">Enter filter and click
             <b> Filter Wall Beds </b>
@@ -76,55 +91,46 @@ export default function WallBedListing() {
             to reset filters.
           </div>
 
-          <input {...register("name")} placeholder="Name" name='name' />
+          <input {...register("name")} placeholder="Name" name='name' value={name} onChange={(evt) => setName(evt.target.value)} />
           <br />
-          <input {...register("mincost")} placeholder="Minimum Cost" name='mincost' />
+          <input {...register("minCost")} placeholder="Minimum Cost" name='minCost' value={minCost} onChange={(evt) => setminCost(evt.target.value)} />
           <br />
-          <input {...register("maxcost")} placeholder="Maximum Cost" name='maxcost' />
+          <input {...register("maxCost")} placeholder="Maximum Cost" name='maxCost' value={maxCost} onChange={(evt) => setmaxCost(evt.target.value)} />
 
           <div class='my-1'> Bed Sizes:
-            <select value={inital.value} onChange={handleChange}>
-              <option value="1">Single Bed</option>
+            <select {...register("bedSize")} value={bedSize} name='bedSize' onChange={(evt) => setBedSize(evt.target.value)}>
+              <option value="1" >Single Bed</option>
               <option value="2">Double Bed</option>
             </select>
           </div>
 
           <div class='my-1'> Bed Orientation:
-            <select value={inital.value} onChange={handleChange}>
+            <select {...register("bedOrientation")} value={bedOrientation} name='bedOrientation' onChange={(evt) => setBedOrientation(evt.target.value)}>
               <option value="1">Vertical</option>
               <option value="2">Horizontal</option>
             </select>
           </div>
 
           <div class='my-1'> Mattress Type:
-            <select value={inital.value} onChange={handleChange}>
+            <select {...register("mattressType")} value={mattressType} onChange={(evt) => setMattressType(evt.target.value)}>
               <option value="1">Spring</option>
               <option value="2">Foam</option>
             </select>
           </div>
 
           <div class='my-1'> Bed Frame Colour:
-            <select value={inital.value} onChange={handleChange}>
+            <select {...register("frameColour")} value={frameColour} onChange={(evt) => setFrameColour(evt.target.value)}>
               <option value="1">Black</option>
               <option value="2">Aluminium</option>
             </select>
           </div>
 
           <div class='my-1'> Wood Panel Colours:
-            <select multiple={true} value={selectedPanelColours} onChange={(e) => { handleSelect(e.target.selectedOptions) }}>
+            <select {...register("woodColour")} multiple={true} value={woodColour} onChange={(e) => { handleSelect(e.target.selectedOptions) }}>
               <option value="1">White</option>
               <option value="2">Walnut</option>
             </select>
           </div>
-
-          {/* <input {...register("maxcost")} placeholder="Bed Orientation" name='maxcost' />
-          <br />
-          <input {...register("maxcost")} placeholder="Mattress Type" name='maxcost' />
-          <br />
-          <input {...register("maxcost")} placeholder="Bed Frame Colour" name='maxcost' />
-          <br />
-          <input {...register("maxcost")} placeholder="Wood panel colours" name='maxcost' />
-          <br /> */}
 
           <input type="submit" class="btn btn-primary btn-sm my-3" value="Search" />
         </form>
@@ -136,19 +142,19 @@ export default function WallBedListing() {
 
         <div className=" wallBedCard d-flex justify-content-evenly mt-5">
           {data.map((b) => {
-
-            return <div class="card " key={b._id}>
-              <img src={b.image_url} class="card-img-top p-3 " style={{ "width": "400px", "height": "400px" }} alt="image_url" />
-              <div class="card-body d-flex justify-content-center">
-                <Link to={"/product/" + b.id} class='card-text border p-2' style={{
-                  "font-family": "Lato,sans-serif", "text-decoration": "none", 'color': 'black', 'text-transform': 'uppercase',
-                  'letter-spacing': '2px', 'text-align': 'center',
-                }}>{b.name}</Link>
+            
+              return <div class="card " key={b._id}>
+                <img src={b.image_url} class="card-img-top p-3 " style={{ "width": "400px", "height": "400px" }} alt="image_url" />
+                <div class="card-body d-flex justify-content-center">
+                  <Link to={"/product/" + b.id} class='card-text border p-2' style={{
+                    "font-family": "Lato,sans-serif", "text-decoration": "none", 'color': 'black', 'text-transform': 'uppercase',
+                    'letter-spacing': '2px', 'text-align': 'center',
+                  }}>{b.name}</Link>
+                </div>
               </div>
-            </div>
 
-
-          }
+            }
+          
           )}
         </div>
       </div>
