@@ -1,13 +1,59 @@
 import React, { useContext } from "react";
 import axios from "axios";
-import { createContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import LoginPage from "./LoginPage";
 import UserContext from "./UserContext";
 
 
-const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us17.gitpod.io/api/"
+const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
 
 export default function UserProvider(props) {
+
+    const [token, setToken] = useState("");
+    const [user, setUser] = useState("");
+
+
+    const context={
+        getlogout: async()=>{
+            try {
+              await axios({
+                method: "post",
+                url: url + 'users/logout',
+                data: {
+                  refreshToken: token.refreshToken,
+                },
+              });
+              localStorage.removeItem("accesstoken");
+              setToken(null);
+              setUser(null);
+              
+            } catch (error) {
+        
+            }
+          },
+
+  //         login: async(userData)=>{
+
+  //           const response = await axios.post(url + "users/login", {
+  //                 email: formData.email,
+  //                 password: formData.password
+  //               });
+  //               if (response.data.accessToken){
+  //               setUser(response.data);
+  //               localStorage.setItem('accessToken', response.data.accessToken);
+  //               localStorage.setItem('refreshToken', response.data.refreshToken);
+  //               setToken(response.data.accessToken);
+  //               setrefreshToken(response.data.refreshToken);
+  //               setLoginUser();
+  //             } else {
+  //               return(
+  //                 <div className="onSubmit">
+  //                 'error'
+  //                 </div>)
+  //   }
+  // },
+}
+
     //state
     // const [token, setToken] = useState(null);
     // const [user, setUser] = useState(null);
@@ -108,8 +154,7 @@ export default function UserProvider(props) {
 
 
     return (
-        <UserContext.Provider>
-            {/* <LoginPage/> */}
+        <UserContext.Provider value={context}> 
             {props.children}
         </UserContext.Provider>
     );

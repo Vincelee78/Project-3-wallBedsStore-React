@@ -14,7 +14,7 @@ export default function WallBedsProvider(props) {
   
 
   // Base url
-  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us17.gitpod.io/api/"
+  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
 
   const context = {
     getWallBed: async () => {
@@ -33,9 +33,9 @@ export default function WallBedsProvider(props) {
       }
     },
 
-    getCartByID: async ()=>{
-      const response = await axios.get(url + "cart") 
-      return response.data
+    getCartByID: async (wantedProductID)=>{
+      const response = await axios.get(url + "cart" + '{wantedProductID}') 
+      return response.data 
     }
   }
 

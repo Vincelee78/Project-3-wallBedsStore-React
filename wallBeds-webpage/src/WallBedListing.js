@@ -12,7 +12,7 @@ import axios from "axios";
 
 export default function WallBedListing() {
 
-  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us17.gitpod.io/api/"
+  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
 
   const [data, setData] = useState([]);
   const [search, setSearch] = useState([]);

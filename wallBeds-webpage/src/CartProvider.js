@@ -13,7 +13,7 @@ export default function CartProvider(props) {
   const [cartUpdated, setCartUpdated] = useState(false);
 //   const [stripeSession, setStripeSession] = useState(null);
 
-const url = "https://6000-azure-whitefish-4d0hnk4z.ws-prod-ws-us19.gitpod.io/api/"
+const url = "https://6000-azure-whitefish-4d0hnk4z.ws-prod-ws-us21.gitpod.io/api/"
 
 
   //get and update cart

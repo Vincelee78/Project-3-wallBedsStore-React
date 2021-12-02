@@ -1,19 +1,39 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 import WallBedContext from "./WallBedContext";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {GiSleepingBag} from "react-icons/gi";
-import {GiBed} from "react-icons/gi";
+import { GiSleepingBag } from "react-icons/gi";
+import { toast } from "react-toastify";
+import { GiBed } from "react-icons/gi";
+import axios from "axios";
+const { v1: uuidv1, } = require('uuid');
 
 
-export default function WallBedDetails() {
-    //   const [data, setData] = useState([]);
-    // let pageParams = useParams();
-    // console.log(pageParams)
+
+
+export default function WallBedDetails(props) {
+
+    const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
+
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     const context = useContext(WallBedContext);
     const [woodColour, setwoodColour] = useState([]);
+    const [cartUpdated, setCartUpdated] = useState([]);
+    const [token, setToken] = useState(['']);
+    const history = useHistory()
+
+
+    useEffect(() => {
+        if (props.setToken) {
+            setToken(props.setToken)
+        }
+    })
+
+    //add to cart
+    const addItemToCart = (id, quantity) => {
+        addToCart({ productId: id, quantity: quantity ? quantity : null });
+    };
 
     useEffect(() => {
         const getData = async () => {
@@ -23,10 +43,33 @@ export default function WallBedDetails() {
             setwoodColour(wantedProduct.woodColour);
         }
         getData()
-        
+
     }, [productId])
 
-    
+    async function addToCart(cartItems) {
+
+        try {
+            if (localStorage.getItem('accessToken')) {
+                const data = await axios({
+                    method: "post",
+                    url: url + 'cart/addToCart',
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                    },
+                    data: cartItems,
+                });
+                if (data) {
+                    setCartUpdated(true);
+                    history.push("/cart")
+                }
+
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
 
 
     return <React.Fragment>
@@ -36,15 +79,15 @@ export default function WallBedDetails() {
                     <img src={product.image_url} class="wallBedImage col-lg-6 col-sm-12 d-flex align-items-center justify-content-center"
 
                         style={{
-                            "backgroundRepeat": "no-repeat", "backgroundSize": "contain ", "backgroundPosition": "center", 
+                            "backgroundRepeat": "no-repeat", "backgroundSize": "contain ", "backgroundPosition": "center",
                         }}>
-                        
+
                     </img>
                     <div class=" col-lg-6 pe-2">
                         <h1 class="mb-4 indi-title">{product.name}</h1>
-                        Colours: {woodColour.map((a)=>(
-                                <p class="indi-flavour badge rounded-pill bg-success">{a.name}</p>
-                            )
+                        Colours: {woodColour.map((a) => (
+                            <p class="indi-flavour badge rounded-pill bg-success">{a.name}</p>
+                        )
                         )}
                         <p>
                             {product.description}
@@ -68,13 +111,13 @@ export default function WallBedDetails() {
                                             </tr>
                                             <tr class="indi-table-details">
                                                 <td>
-                                                    <span className='me-2 fa-lg'><GiSleepingBag/></span> MATRESS TYPE
+                                                    <span className='me-2 fa-lg'><GiSleepingBag /></span> MATRESS TYPE
                                                 </td>
                                                 <td>{product?.mattressType?.name}</td>
                                             </tr>
                                             <tr class="indi-table-details">
                                                 <td>
-                                                    <span className='me-2 fa-lg'><GiBed/></span>BED ORIENTATION
+                                                    <span className='me-2 fa-lg'><GiBed /></span>BED ORIENTATION
                                                 </td>
                                                 <td>{product?.bedOrientation?.name}</td>
                                             </tr>
@@ -105,7 +148,7 @@ export default function WallBedDetails() {
                             </div>
                         </div>
                         <p class="indi-spacing"></p>
-                        <button class="indi-add-to-cart mb-3">Add To Cart - ${product.cost}</button>
+                        <button class="indi-add-to-cart mb-3" onClick={() => { addItemToCart(product.id) }}>Add To Cart - ${product.cost}</button>
                         <p class="mt-2 warning-text mb-2" style={{ "display": "none" }}>
                             Item has been added to your cart
                         </p>

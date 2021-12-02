@@ -1,55 +1,59 @@
-import React, { useContext, useEffect, useState }from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from 'axios';
 import WallBedsProvider from "./WallBedsProvider";
 import LandingPage from "./LandingPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
 import RegisterForm from "./RegisterForm";
 import WallBedDetails from "./WallBedDetails";
 import WallBedListing from "./WallBedListing";
-import LoginForm from "./LoginPage";
 import CartProvider from "./CartProvider";
 import UserProvider from "./UserProvider";
 // import react router stuff
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Cart from "./Cart";
 import LoginPage from "./LoginPage";
+import LogoutPage from "./LogoutPage";
+import { Redirect } from "react-router";
+import { ToastContainer } from "react-toastify";
+
 
 export default function App() {
-  const [user, setUser] = useState('Guest');
-  const [logout, setlogout] = useState('');
 
-  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us17.gitpod.io/api/"
+  const [token, setToken] = useState('');
 
-  //  async function getUsername() {
+  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
 
-  //   const results = await axios.get(url + "users/profile")  
-  //   console.log(results.data)
 
-  //   return results.data;
-    
-  // }
-  // getUsername();
-  
-  
+  let loginUser = () => {
+    if (localStorage.getItem('accessToken')) {
+      const getUser = async () => {
+        try {
+          const response = await axios.get(url + "users/profile", {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            },
+          });
+          localStorage.setItem("username", response.data.username);
+          setToken(localStorage.getItem('accessToken'));
+        } catch (error) {
+          console.log(error)
+        };
 
-  useEffect(() => {
-        if (localStorage.getItem('accesstoken')) {
-            const getUser = async () => {
-                try {
-                    const response = await axios.get(url + "users/profile", {
-                        headers: {
-                            Authorization: `Bearer ${localStorage.getItem('accesstoken')}`,
-                        },
-                    });
-                    setUser(response.data.username);
-                } catch (error) {
-                    console.log(error)
-                };
+      };
+      getUser();
+    }
+  }
 
-            };
-            getUser();
-          }
-          },[user]);
+  let logoutUser = async () => {
+    await axios.post(url + 'users/logout', {
+      refreshToken: localStorage.getItem('refreshToken')
+    })
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("username");
+
+  }
 
   return (
     <Router>
@@ -89,22 +93,20 @@ export default function App() {
           <li><a href="" class="" style={{ 'text-decoration': 'none' }}>
 
 
-            {/* <div
-              class="d-flex"
-            >
-              Hi,
+            <div class="d-flex justify-content-center me-4">Welcome, {localStorage.getItem("username") || 'Guest'}</div>
 
-            </div>
-            <a
-              href="/users/logout"
-              class=""
-            >Logout</a> */}
 
-            <div class="d-flex justify-content-center me-4">Welcome, {user}</div>
             <a
               href="/users/login"
               class="btn btn-success btn-sm me-3"
             >Login</a>
+
+            {/* }else{ */}
+            <a
+              href="/users/logout"
+              class="btn btn-danger btn-sm me-3"
+            >logout</a>
+            {/* }} */}
             <a
               href="/register"
               class="btn btn-primary btn-sm me-4"
@@ -114,162 +116,51 @@ export default function App() {
           </a>
           </li>
         </ul>
-
+        <ToastContainer autoClose={3000} limit={5} />
       </div>
       <Switch>
         {/* <UserProvider> */}
-          {/* <CartProvider> */}
-            <WallBedsProvider>
-              {/* Home route */}
-              <Route exact path="/">
-                <LandingPage />
-              </Route>
 
-              {/* All Wall Beds route */}
-              <Route exact path="/shop_All_Beds">
-                <WallBedListing />
-              </Route>
+        {/* <CartProvider> */}
+        <WallBedsProvider>
+          {/* Home route */}
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
 
-              {/* User Register route */}
-              <Route exact path="/register">
-                <RegisterForm />
-              </Route>
+          {/* All Wall Beds route */}
+          <Route exact path="/shop_All_Beds">
+            <WallBedListing />
+          </Route>
 
-              <Route exact path="/users/login">
-                <LoginPage/>
-              </Route>
+          {/* User Register route */}
+          <Route exact path="/register">
+            <RegisterForm />
+          </Route>
 
-              <Route exact path="/product/:productId">
-                <WallBedDetails />
-              </Route>
+          <Route exact path="/users/login">
+            <LoginPage setLoginUser={loginUser} />
+          </Route>
 
-              <Route exact path="/cart">
-                <Cart />
-              </Route>
+          <Route exact path="/users/logout">
+            <LogoutPage setlogoutUser={logoutUser} />
+          </Route>
 
-            </WallBedsProvider>
-          {/* </CartProvider> */}
+          <Route exact path="/product/:productId">
+            <WallBedDetails setToken={token} />
+          </Route>
+
+          <Route exact path="/cart">
+            <Cart setToken={token} />
+          </Route>
+
+        </WallBedsProvider>
+        {/* </CartProvider> */}
         {/* </UserProvider> */}
       </Switch>
     </Router>
   );
 }
 
-//       <React.Fragment>
-//         {/* Logo and Title of website */}
-//         <div id="nav">
-//           <img src={logo} alt={logo} id="logo" />
-//           <a style={{ fontFamily: 'Impact, fantasy', textDecoration: 'none' }} id="pagename" href='App.js'>MedRadiology</a>
-//           {/* Navbar bootstrap */}
-//           <nav class="navbar navbar-expand-lg navbar-light">
-//             <div class="row d-flex flex-row">
-//               <button class="navbar-toggler d-flex justify-content-end p-4 ml-auto d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-//                 <span class="navbar-toggler-icon"></span>
-//               </button>
-//               {/* Navbar pages */}
-//               <div class="collapse navbar-collapse" id="navbarSupportedContent">
-//                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-nav">
-//                   <li class="nav-item">
-//                     <a class="nav-link active" aria-current="page" href="#" onClick={this.setActiveAbout}>ABOUT</a>
-//                   </li>
-//                   <li class="nav-item">
-//                     <a class="nav-link active" aria-current="page" href="#" onClick={this.setActiveReports}>REPORTS</a>
-//                   </li>
-//                   <li class="nav-item">
-//                     <a class="nav-link" href="#" onClick={this.setActiveAllCases}>ALL CASES</a>
-//                   </li>
 
-//                   <li class="nav-item">
-//                     <a class="nav-link" href="#" onClick={this.setActiveRadiologist}>RADIOLOGIST INFORMATION</a>
-//                   </li>
-//                 </ul>
-
-//               </div>
-//             </div>
-//           </nav>
-
-//         </div>
-//         <div id="infowords"> Online Resource for radiologists, radiology trainees and students</div>
-
-//         {/* Conditional rendering of components in each page */}
-//         {this.state.active === 'Reports' ? <div className='title4'><Report /></div> : null}
-//         {this.state.active === 'RadiologistInfo' ? <div className='title5'><RadiologistInfo /></div> : null}
-//         {this.state.active === 'About' ? <div className='title6'><About /></div> : null}
-
-//         {/* Collapsible Accordion for Carousel */}
-//         <div className="App">
-//           <Accordion defaultActiveKey="0">
-//             <Accordion.Item eventKey="0">
-//               <Accordion.Header></Accordion.Header>
-//               <Accordion.Body>
-
-//                 {/* Carousel */}
-//                 <div className='carouselTitle'>
-//                   <Carousel fade>
-//                     <Carousel.Item interval={3000}>
-//                       <img
-//                         className="d-block w-100"
-//                         src="https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG"
-//                         alt="First slide"
-//                       />
-//                       <Carousel.Caption>
-
-//                       </Carousel.Caption>
-//                     </Carousel.Item>
-//                     <Carousel.Item interval={3000}>
-//                       <img
-//                         className="d-block w-100"
-//                         src="https://d1hj7uubji8r0c.cloudfront.net/sites/radiology/files/styles/max_width_full/public/images/2020-02/pcir_cover_photos_hi_res_resize.jpg?itok=VHDBxu-X"
-//                         alt="Second slide"
-//                       />
-
-//                       <Carousel.Caption>
-
-//                       </Carousel.Caption>
-//                     </Carousel.Item>
-//                     <Carousel.Item interval={3000}>
-//                       <img
-//                         className="d-block w-100"
-//                         src="https://www.carestream.com/blog/wp-content/uploads/2020/01/future_of_diag_imaging_fb_1_2020_en.jpg"
-//                         alt="Third slide"
-//                       />
-
-//                       <Carousel.Caption>
-
-//                       </Carousel.Caption>
-//                     </Carousel.Item>
-//                   </Carousel>
-//                 </div>
-
-//               </Accordion.Body>
-//             </Accordion.Item>
-//           </Accordion>
-
-
-//           {/* sss design for fixed background image scrolling */}
-//           <div className="wrapper">
-//             <div className='innerwrapper'>
-
-//               {/* Conditional rendering of components in the Navtabs */}
-//               {(this.state.active !== 'AllCasesContent' && this.state.active !== 'Reports' && this.state.active !== 'RadiologistInfo' && this.state.active !== 'About') && <p className="title" id="title1"><FeaturedCaseContents /></p>}
-//               <div className='wrapper2'>
-//                 {this.state.active === 'AllCasesContent' ? <div className='title3'><AllCasesContent /> </div> : null} {this.state.active === 'errorMessage' ? <div className='title3'> <ErrorMessage /></div> : null}
-
-//               </div>
-//             </div>
-//             <div className='fixed-bg bg-1'>
-//             </div>
-//             <div className="fixed-bg bg-2"><span className="title1" > </span></div>
-
-//             <div className="fixed-bg bg-3"><span className="title2" ></span></div>
-
-//           </div>
-
-//         </div>
-
-//       </React.Fragment >
-
-//     );
-//   }
-// }
 

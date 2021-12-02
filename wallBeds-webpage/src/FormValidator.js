@@ -49,10 +49,6 @@ export const registerFormSchema = yup.object().shape({
   confirmPassword: yup
     .string()
     .oneOf([yup.ref("password"), null], "Passwords do not match!"),
-  firstName: yup
-    .string().required("First name is required!"),
-  lastName: yup
-    .string().required("Last name is required!"),
   billing_address: yup
     .string().required("Billing address is required!"),
   shipping_address: yup
