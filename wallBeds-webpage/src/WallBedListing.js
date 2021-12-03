@@ -52,9 +52,6 @@ export default function WallBedListing() {
       
     });
     setSearch(search.data);
-    console.log(data)
-    console.log(search.data)
-    console.log(woodColour)
     setData(search.data);
   }
 

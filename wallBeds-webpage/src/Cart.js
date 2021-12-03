@@ -19,6 +19,8 @@ export default function Cart(props) {
     const [stripeSession, setStripeSession] = useState(null);
     const [cartItem, checkoutCart] = useState(['']);
     const [user, setUser] = useState(['']);
+    const [quantity, setNewQuantity] = useState('');
+    const [cartarray, setCartArray]=useState([])
 
 
     useEffect(() => {
@@ -31,6 +33,7 @@ export default function Cart(props) {
                 },
             });
             setCart(cart.data);
+            
 
         }
 
@@ -62,6 +65,117 @@ export default function Cart(props) {
         }, 0);
     }
 
+    // update cart quantity
+    async function onUpdate(formData) {
+        alert(formData)
+        try {
+            const data = await axios({
+                method: "post",
+                url: url + 'cart/quantity/update', 
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                },
+                data:{
+                productId :formData.productId,
+                newQuantity: formData.newQuantity
+                }
+            });
+
+            if (data) {
+                setCartUpdated(true);
+                toast.success("Item quantity updated.", {
+                    autoClose: 3000,
+                });
+
+            } else {
+                toast.info(
+                    "You must be logged in to update items in cart. Redirecting...",
+                    {
+                        autoClose: 3000,
+                    }
+                );
+                setTimeout(() => {
+                    // navigate("/login");
+                }, 2000);
+            }
+        } catch (error) {
+            toast.error("Error on updating quantity. Please try again.", {
+                toastId: "updateCartQuantity",
+                autoClose: 3000,
+            });
+        }
+    }
+
+    // remove cart item
+    const removeFromCart = async (item) => {
+        try {
+            const { data } = await axios({
+                method: "post",
+                url: url + 'cart/delete',
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                },
+                data: item,
+            });
+            if (data) {
+                setCartUpdated(true);
+                toast.info("Item removed from cart.", {
+                    autoClose: 3000,
+                });
+            }
+        } catch (error) {
+            toast.error("Something went wrong. Please try again.", {
+                toastId: "removeFromCart",
+                autoClose: 3000,
+            });
+        }
+    };
+
+
+    // checkout cart
+    const checkoutcart = async () => {
+        if (cart.length === 0) {
+            toast.error("Your cart is empty. Please add items to cart.", {
+                toastId: "checkoutCart",
+                autoClose: 3000,
+            });
+        } else {
+                //get stripe session id
+                try {
+                    const session = await axios({
+                        method: "get",
+                        url: url + 'checkout',
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                        },
+                        
+                    });
+                    setStripeSession(session.data);
+                    
+                } catch (error) {
+                    //update cart if no stock
+                    // if (error.response.status === 417) {
+                    //     toast.update("checkoutCart", {
+                    //         render: "Cart Updated. Please review your cart and try again.",
+                    //         isLoading: false,
+                    //         type: "error",
+                    //         closeButton: true,
+                    //     });
+                    //     setOutOfStock(true);
+                    //     setCartUpdated(true);
+                    // } else {
+                        toast.update("checkoutCart", {
+                            render: "Something went wrong. Please try again.",
+                            autoClose: 3000,
+                            type: "error",
+                            isLoading: false,
+                        });
+                    }
+                }
+            }
+        // }
+    
+
     //checkout with stripe if session id is set
     useEffect(() => {
         //checkout with stripe
@@ -89,7 +203,7 @@ export default function Cart(props) {
 
     if (localStorage.getItem('accessToken') && cart.length) {
 
-        return cart?.map((b) => {
+        return cart?.map((b, idx) => {
             return (
 
                 <React.Fragment>
@@ -116,39 +230,40 @@ export default function Cart(props) {
                                                 <b>{b.wallBed.name}</b>
                                             </p>
                                             <div >
-                                            <p >
-                                                Total: ${ (b.wallBed.cost/100)*(b.quantity) }
-                                            </p>
+                                                <p >
+                                                    Total: ${(b.wallBed.cost / 100) * (b.quantity)}
+                                                </p>
                                             </div>
                                         </div>
 
                                         <p class="ms-5 text-lg" style={{ 'font-size': '20px', 'font-family': 'Merriweather' }}>
-                                            Description: { b.wallBed.description }
+                                            Description: {b.wallBed.description}
                                         </p>
                                         <ul class='ms-3'>
-                                            <li>Bed Size: { b.wallBed.bedSize.name }</li><br/>
-                                            <li>Mattress Type: { b.wallBed.mattressType.name }</li><br/>
-                                            <li>Bed Orientation: { b.wallBed.bedOrientation.name }</li><br/>
-                                            <li>Frame Colour: { b.wallBed.frameColour.name }</li><br/>
+                                            <li>Bed Size: {b.wallBed.bedSize.name}</li><br />
+                                            <li>Mattress Type: {b.wallBed.mattressType.name}</li><br />
+                                            <li>Bed Orientation: {b.wallBed.bedOrientation.name}</li><br />
+                                            <li>Frame Colour: {b.wallBed.frameColour.name}</li><br />
                                         </ul>
                                     </div>
 
                                     <div class="d-flex align-items-end justify-content-end ms-5 ">
                                         <div class='d-flex justify-content-center mx-2 '>
-                                            <form method="POST" action="/cart/{{this.product_id}}/quantity/update" > 
+                                            <form onSubmit={() => { onUpdate({productId: b.product_id, newQuantity: quantity}) }} >
                                                 <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
                                                 <label style={{ 'color': 'brown' }}> Quantity: </label>
-                                                <input type="text" name='newQuantity' value={b.quantity} 
-                                                    style={{ 'width': '50px', 'border': '1px solid black', 'text-align': 'center' }} /><br/>
+                                                <input type="text" name='newQuantity' value={cart[idx].quantity} onChange={(evt) => setNewQuantity(evt.target.value)}
+                                                    style={{ 'width': '50px', 'border': '1px solid black', 'text-align': 'center' }} /><br />
                                                 <input type="submit" class="btn btn-success btn-sm" value="Update" />
                                             </form>
                                         </div>
 
                                         <div>
-                                            <form method="POST" action="/cart/{{this.product_id}}/delete">
-                                                <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
-                                                <input type="submit" class="btn btn-danger btn-sm" value="Remove from Cart" />
-                                            </form>
+                                            <div>
+                                                <button type="submit" class="btn btn-danger btn-sm" onClick={() =>
+                                                    removeFromCart({ productId: b.product_id })
+                                                } >Remove from Cart</button>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -161,14 +276,14 @@ export default function Cart(props) {
                     <div class="border-t border-gray-200 py-5 px-4 sm:px-6">
                         <div class="d-flex justify-between justify-content-end text-base font-medium text-gray-900">
                             <p>Subtotal: </p>
-                            <p>${ totalPrice/100 }</p>
+                            <p>${totalPrice / 100}</p>
                         </div>
                         <p class="mt-0.5 text-sm text-gray-500 d-flex justify-content-end">Shipping and taxes are included in the subtotal</p>
                         <div class="mt-6 d-flex justify-content-end">
                             <button
                                 class="btn btn-primary btn-sm"
                                 style={{ 'background-color': 'rgb(65, 105, 225)' }}
-
+                                onClick={checkoutcart}
                             >Checkout</button>
                         </div>
                         <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
@@ -183,7 +298,7 @@ export default function Cart(props) {
             )
         })
     } else if (localStorage.getItem('accessToken')) {
-        return <>Fetching Data. Please Wait</>
+        return <>There are no items in your cart</>
     } else {
         return (
             <div class='ms-3'>

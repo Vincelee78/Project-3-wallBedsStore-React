@@ -33,10 +33,6 @@ export default function WallBedsProvider(props) {
       }
     },
 
-    getCartByID: async (wantedProductID)=>{
-      const response = await axios.get(url + "cart" + '{wantedProductID}') 
-      return response.data 
-    }
   }
 
 
