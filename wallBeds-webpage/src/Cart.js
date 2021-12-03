@@ -20,7 +20,7 @@ export default function Cart(props) {
     const [cartItem, checkoutCart] = useState(['']);
     const [user, setUser] = useState(['']);
     const [quantity, setNewQuantity] = useState('');
-    const [cartarray, setCartArray]=useState([])
+    const [cartItemQty, setCartItemQty]=useState([])
 
 
     useEffect(() => {
@@ -66,8 +66,23 @@ export default function Cart(props) {
     }
 
     // update cart quantity
+    const handleQtyChange = (evt, b) => {
+        let cartArry=cart
+        cartArry.map((cartItem)=>{
+            if (cartItem.id==b.id){
+                cartItem.quantity=evt.target.value
+
+            }
+            if (cartItem.id==b.id){
+            setCartItemQty(cartItem.quantity)
+            }
+        })
+    }
+        
+
+    // update cart quantity form
     async function onUpdate(formData) {
-        alert(formData)
+        alert('Cart Quantity updated')
         try {
             const data = await axios({
                 method: "post",
@@ -203,7 +218,7 @@ export default function Cart(props) {
 
     if (localStorage.getItem('accessToken') && cart.length) {
 
-        return cart?.map((b, idx) => {
+        return cart?.map((b, index) => {
             return (
 
                 <React.Fragment>
@@ -249,10 +264,10 @@ export default function Cart(props) {
 
                                     <div class="d-flex align-items-end justify-content-end ms-5 ">
                                         <div class='d-flex justify-content-center mx-2 '>
-                                            <form onSubmit={() => { onUpdate({productId: b.product_id, newQuantity: quantity}) }} >
+                                            <form onSubmit={() => { onUpdate({productId: b.product_id, newQuantity: cartItemQty}) }} >
                                                 <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
                                                 <label style={{ 'color': 'brown' }}> Quantity: </label>
-                                                <input type="text" name='newQuantity' value={cart[idx].quantity} onChange={(evt) => setNewQuantity(evt.target.value)}
+                                                <input type="text" name='newQuantity' value={b.quantity} onChange={evt=>handleQtyChange(evt, b)}
                                                     style={{ 'width': '50px', 'border': '1px solid black', 'text-align': 'center' }} /><br />
                                                 <input type="submit" class="btn btn-success btn-sm" value="Update" />
                                             </form>

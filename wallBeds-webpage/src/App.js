@@ -55,6 +55,9 @@ export default function App() {
 
   }
 
+
+  
+
   return (
     <Router>
       <div id="nav">
@@ -101,12 +104,12 @@ export default function App() {
               class="btn btn-success btn-sm me-3"
             >Login</a>
 
-            {/* }else{ */}
+          
             <a
               href="/users/logout"
               class="btn btn-danger btn-sm me-3"
             >logout</a>
-            {/* }} */}
+            
             <a
               href="/register"
               class="btn btn-primary btn-sm me-4"

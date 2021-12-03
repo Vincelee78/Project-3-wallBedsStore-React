@@ -16,21 +16,25 @@ export default function LogoutPage(props) {
 
     const onSubmit = async () => {
     
-        setlogoutUser();
+        
         localStorage.removeItem("username")
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
+        setlogoutUser();
         setUser('');
-    if(User==''){
+        
+
+    }
+    if (User==''){
         toast.success("Logout sucessful", {
             autoClose: 3000,
             toastId: "logout-success"
           })
-    
-          redirect.push("/shop_All_Beds")
+          window.location.reload();
+          redirect.push("/users/login")
     }
     
-}
+
 
 
     return (
