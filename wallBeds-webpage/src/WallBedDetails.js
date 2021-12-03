@@ -66,9 +66,12 @@ export default function WallBedDetails(props) {
             }
 
         } catch (error) {
-            console.log(error)
-        }
-    };
+            toast.error("Please log in to add items to cart", {
+                autoClose: 3000,
+                toastId: "not-logged-in"
+              })
+    }
+}
 
 
 
@@ -148,7 +151,7 @@ export default function WallBedDetails(props) {
                             </div>
                         </div>
                         <p class="indi-spacing"></p>
-                        <button class="indi-add-to-cart mb-3" onClick={() => { addItemToCart(product.id) }}>Add To Cart - ${product.cost}</button>
+                        <button class="indi-add-to-cart mb-3" onClick={() => { addItemToCart(product.id) }}>Add To Cart - ${product.cost/100}</button>
                         <p class="mt-2 warning-text mb-2" style={{ "display": "none" }}>
                             Item has been added to your cart
                         </p>

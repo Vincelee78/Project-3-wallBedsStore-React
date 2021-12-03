@@ -23,11 +23,11 @@ export default function LoginPage(props) {
   const setLoginUser = props.setLoginUser
   // let context = useContext(UserContext);
   // const { login } = useContext(UserContext);
-  const redirect=useHistory();
+  const redirect = useHistory();
 
 
   const onSubmit = async (formData) => {
-   
+
     const response = await axios.post(url + "users/login", {
       email: formData.email,
       password: formData.password
@@ -42,7 +42,7 @@ export default function LoginPage(props) {
       toast.success(`Login successful, ${email}`, {
         autoClose: 3000,
         toastId: "login-success"
-        
+
       })
       redirect.push("/shop_All_Beds")
     } else {
@@ -50,43 +50,13 @@ export default function LoginPage(props) {
         autoClose: 3000,
         toastId: "login-failed"
       })
-
-
-
-
     }
   }
 
 
-
-
-  // setToken(localStorage.getItem('accesstoken'));
-
-
-
-  // console.log(localStorage.getItem('accesstoken'));
-
-  // useEffect(() => {
-  //   const loggedInUser = localStorage.getItem("user");
-  //   if (loggedInUser) {
-  //     const foundUser = JSON.parse(loggedInUser);
-  //     setUser(foundUser);
-  //   }
-  // }, []);
-
-  //check if local storage has token
-  // useEffect(() => {
-  //   const localToken = localStorage.getItem("token");
-  //   const token = JSON.parse(localToken);
-  //   if (token) {
-  //     setToken(token);
-  //   }
-  // }, []);
-
   // //if token is set, get user data
   useEffect(() => {
-    //   getUser();
-    //save to local storage
+
     if (!localStorage.getItem("accessToken")) {
       localStorage.setItem("accessToken", JSON.stringify(token));
     };
@@ -109,10 +79,9 @@ export default function LoginPage(props) {
             // console.log(error)
           };
 
-
         }
         refresh();
-      }, 10000);
+      }, 1000*60*15);
 
       //cleanup - clear interval when component unmounts
       return () => clearInterval(refreshToken);
@@ -121,15 +90,6 @@ export default function LoginPage(props) {
   }, []);
 
 
-  // if (localStorage.getItem('accessToken')!=='') {
-  //   return <div class='ms-4'>{email} is logged in</div>
-    
-  // }
-
-  // if (!token){
-  // return <div>Wrong email</div>
-  //   // <Redirect to="/shop_All_Beds" />
-  // }
 
 
   return (

@@ -20,7 +20,7 @@ export default function Cart(props) {
     const [cartItem, checkoutCart] = useState(['']);
     const [user, setUser] = useState(['']);
     const [quantity, setNewQuantity] = useState('');
-    const [cartItemQty, setCartItemQty]=useState([])
+    const [cartItemQty, setCartItemQty] = useState([])
 
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function Cart(props) {
                 },
             });
             setCart(cart.data);
-            
+
 
         }
 
@@ -67,18 +67,18 @@ export default function Cart(props) {
 
     // update cart quantity
     const handleQtyChange = (evt, b) => {
-        let cartArry=cart
-        cartArry.map((cartItem)=>{
-            if (cartItem.id==b.id){
-                cartItem.quantity=evt.target.value
+        let cartArry = cart
+        cartArry.map((cartItem) => {
+            if (cartItem.id == b.id) {
+                cartItem.quantity = evt.target.value
 
             }
-            if (cartItem.id==b.id){
-            setCartItemQty(cartItem.quantity)
+            if (cartItem.id == b.id) {
+                setCartItemQty(cartItem.quantity)
             }
         })
     }
-        
+
 
     // update cart quantity form
     async function onUpdate(formData) {
@@ -86,14 +86,15 @@ export default function Cart(props) {
         try {
             const data = await axios({
                 method: "post",
-                url: url + 'cart/quantity/update', 
+                url: url + 'cart/quantity/update',
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 },
-                data:{
-                productId :formData.productId,
-                newQuantity: formData.newQuantity
+                data: {
+                    productId: formData.productId,
+                    newQuantity: formData.newQuantity,
                 }
+
             });
 
             if (data) {
@@ -155,41 +156,41 @@ export default function Cart(props) {
                 autoClose: 3000,
             });
         } else {
-                //get stripe session id
-                try {
-                    const session = await axios({
-                        method: "get",
-                        url: url + 'checkout',
-                        headers: {
-                            Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-                        },
-                        
-                    });
-                    setStripeSession(session.data);
-                    
-                } catch (error) {
-                    //update cart if no stock
-                    // if (error.response.status === 417) {
-                    //     toast.update("checkoutCart", {
-                    //         render: "Cart Updated. Please review your cart and try again.",
-                    //         isLoading: false,
-                    //         type: "error",
-                    //         closeButton: true,
-                    //     });
-                    //     setOutOfStock(true);
-                    //     setCartUpdated(true);
-                    // } else {
-                        toast.update("checkoutCart", {
-                            render: "Something went wrong. Please try again.",
-                            autoClose: 3000,
-                            type: "error",
-                            isLoading: false,
-                        });
-                    }
-                }
+            //get stripe session id
+            try {
+                const session = await axios({
+                    method: "get",
+                    url: url + 'checkout',
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                    },
+
+                });
+                setStripeSession(session.data);
+
+            } catch (error) {
+                //update cart if no stock
+                // if (error.response.status === 417) {
+                //     toast.update("checkoutCart", {
+                //         render: "Cart Updated. Please review your cart and try again.",
+                //         isLoading: false,
+                //         type: "error",
+                //         closeButton: true,
+                //     });
+                //     setOutOfStock(true);
+                //     setCartUpdated(true);
+                // } else {
+                toast.update("checkoutCart", {
+                    render: "Something went wrong. Please try again.",
+                    autoClose: 3000,
+                    type: "error",
+                    isLoading: false,
+                });
             }
-        // }
-    
+        }
+    }
+    // }
+
 
     //checkout with stripe if session id is set
     useEffect(() => {
@@ -218,7 +219,7 @@ export default function Cart(props) {
 
     if (localStorage.getItem('accessToken') && cart.length) {
 
-        return cart?.map((b, index) => {
+        return cart?.map((b) => {
             return (
 
                 <React.Fragment>
@@ -232,10 +233,10 @@ export default function Cart(props) {
 
                         <div class="card-body">
 
-                            <div class="py-6 d-flex">
+                            <div class="py-1 d-flex">
 
                                 <div>
-                                    <img src={b.wallBed.image_url} alt={b.name} style={{ 'width': '100%' }} />
+                                    <img src={b.wallBed.image_url} alt={b.name} style={{ 'width': '80%', 'height': '70%' }} />
                                 </div>
 
                                 <div class="ml-4 flex-1 d-flex flex-column ">
@@ -246,7 +247,7 @@ export default function Cart(props) {
                                             </p>
                                             <div >
                                                 <p >
-                                                    Total: ${(b.wallBed.cost / 100) * (b.quantity)}
+                                                    Total Unit Cost: ${(b.wallBed.cost / 100) * (b.quantity)}
                                                 </p>
                                             </div>
                                         </div>
@@ -263,23 +264,21 @@ export default function Cart(props) {
                                     </div>
 
                                     <div class="d-flex align-items-end justify-content-end ms-5 ">
-                                        <div class='d-flex justify-content-center mx-2 '>
-                                            <form onSubmit={() => { onUpdate({productId: b.product_id, newQuantity: cartItemQty}) }} >
+                                        <div class='mx-2 '>
+                                            <form onSubmit={() => { onUpdate({ productId: b.product_id, newQuantity: cartItemQty }) }} >
                                                 <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
                                                 <label style={{ 'color': 'brown' }}> Quantity: </label>
-                                                <input type="text" name='newQuantity' value={b.quantity} onChange={evt=>handleQtyChange(evt, b)}
+                                                <input type="text" name='newQuantity' value={b.quantity} onChange={evt => handleQtyChange(evt, b)}
                                                     style={{ 'width': '50px', 'border': '1px solid black', 'text-align': 'center' }} /><br />
-                                                <input type="submit" class="btn btn-success btn-sm" value="Update" />
+                                                <input type="submit" class="btn btn-success btn-sm" style={{ 'height': '40px', 'background-color': 'green' }} value="Update Quantity" />
                                             </form>
                                         </div>
-
                                         <div>
-                                            <div>
-                                                <button type="submit" class="btn btn-danger btn-sm" onClick={() =>
-                                                    removeFromCart({ productId: b.product_id })
-                                                } >Remove from Cart</button>
-                                            </div>
+                                            <button type="submit" class="btn btn-danger btn-sm" style={{ 'height': '40px' }} onClick={() =>
+                                                removeFromCart({ productId: b.product_id })
+                                            } >Remove from Cart</button>
                                         </div>
+
                                     </div>
 
                                 </div>
@@ -288,7 +287,7 @@ export default function Cart(props) {
                     </div>
 
 
-                    <div class="border-t border-gray-200 py-5 px-4 sm:px-6">
+                    <div class="border-t border-gray-200 py-1 px-4 sm:px-6">
                         <div class="d-flex justify-between justify-content-end text-base font-medium text-gray-900">
                             <p>Subtotal: </p>
                             <p>${totalPrice / 100}</p>
@@ -296,12 +295,12 @@ export default function Cart(props) {
                         <p class="mt-0.5 text-sm text-gray-500 d-flex justify-content-end">Shipping and taxes are included in the subtotal</p>
                         <div class="mt-6 d-flex justify-content-end">
                             <button
-                                class="btn btn-primary btn-sm"
+                                class="btn btn-primary btn"
                                 style={{ 'background-color': 'rgb(65, 105, 225)' }}
                                 onClick={checkoutcart}
                             >Checkout</button>
                         </div>
-                        <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
+                        <div class="mt-1 flex justify-center text-sm text-center text-gray-500">
                             <p>
                                 or
                                 <a href="/shop_All_Beds" class="text-primary font-medium text-decoration-none"> Continue Shopping<span
@@ -313,7 +312,7 @@ export default function Cart(props) {
             )
         })
     } else if (localStorage.getItem('accessToken')) {
-        return <>There are no items in your cart</>
+        return <div class='ms-3'>There are no items in your cart</div>
     } else {
         return (
             <div class='ms-3'>
