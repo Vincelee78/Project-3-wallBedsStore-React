@@ -48,7 +48,6 @@ export default function WallBedDetails(props) {
 
     async function addToCart(cartItems) {
 
-        try {
             if (localStorage.getItem('accessToken')) {
                 const data = await axios({
                     method: "post",
@@ -60,110 +59,104 @@ export default function WallBedDetails(props) {
                 });
                 if (data) {
                     setCartUpdated(true);
-                    history.push("/cart")
-                }
-
+                    history.push("/cart");
+                    toast.success('Item added to cart', {
+                        autoClose: 3000,
+                        toastId: "cart-item-added"
+                    })
+            
+                
+            } else {
+                toast.error("Please log in to add items to cart", {
+                    autoClose: 3000,
+                    toastId: "not-logged-in"
+                })
             }
-
-        } catch (error) {
-            toast.error("Please log in to add items to cart", {
-                autoClose: 3000,
-                toastId: "not-logged-in"
-              })
+        
+        }
     }
-}
-
-
 
     return <React.Fragment>
-        {product ?
-            <React.Fragment>
-                <div class="row mx-2 h-100">
-                    <img src={product.image_url} class="wallBedImage col-lg-6 col-sm-12 d-flex align-items-center justify-content-center"
+            {product ?
+                <React.Fragment>
+                    <div class="row mx-2 h-100">
+                        <img src={product.image_url} class="wallBedImage col-lg-6 col-sm-12 d-flex align-items-center justify-content-center"
 
-                        style={{
-                            "backgroundRepeat": "no-repeat", "backgroundSize": "contain ", "backgroundPosition": "center",
-                        }}>
+                            style={{
+                                "backgroundRepeat": "no-repeat", "backgroundSize": "contain ", "backgroundPosition": "center",
+                            }}>
 
-                    </img>
-                    <div class=" col-lg-6 pe-2">
-                        <h1 class="mb-4 indi-title">{product.name}</h1>
-                        Colours: {woodColour.map((a) => (
-                            <p class="indi-flavour badge rounded-pill bg-success">{a.name}</p>
-                        )
-                        )}
-                        <p>
-                            {product.description}
-                        </p>
-                        <p class="indi-spacing"></p>
-                        {/* <p class="indi-ingredient">
-                            Colours: {product.woodColour.name}
-                        </p> */}
-                        <p class="indi-spacing"></p>
-                        <div class="row indi-table-container">
-                            <div class="col-6 col-lg-6 col-md-6">
-                                <h4 class="indi-table-details">Key Features:</h4>
-                                <div class="pr-5 pr-lg-0">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr class="indi-table-details">
-                                                <td>
-                                                    <i class="fas fa-bed me-2"></i> BED SIZE
-                                                </td>
-                                                <td>{product?.bedSize?.name}</td>
-                                            </tr>
-                                            <tr class="indi-table-details">
-                                                <td>
-                                                    <span className='me-2 fa-lg'><GiSleepingBag /></span> MATRESS TYPE
-                                                </td>
-                                                <td>{product?.mattressType?.name}</td>
-                                            </tr>
-                                            <tr class="indi-table-details">
-                                                <td>
-                                                    <span className='me-2 fa-lg'><GiBed /></span>BED ORIENTATION
-                                                </td>
-                                                <td>{product?.bedOrientation?.name}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        </img>
+                        <div class=" col-lg-6 pe-2">
+                            <h1 class="mb-4 indi-title">{product.name}</h1>
+                            Colours: {woodColour.map((a) => (
+                                <p class="indi-flavour badge rounded-pill bg-info">{a.name}</p>
+                            )
+                            )}
+                            <p>
+                                {product.description}
+                            </p>
+                            <p class="indi-spacing"></p>
+                            
+                            <p class="indi-spacing"></p>
+                            <div class="row indi-table-container">
+                                <div class="col-6 col-lg-6 col-md-6">
+                                    <h4 class="indi-table-details">Key Features:</h4>
+                                    <div class="pr-5 pr-lg-0">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="indi-table-details">
+                                                    <td>
+                                                        <i class="fas fa-bed me-2"></i> BED SIZE
+                                                    </td>
+                                                    <td>{product?.bedSize?.name}</td>
+                                                </tr>
+                                                <tr class="indi-table-details">
+                                                    <td>
+                                                        <span className='me-2 fa-lg'><GiSleepingBag /></span> MATRESS TYPE
+                                                    </td>
+                                                    <td>{product?.mattressType?.name}</td>
+                                                </tr>
+                                                <tr class="indi-table-details">
+                                                    <td>
+                                                        <span className='me-2 fa-lg'><GiBed /></span>BED ORIENTATION
+                                                    </td>
+                                                    <td>{product?.bedOrientation?.name}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-lg-6 col-md-6">
+                                    <h4>Specifications</h4>
+                                    <div class="pr-5 pr-lg-0">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr class="indi-table-details">
+                                                    <td>FRAME COLOUR</td>
+                                                    <td>{product?.frameColour?.name}</td>
+                                                </tr>
+                                                <tr class="indi-table-details">
+                                                    <td>WEIGHT</td>
+                                                    <td>{product.weight} kg</td>
+                                                </tr>
+                                                <tr class="indi-table-details">
+                                                    <td>STOCK</td>
+                                                    <td>{product.stock}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-6 col-md-6">
-                                <h4>Specifications</h4>
-                                <div class="pr-5 pr-lg-0">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr class="indi-table-details">
-                                                <td>FRAME COLOUR</td>
-                                                <td>{product?.frameColour?.name}</td>
-                                            </tr>
-                                            <tr class="indi-table-details">
-                                                <td>WEIGHT</td>
-                                                <td>{product.weight} kg</td>
-                                            </tr>
-                                            <tr class="indi-table-details">
-                                                <td>STOCK</td>
-                                                <td>{product.stock}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                            <p class="indi-spacing"></p>
+                            <button class="badge rounded-pill bg-success mb-3" style={{ 'font-size': '1rem' }} onClick={() => { addItemToCart(product.id) }}>Add To Cart - ${product.cost / 100}</button>
+
                         </div>
-                        <p class="indi-spacing"></p>
-                        <button class="indi-add-to-cart mb-3" onClick={() => { addItemToCart(product.id) }}>Add To Cart - ${product.cost/100}</button>
-                        <p class="mt-2 warning-text mb-2" style={{ "display": "none" }}>
-                            Item has been added to your cart
-                        </p>
-                        {/* <p class="mt-2 warning-text mb-2 " style="display: none;">
-                            Please login before adding item into cart. Redirecting to login
-                            page...
-                        </p> */}
                     </div>
-                </div>
 
-            </React.Fragment>
-            : null}
-    </React.Fragment>
-        ;
-}
+                </React.Fragment>
+                : null}
+        </React.Fragment>
+            ;
+    }
