@@ -6,9 +6,10 @@ import CartContext from "./CartProvider";
 import { Redirect } from "react-router";
 import { toast } from "react-toastify";
 import { loadStripe } from "@stripe/stripe-js";
+import { useHistory } from "react-router";
 
 
-export default function Cart(props) {
+export default function Cart() {
 
     const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
 
@@ -20,7 +21,8 @@ export default function Cart(props) {
     const [cartItem, checkoutCart] = useState(['']);
     const [user, setUser] = useState(['']);
     const [quantity, setNewQuantity] = useState('');
-    const [cartItemQty, setCartItemQty] = useState([])
+    const [cartItemQty, setCartItemQty] = useState([]);
+    const redirect = useHistory();
 
 
     useEffect(() => {
@@ -82,7 +84,7 @@ export default function Cart(props) {
 
     // update cart quantity form
     async function onUpdate(formData) {
-        alert('Cart Quantity updated')
+
         try {
             const data = await axios({
                 method: "post",
@@ -98,10 +100,12 @@ export default function Cart(props) {
             });
 
             if (data) {
-                setCartUpdated(true);
+                // setCartUpdated(true);
                 toast.success("Item quantity updated.", {
                     autoClose: 3000,
+                    toastId: "quantity-updated"
                 });
+                redirect.push("/cart")
 
             } else {
                 toast.info(
@@ -111,7 +115,7 @@ export default function Cart(props) {
                     }
                 );
                 setTimeout(() => {
-                    // navigate("/login");
+                    redirect.push("/users/login")
                 }, 2000);
             }
         } catch (error) {
@@ -167,7 +171,7 @@ export default function Cart(props) {
 
                 });
                 setStripeSession(session.data);
-
+                console.log(session.data)
             } catch (error) {
                 //update cart if no stock
                 // if (error.response.status === 417) {
@@ -218,99 +222,104 @@ export default function Cart(props) {
     }, [stripeSession]);
 
     if (localStorage.getItem('accessToken') && cart.length) {
+        return (
+            <>
+                {
+                    cart?.map((b) => {
+                        return (
 
-        return cart?.map((b) => {
-            return (
+                            <React.Fragment>
 
-                <React.Fragment>
-
-                    <h2 class="text-lg font-medium my-3 mx-2" style={{ 'color': '#AA6B39' }}>
-                        Shopping cart
-                    </h2>
+                                <h2 class="text-lg font-medium my-3 mx-2" style={{ 'color': '#AA6B39' }}>
+                                    Shopping cart
+                                </h2>
 
 
-                    <div class="mt-8 card my-3 mx-2">
+                                <div class="mt-8 card my-3 mx-2">
 
-                        <div class="card-body">
+                                    <div class="card-body">
 
-                            <div class="py-1 d-flex">
+                                        <div class="py-1 d-flex">
 
-                                <div>
-                                    <img src={b.wallBed.image_url} alt={b.name} style={{ 'width': '80%', 'height': '70%' }} />
-                                </div>
+                                            <div>
+                                                <img src={b.wallBed.image_url} alt={b.name} style={{ 'width': '80%', 'height': '70%' }} />
+                                            </div>
 
-                                <div class="ml-4 flex-1 d-flex flex-column ">
-                                    <div class='card-title'>
-                                        <div class="d-flex justify-content-between text-base font-medium ">
-                                            <p class="ms-5" style={{ 'font-size': '25px' }}>
-                                                <b>{b.wallBed.name}</b>
-                                            </p>
-                                            <div >
-                                                <p >
-                                                    Total Unit Cost: ${(b.wallBed.cost / 100) * (b.quantity)}
-                                                </p>
+                                            <div class="ml-4 flex-1 d-flex flex-column ">
+                                                <div class='card-title'>
+                                                    <div class="d-flex justify-content-between text-base font-medium ">
+                                                        <p class="ms-5" style={{ 'font-size': '25px' }}>
+                                                            <b>{b.wallBed.name}</b>
+                                                        </p>
+                                                        <div >
+                                                            <p >
+                                                                Total Unit Cost: ${(b.wallBed.cost / 100) * (b.quantity)}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                    <p class="ms-5 text-lg" style={{ 'font-size': '20px', 'font-family': 'Merriweather' }}>
+                                                        Description: {b.wallBed.description}
+                                                    </p>
+                                                    <ul class='ms-3'>
+                                                        <li>Bed Size: {b.wallBed.bedSize.name}</li><br />
+                                                        <li>Mattress Type: {b.wallBed.mattressType.name}</li><br />
+                                                        <li>Bed Orientation: {b.wallBed.bedOrientation.name}</li><br />
+                                                        <li>Frame Colour: {b.wallBed.frameColour.name}</li><br />
+                                                    </ul>
+                                                </div>
+
+                                                <div class="d-flex align-items-end justify-content-end ms-5 ">
+                                                    <div class='mx-2 '>
+                                                        <form onSubmit={() => { onUpdate({ productId: b.product_id, newQuantity: cartItemQty }) }} >
+                                                            <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
+                                                            <label style={{ 'color': 'brown' }}> Quantity: </label>
+                                                            <input type="text" name='newQuantity' value={b.quantity} onChange={evt => handleQtyChange(evt, b)}
+                                                                style={{ 'width': '50px', 'border': '1px solid black', 'text-align': 'center' }} /><br />
+                                                            <input type="submit" class="btn btn-success btn-sm" style={{ 'height': '40px', 'background-color': 'green' }} value="Update Quantity" />
+                                                        </form>
+                                                    </div>
+                                                    <div>
+                                                        <button type="submit" class="btn btn-danger btn-sm" style={{ 'height': '40px' }} onClick={() =>
+                                                            removeFromCart({ productId: b.product_id })
+                                                        } >Remove from Cart</button>
+                                                    </div>
+
+                                                </div>
+
                                             </div>
                                         </div>
-
-                                        <p class="ms-5 text-lg" style={{ 'font-size': '20px', 'font-family': 'Merriweather' }}>
-                                            Description: {b.wallBed.description}
-                                        </p>
-                                        <ul class='ms-3'>
-                                            <li>Bed Size: {b.wallBed.bedSize.name}</li><br />
-                                            <li>Mattress Type: {b.wallBed.mattressType.name}</li><br />
-                                            <li>Bed Orientation: {b.wallBed.bedOrientation.name}</li><br />
-                                            <li>Frame Colour: {b.wallBed.frameColour.name}</li><br />
-                                        </ul>
                                     </div>
-
-                                    <div class="d-flex align-items-end justify-content-end ms-5 ">
-                                        <div class='mx-2 '>
-                                            <form onSubmit={() => { onUpdate({ productId: b.product_id, newQuantity: cartItemQty }) }} >
-                                                <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
-                                                <label style={{ 'color': 'brown' }}> Quantity: </label>
-                                                <input type="text" name='newQuantity' value={b.quantity} onChange={evt => handleQtyChange(evt, b)}
-                                                    style={{ 'width': '50px', 'border': '1px solid black', 'text-align': 'center' }} /><br />
-                                                <input type="submit" class="btn btn-success btn-sm" style={{ 'height': '40px', 'background-color': 'green' }} value="Update Quantity" />
-                                            </form>
-                                        </div>
-                                        <div>
-                                            <button type="submit" class="btn btn-danger btn-sm" style={{ 'height': '40px' }} onClick={() =>
-                                                removeFromCart({ productId: b.product_id })
-                                            } >Remove from Cart</button>
-                                        </div>
-
-                                    </div>
-
                                 </div>
-                            </div>
-                        </div>
-                    </div>
 
 
-                    <div class="border-t border-gray-200 py-1 px-4 sm:px-6">
-                        <div class="d-flex justify-between justify-content-end text-base font-medium text-gray-900">
-                            <p>Subtotal: </p>
-                            <p>${totalPrice / 100}</p>
-                        </div>
-                        <p class="mt-0.5 text-sm text-gray-500 d-flex justify-content-end">Shipping and taxes are included in the subtotal</p>
-                        <div class="mt-6 d-flex justify-content-end">
-                            <button
-                                class="btn btn-primary btn"
-                                style={{ 'background-color': 'rgb(65, 105, 225)' }}
-                                onClick={checkoutcart}
-                            >Checkout</button>
-                        </div>
-                        <div class="mt-1 flex justify-center text-sm text-center text-gray-500">
-                            <p>
-                                or
-                                <a href="/shop_All_Beds" class="text-primary font-medium text-decoration-none"> Continue Shopping<span
-                                    aria-hidden="true"> &rarr;</span></a>
-                            </p>
-                        </div>
+                            </React.Fragment>
+                        )
+                    })
+                }
+                < div class="border-t border-gray-200 py-1 px-4 sm:px-6" >
+                    <div class="d-flex justify-between justify-content-end text-base font-medium text-gray-900">
+                        <p>Subtotal: </p>
+                        <p>${totalPrice / 100}</p>
                     </div>
-                </React.Fragment>
-            )
-        })
+                    <p class="mt-0.5 text-sm text-gray-500 d-flex justify-content-end">Shipping and taxes are included in the subtotal</p>
+                    <div class="mt-6 d-flex justify-content-end">
+                        <button
+                            class="btn btn-primary btn"
+                            style={{ 'background-color': 'rgb(65, 105, 225)' }}
+                            onClick={checkoutcart}
+                        >Checkout</button>
+                    </div>
+                    <div class="mt-1 flex justify-center text-sm text-center text-gray-500">
+                        <p>
+                            or
+                            <a href="/shop_All_Beds" class="text-primary font-medium text-decoration-none"> Continue Shopping<span
+                                aria-hidden="true"> &rarr;</span></a>
+                        </p>
+                    </div>
+                </div >
+            </>
+        )
     } else if (localStorage.getItem('accessToken')) {
         return <div class='ms-3'>There are no items in your cart</div>
     } else {

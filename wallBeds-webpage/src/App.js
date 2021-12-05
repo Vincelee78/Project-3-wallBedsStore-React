@@ -14,7 +14,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Cart from "./Cart";
 import LoginPage from "./LoginPage";
 import LogoutPage from "./LogoutPage";
-import { Redirect } from "react-router";
+import UserPage from "./Userpage";
 import { ToastContainer } from "react-toastify";
 
 
@@ -45,6 +45,36 @@ export default function App() {
     }
   }
 
+  //refresh token every 40 minutes
+  useEffect(() => {
+    if (token) {
+      const refreshToken = setInterval(() => {
+        const refresh = async () => {
+          try {
+            const { accessToken } = await axios.post(
+              url + '/users/refresh',
+              {
+                refreshToken: localStorage.getItem('refreshToken')
+              }
+            );
+            setToken(...token, accessToken);
+            localStorage.setItem('accessToken', accessToken);
+            console.log(accessToken)
+          } catch (error) {
+            // console.log(error)
+          };
+
+        }
+        refresh();
+      }, 1000 * 60 * 40);
+
+      //cleanup - clear interval when component unmounts
+      return () => clearInterval(refreshToken);
+    }
+
+  }, [])
+
+
   let logoutUser = async () => {
     await axios.post(url + 'users/logout', {
       refreshToken: localStorage.getItem('refreshToken')
@@ -56,7 +86,7 @@ export default function App() {
   }
 
 
-  
+
 
   return (
     <Router>
@@ -84,9 +114,13 @@ export default function App() {
             <Link to="/shop_All_Beds" class="navlink">CATALOGUE</Link>
           </li>
 
+          <li>
+            <Link to="/users/account" class="navlink">ACCOUNT</Link>
+          </li>
+
           <li class="font-sans block lg:inline-block">
             <a href="/cart" role="button" class="pe-4" style={{ 'font-size': '1.4em' }}>
-              <span class="">
+              <span>
                 <i class="fas fa-shopping-cart "></i>
               </span>
             </a>
@@ -96,25 +130,28 @@ export default function App() {
           <li><a href="" class="" style={{ 'text-decoration': 'none' }}>
 
 
-            <div class="d-flex justify-content-center me-4">Welcome, {localStorage.getItem("username") || 'Guest'}</div>
+            <div class="d-flex justify-content-center me-4 mb-2">Welcome, {localStorage.getItem("username") || 'Guest'}</div>
+
+            <div class='d-flex'>
+              <a
+                href="/users/login"
+                class="me-3"
+                style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
+              >Login</a>
 
 
-            <a
-              href="/users/login"
-              class="btn btn-success btn-sm me-3"
-            >Login</a>
+              <a
+                href="/users/logout"
+                class="me-3"
+                style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
+              >Logout</a>
 
-          
-            <a
-              href="/users/logout"
-              class="btn btn-danger btn-sm me-3"
-            >logout</a>
-            
-            <a
-              href="/register"
-              class="btn btn-primary btn-sm me-4"
-            >Register</a>
-
+              <a
+                href="/register"
+                class="me-4"
+                style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
+              >Register</a>
+            </div>
 
           </a>
           </li>
@@ -147,6 +184,10 @@ export default function App() {
 
           <Route exact path="/users/logout">
             <LogoutPage setlogoutUser={logoutUser} />
+          </Route>
+
+          <Route exact path="/users/account">
+            <UserPage />
           </Route>
 
           <Route exact path="/product/:productId">

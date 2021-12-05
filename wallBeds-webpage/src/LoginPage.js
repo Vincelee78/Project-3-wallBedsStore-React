@@ -36,9 +36,8 @@ export default function LoginPage(props) {
       localStorage.setItem('accessToken', response.data.accessToken);
       localStorage.setItem('refreshToken', response.data.refreshToken);
 
-      console.log(token, refreshTokenNeeded, 'ab')
+      // console.log(token, refreshTokenNeeded, 'ab')
       setLoginUser();
-      setrefreshToken(response.data.refreshToken);
       toast.success(`Login successful, ${email}`, {
         autoClose: 3000,
         toastId: "login-success"
@@ -52,44 +51,6 @@ export default function LoginPage(props) {
       })
     }
   }
-
-
-  // //if token is set, get user data
-  useEffect(() => {
-
-    if (!localStorage.getItem("accessToken")) {
-      localStorage.setItem("accessToken", JSON.stringify(token));
-    };
-
-    //refresh token every 15 minutes
-    if (token) {
-      const refreshToken = setInterval(() => {
-        const refresh = async () => {
-          try {
-            const { accessToken } = await axios.post(
-              url + '/users/refresh',
-              {
-                refreshToken: refreshTokenNeeded,
-              }
-            );
-            setToken(...token, accessToken);
-            localStorage.setItem('accessToken', accessToken);
-            console.log(accessToken)
-          } catch (error) {
-            // console.log(error)
-          };
-
-        }
-        refresh();
-      }, 1000*60*15);
-
-      //cleanup - clear interval when component unmounts
-      return () => clearInterval(refreshToken);
-    }
-
-  }, []);
-
-
 
 
   return (
