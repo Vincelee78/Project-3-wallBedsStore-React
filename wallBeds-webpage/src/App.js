@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Cart from "./Cart";
 import LoginPage from "./LoginPage";
 import LogoutPage from "./LogoutPage";
+import AboutUs from "./About";
 import UserPage from "./Userpage";
 import DirectionsPage from "./Directions";
 import { ToastContainer } from "react-toastify";
@@ -106,15 +107,18 @@ export default function App() {
                 <Link to="/" class="dropdown-item" href="#">Home Page</Link>
               </li>
               <li>
-              <Link to="/directions" class="dropdown-item" href="#">Directions</Link>
-                </li>
-          
+                <Link to="/directions" class="dropdown-item" href="#">Directions</Link>
+              </li>
+
             </ul>
           </li>
 
-          <li><a href="" class="navlink">ABOUT </a></li>
           <li>
             <Link to="/shop_All_Beds" class="navlink">CATALOGUE</Link>
+          </li>
+
+          <li>
+            <Link to="/about" class="dropdown-item" class="navlink">ABOUT </Link>
           </li>
 
           <li>
@@ -195,6 +199,10 @@ export default function App() {
 
           <Route exact path="/users/account">
             <UserPage />
+          </Route>
+
+          <Route exact path="/about">
+            <AboutUs />
           </Route>
 
           <Route exact path="/product/:productId">

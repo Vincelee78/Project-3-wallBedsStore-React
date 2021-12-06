@@ -80,7 +80,7 @@ export default function UserPage() {
                 <div class="d-flex">
                     <img class="rounded-lg shadow-lg antialiased "
                         src="https://st2.depositphotos.com/1502311/12020/v/380/depositphotos_120206860-stock-illustration-profile-picture-vector.jpg"
-                        style={{ 'width': '30%' }} />
+                        style={{ 'width': '25%' , 'height':'50%'}} />
 
                     <div class="md:w-2/3 w-full px-3 flex flex-row ">
                         <div class="w-full text-right">

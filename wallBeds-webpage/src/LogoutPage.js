@@ -15,17 +15,21 @@ export default function LogoutPage(props) {
     const redirect = useHistory();
 
     const onSubmit = async () => {
+    //     await axios.post(url + 'users/logout', {
+    //         refreshToken: localStorage.getItem('refreshToken')
+    //     })
 
-
-        localStorage.removeItem("username")
-        localStorage.removeItem("accessToken");
+        // localStorage.removeItem("username")
+        // localStorage.removeItem("accessToken");
         // localStorage.removeItem("refreshToken");
         // setlogoutUser();
         // setUser('');
-        await axios.post(url + 'users/logout', {
-            refreshToken: localStorage.getItem('refreshToken')
-        })
+        // await axios.post(url + 'users/logout', {
+        //     refreshToken: localStorage.getItem('refreshToken')
+        // })
 
+        localStorage.removeItem("username")
+        localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
         setlogoutUser();
         setUser('');

@@ -266,6 +266,9 @@ export default function Cart() {
                                                         <li>Mattress Type: {b.wallBed.mattressType.name}</li><br />
                                                         <li>Bed Orientation: {b.wallBed.bedOrientation.name}</li><br />
                                                         <li>Frame Colour: {b.wallBed.frameColour.name}</li><br />
+                                                        <li>Wood Colours: {b.wallBed.woodColour.map((a)=>(
+                                                            <p class="indi-flavour badge rounded-pill bg-info">{a.name}</p>
+                                                            ))}</li><br />
                                                     </ul>
                                                 </div>
 
