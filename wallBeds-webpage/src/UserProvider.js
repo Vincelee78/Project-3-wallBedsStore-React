@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import LoginPage from "./LoginPage";
 import UserContext from "./UserContext";
+import { toast } from "react-toastify";
 
 
 const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
@@ -14,23 +14,26 @@ export default function UserProvider(props) {
 
 
     const context={
-        getlogout: async()=>{
+        getUserProfile: async()=>{
             try {
-              await axios({
-                method: "post",
-                url: url + 'users/logout',
-                data: {
-                  refreshToken: token.refreshToken,
-                },
+              const orders=await axios({
+                method: "get",
+                url: url + 'orders',
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+              },
               });
-              localStorage.removeItem("accesstoken");
-              setToken(null);
-              setUser(null);
+              return orders.data
               
             } catch (error) {
-        
-            }
-          },
+              console.log(error)
+              toast.error("Please log in to access your profile", {
+                autoClose: 3000,
+                toastId: "profile-error"            
+          })
+        }
+      }
+    }
 
   //         login: async(userData)=>{
 
@@ -52,7 +55,7 @@ export default function UserProvider(props) {
   //                 </div>)
   //   }
   // },
-}
+// }
 
     //state
     // const [token, setToken] = useState(null);
