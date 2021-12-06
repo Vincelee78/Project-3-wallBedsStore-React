@@ -1,0 +1,28 @@
+{
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "COMPANY_ID": 960,
+          "NAME": "Space-Saving Furniture Systems",
+          "DESCRIPTION": "We are here!"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [103.8846, 1.3035]
+        }
+      },
+      {
+        "type": "Feature",
+        "properties": {
+          "MRT_ID": 1219,
+          "NAME": "Mountbatten MRT Station",
+          "DESCRIPTION": "Nearest MRT Station to us!"
+        },
+        "geometry": {
+          "type": "Point",
+          "coordinates": [103.8831, 1.306]
+        }
+      }
+    ]
+    }

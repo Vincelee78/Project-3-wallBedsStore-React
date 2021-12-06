@@ -70,22 +70,22 @@ export default class LandingPage extends React.Component {
 
                     {/* <!-- Right --> */}
                     <div>
-                        <a href="" class="me-4 text-reset">
+                        <a href="https://www.facebook.com/" class="me-4 text-reset">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="" class="me-4 text-reset">
+                        <a href="https://twitter.com/" class="me-4 text-reset">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="" class="me-4 text-reset">
+                        <a href="https://www.google.com/" class="me-4 text-reset">
                             <i class="fab fa-google"></i>
                         </a>
-                        <a href="" class="me-4 text-reset">
+                        <a href="https://www.instagram.com/" class="me-4 text-reset">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="" class="me-4 text-reset">
+                        <a href="https://www.linkedin.com/" class="me-4 text-reset">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="" class="me-4 text-reset">
+                        <a href="https://github.com/" class="me-4 text-reset">
                             <i class="fab fa-github"></i>
                         </a>
                     </div>
@@ -102,54 +102,28 @@ export default class LandingPage extends React.Component {
                             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                                 {/* <!-- Content --> */}
                                 <h6 class="text-uppercase fw-bold mb-4">
-                                    <i class="fas fa-gem me-3"></i>Company name
+                                    <i class="fas fa-bed me-3"></i>Space-Saving Furniture Systems Pte Ltd
                                 </h6>
                                 <p>
-                                    Here you can use rows and columns to organize your footer content. Lorem ipsum
-                                    dolor sit amet, consectetur adipisicing elit.
+                                Use of and orders placed through this website are strictly subject to Space-Saving Furniture Systems Pte Ltd's terms and conditions. 
                                 </p>
                             </div>
                             {/* <!-- Grid column --> */}
 
                             {/* <!-- Grid column --> */}
-                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                                {/* <!-- Links --> */}
-                                <h6 class="text-uppercase fw-bold mb-4">
-                                    Products
-                                </h6>
-                                <p>
-                                    <a href="#!" class="text-reset">Angular</a>
-                                </p>
-                                <p>
-                                    <a href="#!" class="text-reset">React</a>
-                                </p>
-                                <p>
-                                    <a href="#!" class="text-reset">Vue</a>
-                                </p>
-                                <p>
-                                    <a href="#!" class="text-reset">Laravel</a>
-                                </p>
-                            </div>
+                            
                             {/* <!-- Grid column --> */}
 
                             {/* <!-- Grid column --> */}
                             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                                 {/* <!-- Links --> */}
                                 <h6 class="text-uppercase fw-bold mb-4">
-                                    Useful links
+                                    Quick links
                                 </h6>
                                 <p>
-                                    <a href="#!" class="text-reset">Pricing</a>
+                                    <a href="/shop_All_Beds" class="text-reset">All Beds</a>
                                 </p>
-                                <p>
-                                    <a href="#!" class="text-reset">Settings</a>
-                                </p>
-                                <p>
-                                    <a href="#!" class="text-reset">Orders</a>
-                                </p>
-                                <p>
-                                    <a href="#!" class="text-reset">Help</a>
-                                </p>
+    
                             </div>
                             {/* <!-- Grid column --> */}
 
@@ -159,13 +133,13 @@ export default class LandingPage extends React.Component {
                                 <h6 class="text-uppercase fw-bold mb-4">
                                     Contact
                                 </h6>
-                                <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                                <p><i class="fas fa-home me-3"></i> Gem Mall, 123 Mountbatten Rd, Singapore 542637</p>
                                 <p>
                                     <i class="fas fa-envelope me-3"></i>
-                                    info@example.com
+                                    info@spacesavingsystems.com
                                 </p>
-                                <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                                <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                                <p><i class="fas fa-phone me-3"></i> + 65 234 567 88</p>
+                                <p><i class="fas fa-print me-3"></i> + 65 234 567 89</p>
                             </div>
                             {/* <!-- Grid column --> */}
                         </div>
@@ -175,9 +149,9 @@ export default class LandingPage extends React.Component {
                 {/* <!-- Section: Links  --> */}
 
                 {/* <!-- Copyright --> */}
-                <div class="text-center p-4" style={{"background-color": "rgba(0, 0, 0, 0.05)"}}>
-                    © 2021 Copyright:
-                    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+                <div class="text-center p-4" style={{"background-color": "rgba(0, 0, 0, 0.1)"}}>
+                    © 2021 Copyright: All rights reserved
+                    <a class="text-reset fw-bold" href="#"></a>
                 </div>
                 {/* <!-- Copyright --> */}
             </footer>

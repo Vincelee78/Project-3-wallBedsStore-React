@@ -15,6 +15,7 @@ import Cart from "./Cart";
 import LoginPage from "./LoginPage";
 import LogoutPage from "./LogoutPage";
 import UserPage from "./Userpage";
+import DirectionsPage from "./Directions";
 import { ToastContainer } from "react-toastify";
 
 
@@ -104,8 +105,10 @@ export default function App() {
               <li>
                 <Link to="/" class="dropdown-item" href="#">Home Page</Link>
               </li>
-              <li><a class="dropdown-item" href="#">Directions</a></li>
-              <li><a class="dropdown-item" href="#">Telephone</a></li>
+              <li>
+              <Link to="/directions" class="dropdown-item" href="#">Directions</Link>
+                </li>
+          
             </ul>
           </li>
 
@@ -171,6 +174,10 @@ export default function App() {
           {/* All Wall Beds route */}
           <Route exact path="/shop_All_Beds">
             <WallBedListing />
+          </Route>
+
+          <Route exact path="/directions">
+            <DirectionsPage />
           </Route>
 
           {/* User Register route */}
