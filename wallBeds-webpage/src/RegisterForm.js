@@ -79,14 +79,14 @@ export default function RegisterForm() {
         </p>
       )}
       <br />
-      <textarea {...register("billing_address")} class='w-100' placeholder="Billing Address" name='billing_address' value={billing_address} onChange={(evt) => setBilling_address(evt.target.value)}/>
+      <textarea {...register("billing_address")} class='w-100' placeholder='&nbsp;&nbsp;Billing Address' name='billing_address' value={billing_address} onChange={(evt) => setBilling_address(evt.target.value)}/>
       <br />
       {errors.billing_address && (
         <p className="registerFormError">
           {errors.billing_address.message}
         </p>
       )}
-      <textarea {...register("shipping_address")} class='w-100 my-4' placeholder="Shipping Address" name='shipping_address' value={shipping_address} onChange={(evt) => setShipping_address(evt.target.value)}/>
+      <textarea {...register("shipping_address")} class='w-100 my-4' placeholder="&nbsp;&nbsp;Shipping Address" name='shipping_address' value={shipping_address} onChange={(evt) => setShipping_address(evt.target.value)}/>
       <br />
       {errors.shipping_address && (
         <p className="registerFormError">
