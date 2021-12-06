@@ -12,28 +12,36 @@ export default function LogoutPage(props) {
 
     const [User, setUser] = useState(null);
     const setlogoutUser = props.setlogoutUser;
-    const redirect=useHistory();
+    const redirect = useHistory();
 
     const onSubmit = async () => {
-    
-        
+
+
         localStorage.removeItem("username")
         localStorage.removeItem("accessToken");
+        // localStorage.removeItem("refreshToken");
+        // setlogoutUser();
+        // setUser('');
+        await axios.post(url + 'users/logout', {
+            refreshToken: localStorage.getItem('refreshToken')
+        })
+
         localStorage.removeItem("refreshToken");
         setlogoutUser();
         setUser('');
-        
+
 
     }
-    if (User==''){
+    if (User == '') {
         toast.success("Logout sucessful", {
             autoClose: 3000,
             toastId: "logout-success"
-          })
-          window.location.reload();
-          redirect.push("/users/login")
+        })
+
+        window.location.reload();
+        redirect.push("/users/login")
     }
-    
+
 
 
 

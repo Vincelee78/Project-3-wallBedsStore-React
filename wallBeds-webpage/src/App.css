@@ -57,13 +57,13 @@ ul > li {
   border: 2px solid grey;
   background-color: transparent;
   text-decoration: none;
-  padding:5px;
-  color: wheat;
+  padding: 0.3rem 1rem;
+  color: goldenrod;
   
   
 }
 .butn:hover{
-  color:gold
+  background-color:wheat
 }
 
 /* register form css */

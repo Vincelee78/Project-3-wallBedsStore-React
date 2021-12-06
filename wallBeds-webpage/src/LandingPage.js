@@ -21,37 +21,37 @@ export default class LandingPage extends React.Component {
                 <Carousel fade>
                     <Carousel.Item interval={3000}>
                         <img
-                            className="d-block w-100" style={{ 'height': '700px', 'filter': 'brightness(110%)' }}
+                            className="d-block w-100" style={{ 'height': '700px', 'filter': 'brightness(110%)', 'opacity': '0.8'}}
                             src="https://www.smartbeds.it/images/smartbeds-slide-1.jpg"
                             alt="First slide"
                         />
-                        <Carousel.Caption className='text-end' style={{ 'padding-bottom': '250px' }}>
+                        <Carousel.Caption className='text-end' style={{ 'padding-bottom': '250px','filter': 'brightness(120%)' }}>
                             <h3 className="animated fadeInLeft">Space Saving Furniture</h3>
-                            <Link to="/shop_All_Beds" className="butn">Shop beds</Link>
+                            <Link to="/shop_All_Beds" className="butn">SHOP ALL BEDS</Link>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={3000}>
                         <img
-                            className="d-block w-100" style={{ 'height': '700px', 'filter': 'brightness(110%)' }}
+                            className="d-block w-100" style={{ 'height': '700px', 'filter': 'brightness(110%)' , 'opacity': '0.8'}}
                             src="https://www.smartbeds.it/images/smartbeds-slide-2.jpg"
                             alt="Second slide"
                         />
 
-                        <Carousel.Caption className='text-end' style={{ 'padding-bottom': '250px' }}>
-                            <h3 className="animated fadeInRight">Space Saving Furniture</h3>
-                            <Link to="/shop_All_Beds" href='' className="butn">Shop beds</Link>
+                        <Carousel.Caption className='text-end' style={{ 'padding-bottom': '250px','filter': 'brightness(120%)' }}>
+                            <h3 className="animated fadeInRight ">Space Saving Furniture</h3>
+                            <Link to="/shop_All_Beds" className="butn ">SHOP ALL BEDS</Link>
                         </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item interval={3000}>
                         <img
-                            className="d-block w-100" style={{ 'height': '700px' }}
+                            className="d-block w-100" style={{ 'height': '700px','filter': 'brightness(110%)' , 'opacity': '0.8'}}
                             src="https://www.smartbeds.it/images/smartbeds-slide-4.jpg"
                             alt="Third slide"
                         />
 
                         <Carousel.Caption className='text-end' style={{ 'padding-bottom': '250px', 'filter': 'brightness(120%)' }}>
                             <h3 className="animated fadeInLeft">Space Saving Furniture</h3>
-                            <Link to="/shop_All_Beds" className="butn">Shop beds</Link>
+                            <Link to="/shop_All_Beds" className="butn">SHOP ALL BEDS</Link>
                         </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
