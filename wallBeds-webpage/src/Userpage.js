@@ -85,7 +85,7 @@ export default function UserPage() {
                     <div class="md:w-2/3 w-full px-3 flex flex-row ">
                         <div class="w-full text-right">
                             <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
-                                <p style={{ 'color': 'white', 'font-size': '30px' }}>Order Items: &nbsp;</p><ul style={{ 'color': 'rgba(236, 221, 203, 0.938)', 'font-size': '30px' }}>{data.map(a=>(a.orderItem).map(b=>
+                                <p style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items: &nbsp;</p><ul style={{ 'color': 'white', 'font-size': '30px' }}>{data.map(a=>(a.orderItem).map(b=>
                                 <li>{(b.wallBed.name)}, &nbsp;Quantity: {b.quantity}, &nbsp;Total unit cost: ${(b.cost/100*(b.quantity))}</li>
                                 
                                 ))}
@@ -93,14 +93,14 @@ export default function UserPage() {
                                 </ul>
                             </div>
                             <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
-                                <div><h2 style={{ 'color': 'white', 'font-size': '30px' }}>Date ordered: &nbsp;
+                                <div><h2 style={{ 'color': 'wheat', 'font-size': '30px' }}>Date ordered: &nbsp;
                                     {data.map((date)=>(
                                         <span class="badge rounded-pill bg ">{date.date_ordered}</span>
                                             ))}</h2>
                                 </div>
                             </div>
                             <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
-                                <div><h2 style={{ 'color': 'white', 'font-size': '30px' }}>Order Reference: &nbsp;
+                                <div><h2 style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Reference: &nbsp;
                                 
                                     {data.map((reference)=>(
                                         <span class="badge rounded-pill bg">{reference.payment_reference}</span>
@@ -108,7 +108,7 @@ export default function UserPage() {
                                 </div>
                             </div>
                             <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
-                                <div><h2 style={{ 'color': 'white', 'font-size': '30px' }}>Order Status: &nbsp;
+                                <div><h2 style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Status: &nbsp;
                                 
                                     {data.map((a)=>(
                                         <span class="badge rounded-pill bg-success">{a.status.name}</span>
