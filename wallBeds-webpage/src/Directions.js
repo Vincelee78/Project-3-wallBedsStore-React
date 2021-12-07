@@ -12,7 +12,7 @@ export default function DirectionsPage() {
 
     return (
         <React.Fragment>
-            <h5 class='mb-2 mx-5'> If you would like to head down to our showroom, you can find us at the Gem Mall, 123 Mountbatten Rd, Singapore 542637 (Please find 
+            <h5 class='mb-2 mx-5 mt-2'> If you would like to head down to our showroom, you can find us at the Gem Mall, 123 Mountbatten Rd, Singapore 542637 (Please find 
                 the location by clicking on the blue marker on the map). <br/><br/>The nearest MRT station to us is Mountbatten MRT station (The other blue marker on the map). </h5>
             <MapContainer center={[1.29, 103.85]} zoom={13} scrollWheelZoom={true}>
                 <TileLayer
