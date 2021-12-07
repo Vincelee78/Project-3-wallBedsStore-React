@@ -255,13 +255,13 @@ export default function Cart() {
                                                     <p class="ms-5 text-lg" style={{ 'font-size': '20px', 'font-family': 'Merriweather' }}>
                                                         Description: {b.wallBed.description}
                                                     </p>
-                                                    <ul class='ms-3'>
+                                                    <ul class='ms-5'>
                                                         <li>Bed Size: {b.wallBed.bedSize.name}</li><br />
                                                         <li>Mattress Type: {b.wallBed.mattressType.name}</li><br />
                                                         <li>Bed Orientation: {b.wallBed.bedOrientation.name}</li><br />
                                                         <li>Frame Colour: {b.wallBed.frameColour.name}</li><br />
                                                         <li>Wood Colours: {b.wallBed.woodColour.map((a) => (
-                                                            <p class="indi-flavour badge rounded-pill bg-info">{a.name}</p>
+                                                            <p class="indi-flavour badge rounded-pill bg-secondary">{a.name}</p>
                                                         ))}</li><br />
                                                     </ul>
                                                 </div>

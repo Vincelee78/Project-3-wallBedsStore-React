@@ -39,11 +39,6 @@ export default function UserPage() {
         }
     }, [])
 
-    let dateCreated = data.map((date) => (
-        moment(date.date_ordered).format("Do MMMM YYYY")
-
-    )
-    );
 
     return (
 
@@ -74,17 +69,18 @@ export default function UserPage() {
                         <div class="w-full text-right">
                             <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
                                 <h4 style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items: &nbsp;</h4><ul style={{ 'color': 'white', 'font-size': '30px' }}>{data.map(a => (a.orderItem).map(b =>
-                                    <li>{(b.wallBed.name)}, &nbsp;Quantity: {b.quantity}, &nbsp;Total unit cost: ${(b.cost / 100 * (b.quantity))}</li>
+                                    <li class="badge rounded-pill bg-secondary ">{(b.wallBed.name)}, &nbsp;Quantity: {b.quantity}, &nbsp;Total unit cost: ${(b.cost / 100 * (b.quantity))}</li>
 
                                 ))}
 
                                 </ul>
                             </div>
                             <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
-                                <div><h2 style={{ 'color': 'wheat', 'font-size': '30px' }}>Date ordered: &nbsp;
 
-                                    <span class="badge rounded-pill bg ">{dateCreated}</span>
-                                </h2>
+                                <div><h2 style={{ 'color': 'wheat', 'font-size': '30px' }}>Date ordered: &nbsp;
+                                    {data.map((date) => (
+                                    <span class="badge rounded-pill bg ">{moment(date.date_ordered).format("Do MMMM YYYY")}</span>
+                                    ))}</h2>
                                 </div>
                             </div>
                             <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>

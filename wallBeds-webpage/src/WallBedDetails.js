@@ -102,10 +102,10 @@ export default function WallBedDetails(props) {
                     </img>
                     <div class=" col-lg-6 pe-2">
                         <h1 class="mb-4 indi-title">{product.name}</h1>
-                        Colours: {woodColour.map((a) => (
-                            <p class="indi-flavour badge rounded-pill bg-info">{a.name}</p>
+                        <h5>Colours: {woodColour.map((a) => (
+                            <span class=" badge rounded-pill bg-secondary mb-2">{a.name}</span>
                         )
-                        )}
+                        )}</h5>
                         <p>
                             {product.description}
                         </p>
