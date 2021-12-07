@@ -17,6 +17,7 @@ import LogoutPage from "./LogoutPage";
 import AboutUs from "./About";
 import UserPage from "./Userpage";
 import DirectionsPage from "./Directions";
+import SuccessfulPayment from "./SuccessPurchase";
 import { ToastContainer } from "react-toastify";
 
 
@@ -203,6 +204,10 @@ export default function App() {
 
           <Route exact path="/about">
             <AboutUs />
+          </Route>
+
+          <Route exact path="/successPurchase">
+            <SuccessfulPayment />
           </Route>
 
           <Route exact path="/product/:productId">

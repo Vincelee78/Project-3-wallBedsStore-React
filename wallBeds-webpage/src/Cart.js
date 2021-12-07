@@ -29,6 +29,7 @@ export default function Cart() {
         //get cart function
 
         async function getCart() {
+            
             const cart = await axios.get(url + 'cart', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
