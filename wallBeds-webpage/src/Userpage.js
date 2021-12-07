@@ -73,7 +73,7 @@ export default function UserPage() {
                     <div class="md:w-2/3 w-full px-3 flex flex-row ">
                         <div class="w-full text-right">
                             <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
-                                <h4 style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items:</h4><ul style={{ 'color': 'white', 'font-size': '30px' }}>{data.map(a => (a.orderItem).map(b =>
+                                <h4 style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items: &nbsp;</h4><ul style={{ 'color': 'white', 'font-size': '30px' }}>{data.map(a => (a.orderItem).map(b =>
                                     <li>{(b.wallBed.name)}, &nbsp;Quantity: {b.quantity}, &nbsp;Total unit cost: ${(b.cost / 100 * (b.quantity))}</li>
 
                                 ))}
