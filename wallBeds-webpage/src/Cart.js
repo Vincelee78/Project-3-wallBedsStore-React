@@ -29,7 +29,7 @@ export default function Cart() {
         //get cart function
 
         async function getCart() {
-            
+
             const cart = await axios.get(url + 'cart', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -224,24 +224,17 @@ export default function Cart() {
 
     if (localStorage.getItem('accessToken') && cart.length) {
         return (
-            <>
+            <><h2 class="text-lg font-medium my-3 mx-2" style={{ 'color': '#AA6B39' }}>
+                Shopping cart
+            </h2>
                 {
                     cart?.map((b) => {
                         return (
-
                             <React.Fragment>
 
-                                <h2 class="text-lg font-medium my-3 mx-2" style={{ 'color': '#AA6B39' }}>
-                                    Shopping cart
-                                </h2>
-
-
                                 <div class="mt-8 card my-3 mx-2">
-
                                     <div class="card-body">
-
                                         <div class="py-1 d-flex">
-
                                             <div>
                                                 <img src={b.wallBed.image_url} alt={b.name} style={{ 'width': '80%', 'height': '70%' }} />
                                             </div>
@@ -267,9 +260,9 @@ export default function Cart() {
                                                         <li>Mattress Type: {b.wallBed.mattressType.name}</li><br />
                                                         <li>Bed Orientation: {b.wallBed.bedOrientation.name}</li><br />
                                                         <li>Frame Colour: {b.wallBed.frameColour.name}</li><br />
-                                                        <li>Wood Colours: {b.wallBed.woodColour.map((a)=>(
+                                                        <li>Wood Colours: {b.wallBed.woodColour.map((a) => (
                                                             <p class="indi-flavour badge rounded-pill bg-info">{a.name}</p>
-                                                            ))}</li><br />
+                                                        ))}</li><br />
                                                     </ul>
                                                 </div>
 
