@@ -45,7 +45,6 @@ export default function UserPage() {
     )
     );
 
-    // var date = new Date().parseISO("2006-11-26-11.25.36");
     return (
 
         <React.Fragment>

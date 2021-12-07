@@ -21,7 +21,7 @@ export default class LandingPage extends React.Component {
                 <Carousel fade>
                     <Carousel.Item interval={3000}>
                         <img
-                            className="d-block w-100" style={{ 'height': '700px', 'filter': 'brightness(110%)', 'opacity': '0.8'}}
+                            className="d-block w-100" style={{ 'height': '650px', 'filter': 'brightness(110%)', 'opacity': '0.8'}}
                             src="https://www.smartbeds.it/images/smartbeds-slide-1.jpg"
                             alt="First slide"
                         />
@@ -32,7 +32,7 @@ export default class LandingPage extends React.Component {
                     </Carousel.Item>
                     <Carousel.Item interval={3000}>
                         <img
-                            className="d-block w-100" style={{ 'height': '700px', 'filter': 'brightness(110%)' , 'opacity': '0.8'}}
+                            className="d-block w-100" style={{ 'height': '650px', 'filter': 'brightness(110%)' , 'opacity': '0.8'}}
                             src="https://www.smartbeds.it/images/smartbeds-slide-2.jpg"
                             alt="Second slide"
                         />
@@ -44,7 +44,7 @@ export default class LandingPage extends React.Component {
                     </Carousel.Item>
                     <Carousel.Item interval={3000}>
                         <img
-                            className="d-block w-100" style={{ 'height': '700px','filter': 'brightness(110%)' , 'opacity': '0.8'}}
+                            className="d-block w-100" style={{ 'height': '650px','filter': 'brightness(110%)' , 'opacity': '0.8'}}
                             src="https://www.smartbeds.it/images/smartbeds-slide-4.jpg"
                             alt="Third slide"
                         />
@@ -60,7 +60,7 @@ export default class LandingPage extends React.Component {
             <footer class="text-center text-lg-start bg-light text-muted">
                 {/* <!-- Section: Social media --> */}
                 <section
-                    class="d-flex justify-content-center justify-content-lg-between px-5 p-4 border-bottom"
+                    class="d-flex justify-content-center justify-content-lg-between px-5 p-3 border-bottom"
                 >
                     {/* <!-- Left --> */}
                     <div class="me-5 d-none d-lg-block">
