@@ -1,9 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import UserContext from "./UserContext";
-// import CartItem from "../components/CartItem";
-import CartContext from "./CartProvider";
-import { Redirect } from "react-router";
 import { toast } from "react-toastify";
 import { loadStripe } from "@stripe/stripe-js";
 import { useHistory } from "react-router";
@@ -11,7 +7,7 @@ import { useHistory } from "react-router";
 
 export default function Cart() {
 
-    const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
+    const url = "https://wallbeds-project3.herokuapp.com/api/"
 
 
     const [cart, setCart] = useState([]);

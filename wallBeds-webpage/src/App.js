@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import axios from 'axios';
 import WallBedsProvider from "./WallBedsProvider";
 import LandingPage from "./LandingPage";
@@ -7,8 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import RegisterForm from "./RegisterForm";
 import WallBedDetails from "./WallBedDetails";
 import WallBedListing from "./WallBedListing";
-import CartProvider from "./CartProvider";
-import UserProvider from "./UserProvider";
 // import react router stuff
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Cart from "./Cart";
@@ -18,6 +16,7 @@ import AboutUs from "./About";
 import UserPage from "./Userpage";
 import DirectionsPage from "./Directions";
 import SuccessfulPayment from "./SuccessPurchase";
+import UnsuccessfulPayment from "./CancelPurchase";
 import { ToastContainer } from "react-toastify";
 
 
@@ -25,7 +24,7 @@ export default function App() {
 
   const [token, setToken] = useState('');
 
-  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
+  const url = "https://wallbeds-project3.herokuapp.com/api/"
 
 
   let loginUser = () => {
@@ -37,6 +36,7 @@ export default function App() {
               Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
             },
           });
+          // console.log(response.data)
           localStorage.setItem("username", response.data.username);
           setToken(localStorage.getItem('accessToken'));
         } catch (error) {
@@ -55,7 +55,7 @@ export default function App() {
         const refresh = async () => {
           try {
             const { accessToken } = await axios.post(
-              url + '/users/refresh',
+              url + 'users/refresh',
               {
                 refreshToken: localStorage.getItem('refreshToken')
               }
@@ -75,7 +75,7 @@ export default function App() {
       return () => clearInterval(refreshToken);
     }
 
-  }, [])
+  }, [token])
 
 
   let logoutUser = async () => {
@@ -208,6 +208,10 @@ export default function App() {
 
           <Route exact path="/successPurchase">
             <SuccessfulPayment />
+          </Route>
+
+          <Route exact path="/cancelPurchase">
+            <UnsuccessfulPayment />
           </Route>
 
           <Route exact path="/product/:productId">

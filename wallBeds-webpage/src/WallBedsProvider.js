@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import WallBedContext from "./WallBedContext";
-import UserContext from "./UserContext";
-import WallBedListing from "./WallBedListing";
-// import { useHistory } from "react-router-dom";
-// import WallBedDetails from './WallBedDetails';
 
 
 
@@ -14,7 +10,7 @@ export default function WallBedsProvider(props) {
   
 
   // Base url
-  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
+  const url = "https://wallbeds-project3.herokuapp.com/api/"
 
   const context = {
     getWallBed: async () => {
@@ -35,8 +31,6 @@ export default function WallBedsProvider(props) {
 
   }
 
-
-  
   return (
 
     <WallBedContext.Provider value={context}>

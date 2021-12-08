@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router";
+import React, { useState } from "react";
 import { useHistory } from 'react-router';
 import { toast } from "react-toastify";
 
@@ -8,7 +7,7 @@ import { toast } from "react-toastify";
 
 export default function LogoutPage(props) {
 
-    const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
+    const url = "https://wallbeds-project3.herokuapp.com/api/"
 
     const [User, setUser] = useState(null);
     const setlogoutUser = props.setlogoutUser;

@@ -6,8 +6,6 @@ import React from "react";
 export default function SuccessfulPayment() {
     
 
-
-
         return (
             <React.Fragment>
                 <div style={{ textAlign: "center" }}>

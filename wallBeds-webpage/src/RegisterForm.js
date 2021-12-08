@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Redirect } from "react-router";
 import Headers from "./HeaderRegisterForm";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerFormSchema } from "./FormValidator";
@@ -10,7 +9,7 @@ import { registerFormSchema } from "./FormValidator";
 
 export default function RegisterForm() {
 
-  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
+  const url = "https://wallbeds-project3.herokuapp.com/api/"
 
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(registerFormSchema) });
   const [username, setUsername] = useState("");

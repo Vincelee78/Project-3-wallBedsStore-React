@@ -13,7 +13,7 @@ import axios from "axios";
 
 export default function WallBedDetails(props) {
 
-    const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
+    const url = "https://wallbeds-project3.herokuapp.com/api/"
 
     const { productId } = useParams();
     const [product, setProduct] = useState({});

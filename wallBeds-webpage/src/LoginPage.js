@@ -1,11 +1,10 @@
 import axios from "axios";
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Headers from "./HeaderLoginForm";
 import { loginFormSchema } from "./FormValidator";
 import { toast } from "react-toastify";
-import UserContext from "./UserContext";
 import { useHistory } from "react-router";
 
 
@@ -13,7 +12,7 @@ import { useHistory } from "react-router";
 
 export default function LoginPage(props) {
 
-  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
+  const url = "https://wallbeds-project3.herokuapp.com/api/"
 
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(loginFormSchema) });
   const [email, setEmail] = useState("");
@@ -22,7 +21,7 @@ export default function LoginPage(props) {
   const [refreshTokenNeeded, setrefreshToken] = useState("");
   const setLoginUser = props.setLoginUser
   // let context = useContext(UserContext);
-  // const { login } = useContext(UserContext);
+
   const redirect = useHistory();
 
 
@@ -32,12 +31,14 @@ export default function LoginPage(props) {
       email: formData.email,
       password: formData.password
     });
+    console.log(response.data)
     if (response.data.accessToken) {
       localStorage.setItem('accessToken', response.data.accessToken);
       localStorage.setItem('refreshToken', response.data.refreshToken);
-
-      // console.log(token, refreshTokenNeeded, 'ab')
+      
       setLoginUser();
+      // console.log(token, refreshTokenNeeded, 'ab')
+      
       toast.success(`Login successful, ${email}`, {
         autoClose: 3000,
         toastId: "login-success"

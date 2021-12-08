@@ -12,7 +12,7 @@ import axios from "axios";
 
 export default function WallBedListing() {
 
-  const url = "https://6000-azure-whitefish-4d0hnk4z.ws-us21.gitpod.io/api/"
+  const url = "https://wallbeds-project3.herokuapp.com/api/"
 
   const [data, setData] = useState([]);
   const [search, setSearch] = useState([]);
@@ -133,11 +133,11 @@ export default function WallBedListing() {
         </form>
 
       </div>
-      <div class="col-sm-10">
+      <div class="col-sm-10 ">
         <h3 class="ps-4" style={{ 'font-family': 'Stencil Std' }}>Wall Beds</h3>
         <img className='w-100' src="https://www.mspgreenville.com/wp-content/uploads/2018/07/F61A4157-1500x630.jpg" style={{ "height": "450px" }} />
 
-        <div className=" wallBedCard d-flex justify-content-evenly mt-5">
+        <div className=" wallBedCard d-flex justify-content-evenly flex-wrap mt-5 align-content-around ">
           {data.map((b) => {
             
               return <div class="card " key={b._id}>
