@@ -53,17 +53,43 @@ This project is deployed on Netlify. The website can be accessed at the followin
 
 https://www
 
-The backend express.js uses tailwindcss, bootstrap and css. The react.js frontend uses bootstrap and css. The tailwindcss is complied using the inline css feature under the <style> tag in the backend express.js.
+The backend express.js uses tailwindcss, bootstrap and css. The react.js frontend uses bootstrap and css. The tailwindcss is complied using the inline css feature under the <style> tag in the base.hbs of the backend express.js.
  
 
-## (i) Known Bugs
-- When clicking on the radio button to filter the criteria in all cases, if there are more than 1 case result, the radio button will not be checked on the first click. The results will be filtered on the first click though.
-- If this happens, clicking on the radio button again will check it.
+## 3.Website Features and Navigation
+ The website is free to browse for everyone, however user accounts need to be created to access cart and do checkout. The features of this website are listed below:
+ 
+ * Product Listing, searching, sorting, filtering and browsing.
+ The website supports searching, sorting, filtering and browsing products. The products are listed in a card graphical view. It can be filtered by their different category options, maximum and minimum cost, name, etc.
+ 
+ *Cart, Checkout, Order Details
+ A logged in user can add products to cart, checkout and view their order details.
 
-### 3. Future Features To Implement
-- A feature for users to attempt a quiz and submit their answers.
+ *Directions
+ There is directions page on the website. The user can locate the location of the company's showroom on the marker in the map and the nearest mrt station to our showroom.
+ 
+ *About
+ There is an about page where it will provide background information to the user about space-saving furniture and our company.
+ 
+### 3(i)Navigation
+The following tree shows a general direction in which one might navigate through the website:
+ 
+├── Home Page
+│   ├── Directions
+├── Login
+│   ├── Logout
+│   └── Register
+├── Main
+│   ├── Product Graphical View
+│   └── Product Detailed  View
+│   └── Cart
+│   └── Stripe Checkout
+├── About Us
+├── User Account
 
-### 4. Technologies Used
+ 
+## 4. Technologies Used
+
 * [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
 <br> This project uses HTML5 to structure the content and to insert buttons and images.
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
