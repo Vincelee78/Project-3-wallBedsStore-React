@@ -15,7 +15,7 @@ Current and future homeowners should consider purchasing space-saving furniture 
 A live website server can be found on the [Netlify server](https://project2-medradiology-vincent.netlify.app/App.js)
 
 ## Index:
-1. Project Design [Link to Header](#(i)project-scope)
+1. [Project Design](#project-scope)
 2. Deployment
 3. Website Features and Navigation
 4. Technologies Used
@@ -24,7 +24,7 @@ A live website server can be found on the [Netlify server](https://project2-medr
 7. Acknowledgements
 
 ### 1.UX/UI 
-#### (i) Project Scope
+## Project Scope
 The project skeleton and structure (wireframes) can be found [here](https://docs.google.com/presentation/d/1r3uRtZ84-57iqgLmMAJV3P0vj6UffkV1/edit?usp=sharing&ouid=100349503230330665538&rtpof=true&sd=true)
 
 The ER diagram for MongoDB can be found [here](https://drive.google.com/file/d/1UAasih-Tu2FG_81jp1HLjaNxV_vnCzOi/view?usp=sharing)
