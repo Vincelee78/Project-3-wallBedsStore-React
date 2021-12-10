@@ -10,43 +10,46 @@ Current and future homeowners should consider purchasing space-saving furniture 
 
 ![Space-Saving Furniture Systems](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639098464/SSFS_home_page_final_ijnxgo.jpg "Space-Saving Furniture Systems")
 
-
 ## Demo: 
 A live website server can be found on the [Netlify server](https://project2-medradiology-vincent.netlify.app/App.js)
 
 ## Index:
-1. [Project Design](#project-scope)
+1. [Project Design](#project-design)
 2. Deployment
 3. Website Features and Navigation
 4. Technologies Used
 5. Design
 6. Testing
 7. Acknowledgements
-
-### 1.UX/UI 
-## Project Scope
-The project skeleton and structure (wireframes) can be found [here](https://docs.google.com/presentation/d/1r3uRtZ84-57iqgLmMAJV3P0vj6UffkV1/edit?usp=sharing&ouid=100349503230330665538&rtpof=true&sd=true)
+ 
+## Project Design
+There are two parts to this project. The front-end of this project is done with React.js and the back-end of this project is done with Node.js and Express.js for which the code can be found [here](https://github.com/Vincelee78/Project-3-Express-mySQL)
 
 The ER diagram for MongoDB can be found [here](https://drive.google.com/file/d/1UAasih-Tu2FG_81jp1HLjaNxV_vnCzOi/view?usp=sharing)
 
-#### (ii) Design
-The bootstrap plugin was used for the react component of the website (with custom tweaking) as it allows for better visual design of buttons and also an easy grid layout.
+### Structure:
+The organization of the site content will be the landing page with the nav bar and site’s logo on the top. The landing page will contain hero image of the wall bed, and clicking on the wall bed will show the different categories and their photos with a search bar, and within the categories are mattress size options with their respective prices and their description.
 
-The landing page of the website comprises of a navbar, a carousel component( A visual representation of the radiology branch in medicine) using vanilla bootstrap and a Navtab using React bootstrap (with custom tweaking). The website has a blue background as blue is typically associated with credibility, trust, knowledge, professionalism, cleanliness, calm and focus. Because all of these qualities are valued in the medical community, blue is the ideal choice for medical related designs. 
+* The shipping rates will be shown when the user selects the mattress size of the wall bed and will be calculated according to the mattress size. Ships locally.
+*	Refund is allowed when the furniture arrives in a damaged condition. User has 3 days to file a claim after they receive the bed and provide photo evidence under contact us page.
+*	The database will store the previous items they have purchased and will be shown in their user account.
+*	The delivery information and the order status will be shown on the user account
 
-The tabs in the Navbar have large fonts and are highlighted in a darker colour when it is being hovered over for easy reading.
+### (i)Skeleton:
+### Layout:
 
-The colour palette consist of a blue add button as blue is universally associated with the medical field. The edit button is green as it is visually pleasing. The delete button is red in colour which indicates danger and caution in which deleting a case is permanent and it will removed permanently.
+*	The user login and register is at the top right of the screen for easy reference.
+*	Checking out button will be in the shopping cart. Total will be shown in the shopping cart, including shipping.
+*	Search function will be in the landing page of the site with some background information of the wall beds.
+*	In the navigation bar at the top, will be Home, Why choose us, Products, Contact us.
+*	The logo is at the left of the navigation bar at the top.
 
-The font colours are bright if they are against a dark background and dark if they are against a light background for easier reading.
-
-The radiologist ID links are highlighted blue as it directs attention to the user to notice it.
-
-The layout of the webpage is not overly complex and easy to use. Custom markers such as the heart ratings were created to allow the user to favourite a case or report and to enhance the visual experience of users.
-
-Font size is relatively large and easy to read. 
-
-For a better user experience for mobile devices, I repositioned the tabs so it fills up the whole width of the mobile device so that the radiograph image will occupy the whole width of the screen for easier visualisation of the image.
+### (ii)Surface:
+### Colours:
+White background with black fonts in the landing page for better contrast and easy visualization. Usage of [coolors](https://coolors.co/) to select colour scheme.
+Images used will not be too bright colours as I am using a white background.
+Usage of traditional fonts such as Arial. No more than 2 different fonts.
+Adequate white spaces between characters and lines in description for easy reading.
 
 
 ### 2. Features/ Use Cases
