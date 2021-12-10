@@ -12,12 +12,12 @@ Current and future homeowners should consider purchasing space-saving furniture 
 
 ## Index:
 1. [Project Design](#project-design)
-2. Deployment
-3. Website Features and Navigation
-4. Technologies Used
-5. Design
-6. Testing
-7. Acknowledgements
+2. [Deployment](#deployment)
+3. [Website Features and Navigation](#website-features-and-navigation)
+4. [Technologies Used](#technologies-used)
+5. [Design](#design)
+6. [Testing](#testing)
+7. [Acknowledgements](#credits-and-acknowledgement)
  
 ## 1. Project Design
 There are two parts to this project. The front-end of this project is done with React.js and the back-end of this project is done with Node.js, mySQL database and Express.js for which the code can be found [here.](https://github.com/Vincelee78/Project-3-Express-mySQL)
