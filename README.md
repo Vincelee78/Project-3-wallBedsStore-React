@@ -161,7 +161,7 @@ Although the website makes prolific use of tables in the backend , most componen
 - If this happens, clicking on the radio button again will check it.
 
 ### 3. Future Features To Implement
-- A feature for users to attempt a quiz and submit their answers.
+- A embedded video feature for users to watch how the wall bed is opened in its closd position.
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
 - Test results were done on 3 mobile devices
 1. [Iphone SE 2020](https://drive.google.com/file/d/1B06e0L3hfUrrEeajgfzpnTTRQsVkN9NI/view?usp=sharing)
