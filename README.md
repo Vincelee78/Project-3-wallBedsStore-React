@@ -175,5 +175,5 @@ Although the website makes prolific use of tables in the backend , most componen
  ### <a name="g">7. Credits and Acknowledgement</a>
 * Credits to https://www.qoo10.sg/shop/spacesaving for the company's vision and wall beds data.
 * Credits to https://shop.smartbeds.it for their wall bed images and their descriptions.
-* Credits to https://www.amazingspace.sg for their what is space saving furniture and their wall bed image.
+* Credits to https://www.amazingspace.sg for their page on 'What is space saving furniture' and their wall bed image.
 * All code snippets and templates used in this project are attributed in the source code where applicable.
