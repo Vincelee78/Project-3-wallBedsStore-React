@@ -11,15 +11,15 @@ Current and future homeowners should consider purchasing space-saving furniture 
 ![Space-Saving Furniture Systems](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639098464/SSFS_home_page_final_ijnxgo.jpg "Space-Saving Furniture Systems")
 
 ## Index:
-1. [Project Design](#abcde)
-2. [Deployment](#deployment)
-3. [Website Features and Navigation](#website-features-and-navigation)
-4. [Technologies Used](#technologies-used)
-5. [Design](#design)
-6. [Testing](#testing)
-7. [Acknowledgements](#credits-and-acknowledgement)
+1. [Project Design](#a)
+2. [Deployment](#b)
+3. [Website Features and Navigation](#c)
+4. [Technologies Used](#d)
+5. [Design](#e)
+6. [Testing](#f)
+7. [Acknowledgements](#g)
  
-## <a name="abcde">1. Project Design </a>
+## <a name="a">1. Project Design </a>
 There are two parts to this project. The front-end of this project is done with React.js and the back-end of this project is done with Node.js, mySQL database and Express.js for which the code can be found [here.](https://github.com/Vincelee78/Project-3-Express-mySQL)
 
 The schema diagram for mySQL database can be found [here.](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639099995/mySQL_relationship_final_tq5zw7.jpg)
@@ -39,7 +39,7 @@ Non-functional requirements:
 •	Selling wall beds are legal as all the furniture sold is safe to use and complies with the Government regulations.
 
 
-## 2. Deployment
+## <a name="b">2. Deployment</a>
 This project is deployed on Netlify. The website can be accessed at the following link:
 
 https://www
@@ -47,7 +47,7 @@ https://www
 The backend express.js uses tailwindcss, bootstrap and css. The react.js frontend uses bootstrap and css. The tailwindcss is complied using the inline css feature under the <style> tag in the base.hbs of the backend express.js.
  
 
-## 3. Website Features and Navigation
+ ## <a name="c">3. Website Features and Navigation</a>
  The website is free to browse for everyone, however user accounts need to be created to access cart and do checkout. The features of this website are listed below:
  
  * Product Listing, searching, sorting, filtering and browsing.
@@ -68,7 +68,7 @@ The following tree shows a general direction in which one might navigate through
  ![Image](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639123199/New_save_final_wuye4v.jpg)
  
  
-## 4. Technologies Used
+ ## <a name="d">4. Technologies Used</a>
 
  * [React 17.0.2](https://reactjs.org/)
 <br> This project uses React as a frontend application for building user interfaces.
@@ -103,7 +103,7 @@ The following tree shows a general direction in which one might navigate through
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 <br> This project uses CSS to add visual colors, adjust the size of the features and also positioning and animation of the features, and ensure it is mobile responsive.
 
-## 5. Design
+ ## <a name="e">5. Design</a>
 5.1 UI/UX
 The UI/UX design for this project was catered for the ease of use for the user. The design process for the website are as follows:
 
@@ -136,7 +136,7 @@ Adequate white spaces between characters and lines in description for easy readi
 Although the website makes prolific use of tables in the backend , most components except the tables are mobile-friendly. The frontend react features are mobile responsive. The backend express.js uses tailwindcss to create a responsive design. The default tailwind font family can be found in the documentation [here](https://tailwindcss.com/docs/font-family)
  
  
-## 6.Testing
+ ## <a name="f">6.Testing</a>
  Based on the user's needs and objectives, these are the guidelines for the features that were implemented.
 | User Stories| Features|
 | ------ | ------ |
@@ -172,7 +172,7 @@ Although the website makes prolific use of tables in the backend , most componen
 6. [Oppo R17 pro](https://drive.google.com/file/d/1tOywxp3MgakxsQFZ-tI2SM-UOcrHR4CN/view?usp=sharing)
 - The web application is mobile responsive.
 
-### 7. Credits and Acknowledgement
+ ### <a name="g">7. Credits and Acknowledgement</a>
 * Credits to https://www.qoo10.sg/shop/spacesaving for the company's vision and wall beds data.
 * Credits to https://shop.smartbeds.it for their wall bed images and their descriptions.
 * Credits to https://www.amazingspace.sg for their what is space saving furniture and their wall bed image.
