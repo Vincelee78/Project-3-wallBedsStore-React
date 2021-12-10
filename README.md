@@ -65,7 +65,7 @@ The backend express.js uses tailwindcss, bootstrap and css. The react.js fronten
 ### 3.1 Navigation
 The following tree shows a general direction in which one might navigate through the website:
  
- [Image](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639123199/New_save_final_wuye4v.jpg)
+ ![Image](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639123199/New_save_final_wuye4v.jpg)
  
  
 ## 4. Technologies Used
