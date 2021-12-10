@@ -11,17 +11,17 @@ Current and future homeowners should consider purchasing space-saving furniture 
 ![Space-Saving Furniture Systems](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639098464/SSFS_home_page_final_ijnxgo.jpg "Space-Saving Furniture Systems")
 
 
-
 ## Demo: 
 A live website server can be found on the [Netlify server](https://project2-medradiology-vincent.netlify.app/App.js)
 
 ## Index:
-1. UX/UI
-2. Features/ Use cases
-3. Future features to implement
-4. Technologies used
-5. Testing
-6. Credits and Acknowledgement
+1. Project Design [Link to Header](##### (i) Project Scope)
+2. Deployment
+3. Website Features and Navigation
+4. Technologies Used
+5. Design
+6. Testing
+7. Acknowledgements
 
 ### 1.UX/UI 
 #### (i) Project Scope
