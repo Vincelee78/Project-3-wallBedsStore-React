@@ -32,7 +32,7 @@ The organization of the site content will contain the landing page with the navi
 *	The order status will also be shown in the user account.
 
 ### (i) Skeleton:
-### Layout:
+#### Layout:
 *	The user login, logout and register is at the top right of the screen for easy reference.
 *	Checking out button will be done in the shopping cart. It is located on the top right of the navigation bar where it can be seen easily as a blue shopping cart icon. Total and subtotal price will be shown in the shopping cart, including shipping.
 *	Search function will be in the catalogue page of the site with the image and name of the wall beds.
@@ -40,7 +40,7 @@ The organization of the site content will contain the landing page with the navi
 *	The company logo is at the left of the navigation bar at the top.
 
 ### (ii) Surface:
-### Colours:
+#### Colours:
 White background with black and dark brown fonts in the landing page for better contrast and easy visualization. 
 Usage of [coolors](https://coolors.co/) to select my colour scheme.
 Images used will not be too bright colours as I am using a white background.
@@ -71,7 +71,7 @@ The backend express.js uses tailwindcss, bootstrap and css. The react.js fronten
  * About
  There is an about page where it will provide background information to the user about space-saving furniture and our company.
  
-### 3(i) Navigation
+#### 3(i) Navigation
 The following tree shows a general direction in which one might navigate through the website:
  
 ├── Home Page
