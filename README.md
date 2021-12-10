@@ -15,7 +15,7 @@ Current and future homeowners should consider purchasing space-saving furniture 
 A live website server can be found on the [Netlify server](https://project2-medradiology-vincent.netlify.app/App.js)
 
 ## Index:
-1. Project Design [Link to Header](##### (i) Project Scope)
+1. Project Design [Link to Header](#(i)project-scope)
 2. Deployment
 3. Website Features and Navigation
 4. Technologies Used
