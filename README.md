@@ -161,7 +161,7 @@ Although the website makes prolific use of tables in the backend , most componen
 - If this happens, clicking on the radio button again will check it.
 
 ### 3. Future Features To Implement
-- A embedded video feature for users to watch how the wall bed is opened in its closd position.
+- A embedded video feature for users to watch how the wall bed is opened in its closed position.
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
 - Test results were done on 3 mobile devices
 1. [Iphone SE 2020](https://drive.google.com/file/d/1B06e0L3hfUrrEeajgfzpnTTRQsVkN9NI/view?usp=sharing)
@@ -173,17 +173,7 @@ Although the website makes prolific use of tables in the backend , most componen
 - The web application is mobile responsive.
 
 ### 6. Credits and Acknowledgement
-- Credits to https://radiopaedia.org/encyclopaedia/cases/all for the radiological images and radiology data.
-- Credits to https://www.maxester.com/blog/2019/02/27/simple-5-star-rating-with-csshover/ for the template code for the heart ratings(with my own custom tweaking).
-- Credits to 
-1. [Elsevier](https://www.elsevier.com/__data/assets/image/0012/1022133/Radiology-at-a-Crossroads_Five-converging-trends-reshaping-the-need-for-diagnostic-decision-support.JPG)
-2. https://previews.123rf.com/images/fokaspokas/fokaspokas1809/fokaspokas180900164/108564673-hamburger-menu-web-icon-white-icon-with-shadow-on-transparent-background.jpg
-3. https://thumbnail.imgbin.com/21/9/7/imgbin-chevron-corporation-computer-icons-paper-down-arrow-zsjsUFtqHLkphdGeCb1rYSBxa_t.jpg
-4. https://filmdaily.co/wp-content/uploads/2021/06/rad-01.jpg
-5. https://i0.wp.com/swdic.com/wp-content/uploads/2020/08/Brain-MRI-min.jpg?fit=1973%2C963&ssl=1
-6. https://image.shutterstock.com/image-photo/brain-ct-scan-head-computed-260nw-1390517843.jpg
-7. https://www.philips.com/c-dam/b2bhc/master/Specialties/radiology/ivp-page/media-asset-IVP-radiology-workflows-700.jpg
-8. https://d1hj7uubji8r0c.cloudfront.net/sites/radiology/files/styles/max_width_full/public/images/2020-02/pcir_cover_photos_hi_res_resize.jpg?itok=VHDBxu-X
-9. https://www.carestream.com/blog/wp-content/uploads/2020/01/future_of_diag_imaging_fb_1_2020_en.jpg
-10. https://flyclipart.com/radiology-clipart-radiology-clipart-211360
-for their images, icons and logos
+* Credits to https://www.qoo10.sg/shop/spacesaving for the company's vision and wall beds data.
+* Credits to https://shop.smartbeds.it for their wall bed images and their descriptions.
+* Credits to https://www.amazingspace.sg for their what is space saving furniture and their wall bed image.
+* All code snippets and templates used in this project are attributed in the source code where applicable.
