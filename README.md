@@ -62,16 +62,16 @@ The backend express.js uses tailwindcss, bootstrap and css. The react.js fronten
  * Product Listing, searching, sorting, filtering and browsing.
  The website supports searching, sorting, filtering and browsing products. The products are listed in a card graphical view. It can be filtered by their different category options, maximum and minimum cost, name, etc.
  
- *Cart, Checkout, Order Details
+ * Cart, Checkout, Order Details
  A logged in user can add products to cart, checkout and view their order details.
 
- *Directions
+ * Directions
  There is directions page on the website. The user can locate the location of the company's showroom on the marker in the map and the nearest mrt station to our showroom.
  
- *About
+ * About
  There is an about page where it will provide background information to the user about space-saving furniture and our company.
  
-### 3(i)Navigation
+### 3(i) Navigation
 The following tree shows a general direction in which one might navigate through the website:
  
 ├── Home Page
