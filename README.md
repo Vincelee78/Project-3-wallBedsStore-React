@@ -10,9 +10,6 @@ Current and future homeowners should consider purchasing space-saving furniture 
 
 ![Space-Saving Furniture Systems](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639098464/SSFS_home_page_final_ijnxgo.jpg "Space-Saving Furniture Systems")
 
-## Demo: 
-A live website server can be found on the [Netlify server](https://project2-medradiology-vincent.netlify.app/App.js)
-
 ## Index:
 1. [Project Design](#project-design)
 2. Deployment
@@ -23,56 +20,43 @@ A live website server can be found on the [Netlify server](https://project2-medr
 7. Acknowledgements
  
 ## Project Design
-There are two parts to this project. The front-end of this project is done with React.js and the back-end of this project is done with Node.js and Express.js for which the code can be found [here](https://github.com/Vincelee78/Project-3-Express-mySQL)
+There are two parts to this project. The front-end of this project is done with React.js and the back-end of this project is done with Node.js, mySQL database and Express.js for which the code can be found [here.](https://github.com/Vincelee78/Project-3-Express-mySQL)
 
-The ER diagram for MongoDB can be found [here](https://drive.google.com/file/d/1UAasih-Tu2FG_81jp1HLjaNxV_vnCzOi/view?usp=sharing)
+The schema diagram for mySQL database can be found [here.](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639099995/mySQL_relationship_final_tq5zw7.jpg)
 
 ### Structure:
-The organization of the site content will be the landing page with the nav bar and site’s logo on the top. The landing page will contain hero image of the wall bed, and clicking on the wall bed will show the different categories and their photos with a search bar, and within the categories are mattress size options with their respective prices and their description.
+The organization of the site content will contain the landing page with the navigation bar and site’s logo on the top. The landing page will show the hero image of the open and closed image of a featured wall bed, and clicking on 'shop all beds' will bring the user to another page where it show the different wall bed categories and their respective images. In this page, filtering the wall beds is possible using a search feature. Clicking on the wall beds' categories will show their respective options, their description and the add to cart feature.
+* The total unit price and subtotal will be shown when the user selects the wall bed he/she wants to purchase. This website caters to the local residents in Singapore so there are no additional shipping costs as it is included in the unit cost price.
+*	Refund is allowed when the furniture arrives in a damaged condition. User has 3 days to file a claim after they receive the bed and provide photo evidence under at the bottom of the landing page where our contact details, location and email can be found.
+*	The database will store the user's shipping and order details and will be shown in their user account in the front end.
+*	The order status will also be shown in the user account.
 
-* The shipping rates will be shown when the user selects the mattress size of the wall bed and will be calculated according to the mattress size. Ships locally.
-*	Refund is allowed when the furniture arrives in a damaged condition. User has 3 days to file a claim after they receive the bed and provide photo evidence under contact us page.
-*	The database will store the previous items they have purchased and will be shown in their user account.
-*	The delivery information and the order status will be shown on the user account
-
-### (i)Skeleton:
+### (i) Skeleton:
 ### Layout:
+*	The user login, logout and register is at the top right of the screen for easy reference.
+*	Checking out button will be done in the shopping cart. It is located on the top right of the navigation bar where it can be seen easily as a blue shopping cart icon. Total and subtotal price will be shown in the shopping cart, including shipping.
+*	Search function will be in the catalogue page of the site with the image and name of the wall beds.
+*	In the navigation bar at the top, will be home, catalogue, about and account pages. Within the 'home' option of the navigation bar, it will have a dropdown bar consisting of the 'home page' and 'directions' option. Clicking on the 'directions' option will open a map showing the marker with the location of our showroom and an marker of the nearest MRT station to our showroom.
+*	The company logo is at the left of the navigation bar at the top.
 
-*	The user login and register is at the top right of the screen for easy reference.
-*	Checking out button will be in the shopping cart. Total will be shown in the shopping cart, including shipping.
-*	Search function will be in the landing page of the site with some background information of the wall beds.
-*	In the navigation bar at the top, will be Home, Why choose us, Products, Contact us.
-*	The logo is at the left of the navigation bar at the top.
-
-### (ii)Surface:
+### (ii) Surface:
 ### Colours:
-White background with black fonts in the landing page for better contrast and easy visualization. Usage of [coolors](https://coolors.co/) to select colour scheme.
+White background with black and dark brown fonts in the landing page for better contrast and easy visualization. 
+Usage of [coolors](https://coolors.co/) to select my colour scheme.
 Images used will not be too bright colours as I am using a white background.
-Usage of traditional fonts such as Arial. No more than 2 different fonts.
+Usage of traditional fonts such as 'Stencil Std, Fantasy' and 'Times New Roman, Times, serif'.
 Adequate white spaces between characters and lines in description for easy reading.
 
 
-### 2. Features/ Use Cases
-Based on the user's needs and objectives, these are the guidelines for the features that were implemented.
-| User Stories| Features|
-| ------ | ------ |
-| User wants to add a new radiology case| When in the landing page, user should scroll down and the featured case will be below the Carousel feature. In the nav tab under the featured case, user can click on the 'Add Case' in the 3rd tab on top of the Navtab to add a new case. User has to fill in all fields before he/she can add a new case (form validation). |
-| User wants to add a new report| On the the nav tab under the featured case, user can click on the 'Create New Report' in the 2nd tab of the nav tab. User has to fill in all fields before he/she can add a new report (form validation). |
-| User (radiologist) wants to add his own details | On the the nav tab under the featured case, user (radiologist) can click on the 'Add Radiologist' in the 4th tab of the nav tab. User has to fill in all fields before he/she can add his own details (form validation). |
-| User wants to search for cases based on keywords| On the the nav tab under the featured case, user can click on the 'Search Cases' in the 5th tab of the base nav. User can enter keywords and the database will search in the 'Signs and Symptoms' section or the 'Case Discussion' section or 'Modality' section in each case and display all the case results based on the keywords. |
-| User wants to edit the featured case| User can scroll down to the bottom of the featured case and click on the 'edit case' green button. All the fields will already be filled up based on the original case fields. User can click in any of the fields to edit the case. The radiologist ID cannot be edited as the case belongs to the radiologist who uploaded it. The published date (revised) will be automatically set to the current date. |
-| User wants to know about the aim and objectives of the website | User can click on the About section in the Navbar on the top right of the screen in the landing page. |
-| User wants to see all reports that have been uploaded | User can click on the reports section in the Navbar on the top right of the screen in the landing page. |
-| User wants to delete reports that have been uploaded | User can click on the red delete button on the bottom of each report in the report section. |
-| User wants to see all cases that have been uploaded | User can click on the All Cases section in the Navbar on the top right of the screen in the landing page. |
-| User wants to filter cases based on criteria | User can click on 'Patients younger than 21' radio button or any of the other 3 radio buttons in the top of the navtab in the all cases page to filter the cases accordingly to the criteria. |
-| User wants to edit the cases that have been uploaded | User can click on the green edit button on the left of each case in the all cases section. |
-| User wants to delete the cases that have been uploaded | User can click on the red delete button on the left of each case in the all cases section. |
-| User wants to check the radiologist details of each case | User can click on the blue coloured highlighted font under the radiologist ID in each case in the all cases section. A modal box will appear displaying the radiologist details of the current case. |
-| User wants to favourite a case or a report | User can click the red hearts and give cases a rating on the right of each report or featured case. For the all cases section, the hearts rating is on the bottom of the radiological image. |
-| User wants see all the radiologists details | User can click on the Radiologist Information page in the Navbar on the top right of the screen. |
+## 2.Deployment
+This project is deployed on Netlify. The website can be accessed at the following link:
 
-#### (i) Known Bugs
+https://www
+
+The backend express.js uses tailwindcss, bootstrap and css. The react.js frontend uses bootstrap and css. The tailwindcss is complied using the inline css feature under the <style> tag in the backend express.js.
+ 
+
+## (i) Known Bugs
 - When clicking on the radio button to filter the criteria in all cases, if there are more than 1 case result, the radio button will not be checked on the first click. The results will be filtered on the first click though.
 - If this happens, clicking on the radio button again will check it.
 
