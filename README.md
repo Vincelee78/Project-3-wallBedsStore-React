@@ -86,19 +86,19 @@ The following tree shows a general direction in which one might navigate through
 <br> This project uses mySQL to store documents in the collections which the backend user has uploaded in express.js. 
 * [ExpressJS 4.17.1](https://expressjs.com/)
 <br> This project uses ExpressJS in the backend to provide methods to specify what function is called for a particular HTTP verb ( GET , POST , PUT , DELETE) and URL pattern and to retrieve data from mySQL and send them to React or vice versa.
- * [Animate css](https://animate.style/)
+* [Animate css](https://animate.style/)
 <br> A library for creating animations for the fonts sliding in out out in Carousel.
- * [React Hook Form](https://react-hook-form.com/)
+* [React Hook Form](https://react-hook-form.com/)
 <br> A library for building forms with React.js.
- * [React Router dom](https://react-hook-form.com/)
+* [React Router dom](https://react-hook-form.com/)
 <br> A library for routing.
-  * [React-toastify](https://github.com/fkhadra/react-toastify)
+* [React-toastify](https://github.com/fkhadra/react-toastify)
 <br> React components library for displaying toast notifications.
-  * [uuid](https://github.com/uuidjs/uuid)
+* [Uuid](https://github.com/uuidjs/uuid)
 <br> Javascript used in express.js for generating unique identifiers.
-   * [yup](https://github.com/jquense/yup)
+* [Yup](https://github.com/jquense/yup)
 <br> JS library for validating data.
- * [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+* [HTML 5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
 <br> This project uses HTML5 to structure the content and to insert buttons and images.
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 <br> This project uses CSS to add visual colors, adjust the size of the features and also positioning and animation of the features, and ensure it is mobile responsive.
@@ -137,6 +137,31 @@ Although the website makes prolific use of tables in the backend , most componen
  
  
 ## 6.Testing
+ Based on the user's needs and objectives, these are the guidelines for the features that were implemented.
+| User Stories| Features|
+| ------ | ------ |
+ | I navigate over the Home option on the navigation bar and click on the directions option | A map will be shown in the box with a message explaining the location of the company's showroom. Clicking on the top marker of the nearest MRT station will cause a popup to show up 'MountBatten MRT' and  the bottom marker will show 'Space-Saving Furniture Systems' where the showroom of the company is located. |
+ | I click on the catalogue page in the navigation bar| I am directed to the about page where it will explain what is space-saving furniture and the background information of the company.|
+ | I click on the About page in the navigation bar| I am directed to the catalogue page where the images of the products and its respective names are shown. A search filter feature is also shown on the left side of the page.|
+| I log in with my email and password| I am directed to the catalogue page where the images of the products are with an confirmation message 'Login sucessful, (myemail)'). If my entered my email or password wrongly, I would get an error message saying 'login failed!'|
+| I enter search fields 'Cozy' name , maximum cost $2000,  | The products  |
+| I click on the Cozy Wall Bed Desk Single | I am directed to the Cozy Wall Bed Desk Single details page, with Walnut colour and its respective features, single bed, foam mattress, Horizontal bed orientation, Aluminium frame colour etc, |
+| I click on the add to cart-$2000| A success message is shown saying 'Item added to cart'  and I am directed to the shopping cart page with the name, description, its respective fields options, the total unit cost $2000 on the right and the subtotal $2000 on the bottom.|
+| I click catalogue and click on revolving wall bed and add it to cart | I will be directed to the shopping cart with the same success message. The Cozy Wall Bed Desk Single and Revolving Wall Bed will be in the cart with their respective images and options. The subtotal will now be $4500. |
+| I update the quantity of the relolving wall bed to 3 and click on update quantity | A alert popbox will show' Cart Updated!. The total unit price for revolving wall bed is now $7500 and the subtotal is $9500. |
+| I click on remove from cart 'Cozy Wall Bed Desk Single' | A success message showing 'Item removed from cart'. The revolving wall bed will have be left in the cart with  quantity of 3 and subtotal of $7500.|
+| I click on check out with the remaining 3 revolving wall bed in the cart| I am directed to the stripe checkout website where it will show the total cost, $7500, I am paying on the left side with the name of the product, 'Revolving Wall Bed' and quantity 3. |
+|I fill in the fields in the stripe checkout website and click pay| I am redirected to the successful payment page of my website showing, Payment successful! Thank you for ypur order and your order is being processed |
+| I click on the 'account' in the navigation bar | The order items: Relvolving Wall Bed, Quantity 3, Total unit cost $7500 will be shown. The date ordered: 10th December 2021, Order Reference: c8da6950-599c-11ec-910b-c35d93746f41, Order Status: Paid, will be shown|
+| I click on logout | A message showing 'Are you sure you want to log out?' I click on yes and a success message 'Logout successful' is shown, I am redirected to the Login page|
+
+
+#### (i) Known Bugs
+- When clicking on the radio button to filter the criteria in all cases, if there are more than 1 case result, the radio button will not be checked on the first click. The results will be filtered on the first click though.
+- If this happens, clicking on the radio button again will check it.
+
+### 3. Future Features To Implement
+- A feature for users to attempt a quiz and submit their answers.
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
 - Test results were done on 3 mobile devices
 1. [Iphone SE 2020](https://drive.google.com/file/d/1B06e0L3hfUrrEeajgfzpnTTRQsVkN9NI/view?usp=sharing)
