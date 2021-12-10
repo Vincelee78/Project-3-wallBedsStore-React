@@ -31,7 +31,7 @@ The organization of the site content will contain the landing page with the navi
 *	The database will store the user's shipping and order details and will be shown in their user account in the front end.
 *	The order status will also be shown in the user account.
 
-### (i) Skeleton:
+### Skeleton:
 #### Layout:
 *	The user login, logout and register is at the top right of the screen for easy reference.
 *	Checking out button will be done in the shopping cart. It is located on the top right of the navigation bar where it can be seen easily as a blue shopping cart icon. Total and subtotal price will be shown in the shopping cart, including shipping.
@@ -39,7 +39,7 @@ The organization of the site content will contain the landing page with the navi
 *	In the navigation bar at the top, will be home, catalogue, about and account pages. Within the 'home' option of the navigation bar, it will have a dropdown bar consisting of the 'home page' and 'directions' option. Clicking on the 'directions' option will open a map showing the marker with the location of our showroom and an marker of the nearest MRT station to our showroom.
 *	The company logo is at the left of the navigation bar at the top.
 
-### (ii) Surface:
+### Surface:
 #### Colours:
 White background with black and dark brown fonts in the landing page for better contrast and easy visualization. 
 Usage of [coolors](https://coolors.co/) to select my colour scheme.
@@ -71,7 +71,7 @@ The backend express.js uses tailwindcss, bootstrap and css. The react.js fronten
  * About
  There is an about page where it will provide background information to the user about space-saving furniture and our company.
  
-#### 3(i) Navigation
+### 3.1 Navigation
 The following tree shows a general direction in which one might navigate through the website:
  
 ├── Home Page
