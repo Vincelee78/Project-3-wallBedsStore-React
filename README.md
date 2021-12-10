@@ -19,7 +19,7 @@ Current and future homeowners should consider purchasing space-saving furniture 
 6. Testing
 7. Acknowledgements
  
-## Project Design
+## 1. Project Design
 There are two parts to this project. The front-end of this project is done with React.js and the back-end of this project is done with Node.js, mySQL database and Express.js for which the code can be found [here.](https://github.com/Vincelee78/Project-3-Express-mySQL)
 
 The schema diagram for mySQL database can be found [here.](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639099995/mySQL_relationship_final_tq5zw7.jpg)
@@ -48,7 +48,7 @@ Usage of traditional fonts such as 'Stencil Std, Fantasy' and 'Times New Roman, 
 Adequate white spaces between characters and lines in description for easy reading.
 
 
-## 2.Deployment
+## 2. Deployment
 This project is deployed on Netlify. The website can be accessed at the following link:
 
 https://www
@@ -56,7 +56,7 @@ https://www
 The backend express.js uses tailwindcss, bootstrap and css. The react.js frontend uses bootstrap and css. The tailwindcss is complied using the inline css feature under the <style> tag in the base.hbs of the backend express.js.
  
 
-## 3.Website Features and Navigation
+## 3. Website Features and Navigation
  The website is free to browse for everyone, however user accounts need to be created to access cart and do checkout. The features of this website are listed below:
  
  * Product Listing, searching, sorting, filtering and browsing.
