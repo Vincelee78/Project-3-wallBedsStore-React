@@ -27,16 +27,16 @@ The schema diagram for mySQL database can be found [here.](https://res.cloudinar
 
 ### Functional requirements:
 #### Features: 
-There are different categories of wall beds the user can click on and check the description, the photos, the dimensions of the wall bed according to the mattress size, the materials the bed is made from and their prices.
-There is an add to cart option for users to purchase the wall bed they want. They also can pay by credit card to checkout their cart items.
-Content: Each category of wall bed has a brief description and their key features, the delivery information and the price for each wall bed according to mattress size.
-Non-functional requirements:
-•	Page should load fast for users to easy navigate between the different wall beds
-•	It should look good visually on most mobile sizes as mobile users can purchase the beds using their mobiles
-•	Site’s language is in English as most people in Singapore use English as their mode of communication
-•	We do not store passwords and credit card numbers as a privacy requirement
-•	We have access Tokens, and verified signatures and other security protection to protect sensitive data and also against hacking.
-•	Selling wall beds are legal as all the furniture sold is safe to use and complies with the Government regulations.
+* There are different categories of wall beds the user can click on to check the description, photos, sizes, orientation, frame colours and wood colours of the wall bed and their prices.
+* There is an add to cart option for users to purchase the wall bed they want. They can pay by credit card to checkout their cart items.
+* Content: Each category of wall bed has a brief description and their key features such as frame colours or sizes, etc and their respective prices for each wall bed.
+#### Non-functional requirements:
+* Page should load fast for users to easy navigate between the different wall beds
+* It should look good visually on most mobile sizes as mobile users can purchase the beds using their mobiles
+* Site’s language is in English as most people in Singapore use English as their mode of communication
+* We do not store passwords and credit card numbers as a privacy requirement
+* We have access Tokens, and verified signatures and other security protection to protect sensitive data and also against hacking.
+* Selling wall beds are legal as all the furniture sold is safe to use and complies with the Government regulations.
 
 
 ## <a name="b">2. Deployment</a>
