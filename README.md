@@ -1,14 +1,16 @@
-## TCG-Project-3-React-Space Saving Furniture Systems (template from Project 2)
-To create an ...
-
-## Summary/User objectives:
-Provide medical resources for millions of individuals from around the world and make it available for free, particularly those from low and middle-income regions who do not have access to traditional pay-wall resources.
+## TCG-Project-3-React-Space Saving Furniture Systems
+The name of this project is called React-Space Saving Furniture Systems and is an eCommerce platform for selling space-saving wall beds. The project is aimed at home owners, backbacker hotels, student domoritories, office owners who have a relatively small place or users who want more space in their rooms. This will solve these consumer needs by also freeing up more space in their bedrooms or study rooms so that they have place for more items in their rooms or to allow for better cleaning and maintenance of their rooms.
 
 ## My goal/motivation for creating this project:
-By sharing our collective experience through interesting patient cases, we can make a real difference in how people are imaged and diagnosed. It will allow accessibility of radiology information to medical professionals in developing countries.
+I have observed how small and compact flats are here.  Built-to-order (BTO) flats are getting more compact with each project. Thus, the need for effective usage of space is in demand. People are finding ways to minimize space usage when in reality, the solution is to maximize what you have. How? By introducing space saving furniture to users to purchase.
 
 ## Context: 
-I realised many medical professsionals in low and middle-income regions who do not have access to traditional pay-wall resources have limited exposure to medical resources. By creating this open-edit educational radiology resource, it will allow accessibility of radiology information to medical professionals from all around the world, particularly to these regions.
+Space-saving furniture is designed to make full use of limited spaces by incorporating folding mechanisms to keep furniture such as bed in stowed position when not in use. The space saving beds can also be designed to add on other furniture function such as desk or sitting sofa to form a multi-functional furniture system. The site provides users the option to purchase these beds as well as dual and multi-functional wall beds with desk or sofa, bunk beds, and many more. This concept allows users to maximize the space they already have without the worry of purchasing separate bulky furniture, shelves, or tables and taking up a lot of space.
+Current and future homeowners should consider purchasing space-saving furniture as a cost-effective method and an efficient way to maximize their living space.
+
+![Space-Saving Furniture Systems](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639098464/SSFS_home_page_final_ijnxgo.jpg "Space-Saving Furniture Systems")
+
+
 
 ## Demo: 
 A live website server can be found on the [Netlify server](https://project2-medradiology-vincent.netlify.app/App.js)
