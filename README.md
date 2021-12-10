@@ -160,7 +160,7 @@ Although the website makes prolific use of tables in the backend , most componen
 - When clicking on the radio button to filter the criteria in all cases, if there are more than 1 case result, the radio button will not be checked on the first click. The results will be filtered on the first click though.
 - If this happens, clicking on the radio button again will check it.
 
-### 3. Future Features To Implement
+### 6.1 Future Features To Implement
 - A embedded video feature for users to watch how the wall bed is opened in its closed position.
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
 - Test results were done on 3 mobile devices
@@ -172,7 +172,7 @@ Although the website makes prolific use of tables in the backend , most componen
 6. [Oppo R17 pro](https://drive.google.com/file/d/1tOywxp3MgakxsQFZ-tI2SM-UOcrHR4CN/view?usp=sharing)
 - The web application is mobile responsive.
 
-### 6. Credits and Acknowledgement
+### 7. Credits and Acknowledgement
 * Credits to https://www.qoo10.sg/shop/spacesaving for the company's vision and wall beds data.
 * Credits to https://shop.smartbeds.it for their wall bed images and their descriptions.
 * Credits to https://www.amazingspace.sg for their what is space saving furniture and their wall bed image.
