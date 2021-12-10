@@ -40,7 +40,7 @@ Non-functional requirements:
 
 
 ## <a name="b">2. Deployment</a>
-This project is deployed on Netlify. The front end website can be accessed at the following link:
+This project is deployed on Netlify. The front end(react.js) website for consumers can be accessed at the following link:
 
 https://www
 
