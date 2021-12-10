@@ -11,7 +11,7 @@ Current and future homeowners should consider purchasing space-saving furniture 
 ![Space-Saving Furniture Systems](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639098464/SSFS_home_page_final_ijnxgo.jpg "Space-Saving Furniture Systems")
 
 ## Index:
-1. [Project Design](#one-project-design)
+1. [Project Design](#1.-project-design)
 2. [Deployment](#deployment)
 3. [Website Features and Navigation](#website-features-and-navigation)
 4. [Technologies Used](#technologies-used)
