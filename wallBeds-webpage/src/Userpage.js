@@ -44,7 +44,7 @@ export default function UserPage() {
 
         <React.Fragment>
 
-            <div class=" rounded-lg shadow-lg w-full flex flex-row flex-wrap p-3 antialiased m-4" style={{
+            <div class=" rounded-lg shadow-lg w-full flex flex-row flex-wrap p-3 antialiased m-4 accountSection" style={{
                 'background-image': 'url("https://images.unsplash.com/photo-1578836537282-3171d77f8632?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")',
                 'background-repeat': 'no-repeat',
                 'background-size': 'cover',
@@ -57,45 +57,45 @@ export default function UserPage() {
                 'background-color': 'grey'
             }}>
 
-                <div class='d-flex justify-content-center mb-3'>
+                <div class='d-flex justify-content-center mb-3 '>
                     <p class="text-white" style={{ 'font-size': '35px' }}>Order Details</p>
                 </div>
                 <div class="d-flex">
-                    <img class="rounded-lg shadow-lg antialiased "
+                    <img class="d-none d-lg-block"
                         src="https://st2.depositphotos.com/1502311/12020/v/380/depositphotos_120206860-stock-illustration-profile-picture-vector.jpg"
                         style={{ 'width': '25%', 'height': '50%' }} />
 
-                    <div class="md:w-2/3 w-full px-3 flex flex-row ">
-                        <div class="w-full text-right">
-                            <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
-                                <h4 style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items: &nbsp;</h4><ul style={{ 'color': 'white', 'font-size': '30px' }}>{data.map(a => (a.orderItem).map(b =>
-                                    <li class="badge rounded-pill bg-secondary ">{(b.wallBed.name)}, &nbsp;Quantity: {b.quantity}, &nbsp;Total unit cost: ${(b.cost / 100 * (b.quantity))}</li>
+                    <div class="w-full p-0 px-lg-3">
+                        <div class="w-full text-start">
+                                <h4 class='userContainer accountBody text-nowrap' style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items: &nbsp;</h4>
+                            <div class=" text-white font-bold m-0 ms-lg-5 accountBody" style={{ 'display': 'flex', 'flexDirection': "row" }}>
+                                <ul style={{ 'color': 'white', 'font-size': '30px' }}>{data.map(a => (a.orderItem).map(b =>
+                                    <li class="badge rounded-pill bg-secondary userContainer accountBody">{(b.wallBed.name)}, &nbsp;Quantity: {b.quantity}, &nbsp;Total unit cost: ${(b.cost / 100 * (b.quantity))}</li>
 
                                 ))}
-
                                 </ul>
                             </div>
-                            <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
+                            <div class=" text-white font-bold m-0 ms-lg-5 accountBody" style={{ 'display': 'flex' }}>
 
-                                <div><h2 style={{ 'color': 'wheat', 'font-size': '30px' }}>Date ordered: &nbsp;
+                                <div><h2 class='userContainer accountBody' style={{ 'color': 'wheat', 'font-size': '30px' }}>Date ordered: &nbsp;
                                     {data.map((date) => (
-                                    <span class="badge rounded-pill bg ">{moment(date.date_ordered).format("Do MMMM YYYY")}</span>
+                                        <span class="badge rounded-pill bg accountBody">{moment(date.date_ordered).format("Do MMMM YYYY")}</span>
                                     ))}</h2>
                                 </div>
                             </div>
-                            <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
-                                <div><h2 style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Reference: &nbsp;
+                            <div class=" text-white font-bold m-0 ms-lg-5 accountBody" style={{ 'display': 'flex' }}>
+                                <div><h2 class='userContainer accountBody' style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Reference: &nbsp;
 
                                     {data.map((reference) => (
-                                        <span class="badge rounded-pill bg">{reference.payment_reference}</span>
+                                        <span class="badge rounded-pill bg accountBody">{reference.payment_reference}</span>
                                     ))}</h2>
                                 </div>
                             </div>
-                            <div class=" text-white font-bold ms-5" style={{ 'display': 'flex' }}>
-                                <div><h2 style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Status: &nbsp;
+                            <div class=" text-white font-bold m-0 ms-lg-5 accountBody" style={{ 'display': 'flex' }}>
+                                <div><h2 class='userContainer accountBody' style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Status: &nbsp;
 
                                     {data.map((a) => (
-                                        <span class="badge rounded-pill bg-success">{a.status.name}</span>
+                                        <span class="badge rounded-pill bg-success accountBody">{a.status.name}</span>
                                     ))}</h2>
                                 </div>
                             </div>

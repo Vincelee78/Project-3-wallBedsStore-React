@@ -81,7 +81,7 @@ export default function Cart() {
 
     // update cart quantity form
     async function onUpdate(formData) {
-
+        alert('Cart Updated!')
         try {
             const data = await axios({
                 method: "post",
@@ -230,15 +230,15 @@ export default function Cart() {
 
                                 <div class="mt-8 card my-3 mx-2">
                                     <div class="card-body">
-                                        <div class="py-1 d-flex">
+                                        <div class="py-1 d-flex cartBody">
                                             <div>
-                                                <img src={b.wallBed.image_url} alt={b.name} style={{ 'width': '80%', 'height': '70%' }} />
+                                                <img class='cartImg' src={b.wallBed.image_url} alt={b.name} style={{ 'width': '80%', 'height': '70%' }} />
                                             </div>
 
                                             <div class="ml-4 flex-1 d-flex flex-column ">
                                                 <div class='card-title'>
                                                     <div class="d-flex justify-content-between text-base font-medium ">
-                                                        <p class="ms-5" style={{ 'font-size': '25px' }}>
+                                                        <p class="ms-lg-5 ms-0 cartBedName" style={{ 'font-size': '25px' }}>
                                                             <b>{b.wallBed.name}</b>
                                                         </p>
                                                         <div >
@@ -248,7 +248,7 @@ export default function Cart() {
                                                         </div>
                                                     </div>
 
-                                                    <p class="ms-5 text-lg" style={{ 'font-size': '20px', 'font-family': 'Merriweather' }}>
+                                                    <p class="ms-5 text-lg d-none d-lg-block" style={{ 'font-size': '20px', 'font-family': 'Merriweather' }}>
                                                         Description: {b.wallBed.description}
                                                     </p>
                                                     <ul class='ms-5'>
@@ -262,7 +262,7 @@ export default function Cart() {
                                                     </ul>
                                                 </div>
 
-                                                <div class="d-flex align-items-end justify-content-end ms-5 ">
+                                                <div class="d-flex align-items-end justify-content-center justify-content-lg-end m-0 ms-lg-5 cartQuantity">
                                                     <div class='mx-2 '>
                                                         <form onSubmit={() => { onUpdate({ productId: b.product_id, newQuantity: cartItemQty }) }} >
                                                             <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
@@ -273,9 +273,9 @@ export default function Cart() {
                                                         </form>
                                                     </div>
                                                     <div>
-                                                        <button type="submit" class="btn btn-danger btn-sm" style={{ 'height': '40px' }} onClick={() =>
+                                                        <button type="submit" class="cartBtn btn btn-danger btn-sm" style={{ 'height': '40px' }} onClick={() =>
                                                             removeFromCart({ productId: b.product_id })
-                                                        } >Remove from Cart</button>
+                                                        } >Remove</button>
                                                     </div>
 
                                                 </div>

@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import WallBedsProvider from "./WallBedsProvider";
 import LandingPage from "./LandingPage";
@@ -94,76 +94,87 @@ export default function App() {
   return (
     <Router>
       <div id="nav">
-        <div class="logo pt-2 ps-2">
+        <div class="logo pt-lg-2 pt-3 ps-2">
           <img src='https://dp.image-gmkt.com/SG/GMKT.IMG/front_image/minishop/2014/01/02/a6b99c03-175e-40eb-8edb-104c4e3c488e.s_110-w-fs-st_s.jpg' class="main-logo" />
           <Link to="/" href="#" style={{ 'textDecoration': 'none', 'color': 'brown' }}><header class='compName' style={{ 'font-family': 'Stencil Std, fantasy' }}><b>Space-Saving Furniture Systems</b></header></Link>
         </div>
 
-        <ul>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-              data-bs-toggle="dropdown">HOME</a>
-            <ul class="dropdown-menu">
-              <li>
-                <Link to="/" class="dropdown-item" href="#">Home Page</Link>
-              </li>
-              <li>
-                <Link to="/directions" class="dropdown-item" href="#">Directions</Link>
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="row d-flex flex-row">
+            <button class="navbar-toggler d-flex justify-content-end border-0 d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-nav">
+
+              <li class="nav-item nav-link dropdown">
+                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
+                  data-bs-toggle="dropdown">HOME</a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <Link to="/" class="dropdown-item" href="#">Home Page</Link>
+                  </li>
+                  <li>
+                    <Link to="/directions" class="dropdown-item" href="#">Directions</Link>
+                  </li>
+
+                </ul>
               </li>
 
+              <li>
+                <Link to="/shop_All_Beds" class="navlink mt-3">CATALOGUE</Link>
+              </li>
+
+              <li>
+                <Link to="/about" class="navlink mt-3" >ABOUT </Link>
+              </li>
+
+              <li>
+                <Link to="/users/account" class="navlink mt-3">ACCOUNT</Link>
+              </li>
+
+              <li class="font-sans p-0 m-0 d-flex justify-content-end">
+                <a href="/cart" role="button" class="pe-lg-4 mt-lg-2 text-end " style={{ 'font-size': '1.4em' }}>
+                  <span class='cart-icon'>
+                    <i class="fas fa-shopping-cart "></i>
+                  </span>
+                </a>
+              </li>
+
+
+              <li><a href="" class="user" style={{ 'text-decoration': 'none' }}>
+
+              
+                <div class="d-flex justify-content-center me-4 mb-2 userSection">Welcome, {localStorage.getItem("username") || 'Guest'}</div>
+
+                <div class='user d-flex'>
+                  <a
+                    href="/users/login"
+                    class="me-3 user"
+                    style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
+                  >Login</a>
+
+
+                  <a
+                    href="/users/logout"
+                    class="me-3 user"
+                    style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
+                  >Logout</a>
+
+                  <a
+                    href="/register"
+                    class="me-4 user"
+                    style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
+                  >Register</a>
+                </div>
+
+              </a>
+              </li>
             </ul>
-          </li>
-
-          <li>
-            <Link to="/shop_All_Beds" class="navlink">CATALOGUE</Link>
-          </li>
-
-          <li>
-            <Link to="/about" class="dropdown-item" class="navlink">ABOUT </Link>
-          </li>
-
-          <li>
-            <Link to="/users/account" class="navlink">ACCOUNT</Link>
-          </li>
-
-          <li class="font-sans block lg:inline-block">
-            <a href="/cart" role="button" class="pe-4" style={{ 'font-size': '1.4em' }}>
-              <span>
-                <i class="fas fa-shopping-cart "></i>
-              </span>
-            </a>
-          </li>
-
-
-          <li><a href="" class="" style={{ 'text-decoration': 'none' }}>
-
-
-            <div class="d-flex justify-content-center me-4 mb-2">Welcome, {localStorage.getItem("username") || 'Guest'}</div>
-
-            <div class='d-flex'>
-              <a
-                href="/users/login"
-                class="me-3"
-                style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
-              >Login</a>
-
-
-              <a
-                href="/users/logout"
-                class="me-3"
-                style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
-              >Logout</a>
-
-              <a
-                href="/register"
-                class="me-4"
-                style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
-              >Register</a>
-            </div>
-
-          </a>
-          </li>
-        </ul>
+          
+          </div>
+          </div>
+        </nav>
         <ToastContainer autoClose={3000} limit={5} />
       </div>
       <Switch>

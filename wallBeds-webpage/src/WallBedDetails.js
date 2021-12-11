@@ -101,7 +101,7 @@ export default function WallBedDetails(props) {
 
                     </img>
                     <div class=" col-lg-6 pe-2">
-                        <h1 class="mb-4 indi-title">{product.name}</h1>
+                        <h1 class="mb-4 indi-title" style={{'text-transform': 'uppercase', 'font-size':'26px'}}>{product.name}</h1>
                         <h5>Colours: {woodColour.map((a) => (
                             <span class=" badge rounded-pill bg-secondary mb-2">{a.name}</span>
                         )
@@ -140,7 +140,7 @@ export default function WallBedDetails(props) {
                                     </table>
                                 </div>
                             </div>
-                            <div class="col-6 col-lg-6 col-md-6">
+                            <div class="col-6 col-lg-6 col-md-12 col-sm-12">
                                 <h4>Specifications</h4>
                                 <div class="pr-5 pr-lg-0">
                                     <table class="table">

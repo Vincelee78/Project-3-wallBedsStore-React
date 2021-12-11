@@ -88,7 +88,7 @@ export default function WallBedListing() {
             to reset filters.
           </div>
 
-          <input {...register("name")} placeholder="Name" name='name' value={name} onChange={(evt) => setName(evt.target.value)} />
+          <input {...register("name")} placeholder="Name" name="name" value={name} onChange={(evt) => setName(evt.target.value)} />
           <br />
           <input {...register("minCost")} placeholder="Minimum Cost" name='minCost' value={minCost} onChange={(evt) => setminCost(evt.target.value)} />
           <br />
@@ -117,7 +117,7 @@ export default function WallBedListing() {
 
           <div class='my-1'> Bed Frame Colour:
             <select {...register("frameColour")} value={frameColour} onChange={(evt) => setFrameColour(evt.target.value)}>
-              <option value="1">Black</option>
+              <option value="1">Wood</option>
               <option value="2">Aluminium</option>
             </select>
           </div>
@@ -135,7 +135,7 @@ export default function WallBedListing() {
       </div>
       <div class="col-sm-10 ">
         <h3 class="ps-4" style={{ 'font-family': 'Stencil Std' }}>Wall Beds</h3>
-        <img className='w-100' src="https://www.mspgreenville.com/wp-content/uploads/2018/07/F61A4157-1500x630.jpg" style={{ "height": "450px" }} />
+        <img className='w-100 wallBedImgCatalogue' src="https://www.mspgreenville.com/wp-content/uploads/2018/07/F61A4157-1500x630.jpg" style={{ "height": "450px" }} />
 
         <div className=" wallBedCard d-flex justify-content-evenly flex-wrap mt-5 align-content-around ">
           {data.map((b) => {

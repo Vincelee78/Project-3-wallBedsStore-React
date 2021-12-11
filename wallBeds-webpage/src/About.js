@@ -33,10 +33,10 @@ export default function AboutUs() {
                         </h4>
                         <hr class="my-4" />
                         <h2>About Space-Saving Furniture Systems:</h2>
-                        <h4>
+                        <h4 >
                             Space-Saving Furniture Systems was set up in 2021 with a vision to improve people’s homes through space-saving. As new houses come up with decreasing space, we realize
                             the need to offer people space-saving solutions.
-                            <br /><br />For more information, please contact info@spacesavingsystems.com.
+                            <br /><br /><h4 className="aboutSection">For more information, please contact info@spacesavingsystems.com.</h4>
                         </h4>
                     </div>
                 </div>

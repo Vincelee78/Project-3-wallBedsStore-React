@@ -105,6 +105,7 @@ export default class LandingPage extends React.Component {
                                     <i class="fas fa-bed me-3"></i>Space-Saving Furniture Systems Pte Ltd
                                 </h6>
                                 <p>
+                                Refund is allowed if the furniture arrives in a damaged condition. The consumer has 3 days to file a claim after they receive the bed and provide photo evidence to our email. 
                                 Use of and orders placed through this website are strictly subject to Space-Saving Furniture Systems Pte Ltd's terms and conditions. 
                                 </p>
                             </div>
