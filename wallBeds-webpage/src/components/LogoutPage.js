@@ -2,12 +2,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useHistory } from 'react-router';
 import { toast } from "react-toastify";
+import { baseUrl } from "../api/url";
 
 
 
 export default function LogoutPage(props) {
-
-    const url = "https://wallbeds-project3.herokuapp.com/api/"
 
     const [User, setUser] = useState(null);
     const setlogoutUser = props.setlogoutUser;

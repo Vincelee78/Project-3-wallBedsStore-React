@@ -1,0 +1,1 @@
+export const baseUrl='https://wallbeds-project3.herokuapp.com/api/';

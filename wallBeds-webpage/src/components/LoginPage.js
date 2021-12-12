@@ -6,28 +6,23 @@ import Headers from "./HeaderLoginForm";
 import { loginFormSchema } from "./FormValidator";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router";
-
+import { baseUrl } from "../api/url";
 
 
 
 export default function LoginPage(props) {
 
-  const url = "https://wallbeds-project3.herokuapp.com/api/"
-
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(loginFormSchema) });
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState("");
-  const [refreshTokenNeeded, setrefreshToken] = useState("");
   const setLoginUser = props.setLoginUser
-  // let context = useContext(UserContext);
-
   const redirect = useHistory();
 
 
+  
   const onSubmit = async (formData) => {
 
-    const response = await axios.post(url + "users/login", {
+    const response = await axios.post(baseUrl + "users/login", {
       email: formData.email,
       password: formData.password
     });
@@ -35,10 +30,9 @@ export default function LoginPage(props) {
     if (response.data.accessToken) {
       localStorage.setItem('accessToken', response.data.accessToken);
       localStorage.setItem('refreshToken', response.data.refreshToken);
-      
+
       setLoginUser();
-      // console.log(token, refreshTokenNeeded, 'ab')
-      
+
       toast.success(`Login successful, ${email}`, {
         autoClose: 3000,
         toastId: "login-success"
@@ -78,10 +72,6 @@ export default function LoginPage(props) {
       </div>
     </form>
 
-
   );
-
-
-
 }
-// }
+

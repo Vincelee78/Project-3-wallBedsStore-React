@@ -1,24 +1,21 @@
 import axios from "axios";
-import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from 'react-router';
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import moment from 'moment';
+import { baseUrl } from "../api/url";
 
 
-const url = "https://wallbeds-project3.herokuapp.com/api/"
+
 
 export default function UserPage() {
 
-
     const [data, setData] = useState([]);
-    const [wallBednames, setwallBednames] = useState([]);
-
 
     useEffect(() => {
         async function getUserProfile() {
             const orders = await axios({
                 method: "get",
-                url: url + 'orders',
+                url: baseUrl + 'orders',
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 },
@@ -67,10 +64,10 @@ export default function UserPage() {
 
                     <div class="w-full p-0 px-lg-3">
                         <div class="w-full text-start">
-                                <h4 class='userContainer accountBody text-nowrap' style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items: &nbsp;</h4>
+                            <h4 class='userContainer accountBody text-nowrap' style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items: &nbsp;</h4>
                             <div class=" text-white font-bold m-0 ms-lg-5 accountBody" style={{ 'display': 'flex', 'flexDirection': "row" }}>
                                 <ul style={{ 'color': 'white', 'font-size': '30px' }}>{data.map(a => (a.orderItem).map(b =>
-                                    <li class="badge rounded-pill bg-secondary userContainer accountBody">{(b.wallBed.name)}, &nbsp;Quantity: {b.quantity}, &nbsp;Total unit cost: ${(b.cost / 100 * (b.quantity))}</li>
+                                    <li class="badge rounded-pill bg-secondary userContainer accountBody text-capitalize">{(b.wallBed.name)}, &nbsp;Quantity: {b.quantity}, &nbsp;Cost: ${(b.cost / 100 * (b.quantity))}</li>
 
                                 ))}
                                 </ul>
@@ -102,13 +99,7 @@ export default function UserPage() {
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
-
-
         </React.Fragment>
-
     )
 }

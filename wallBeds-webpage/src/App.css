@@ -68,8 +68,9 @@ ul > li {
 }
 /* css for lealflet maps */
 .leaflet-container {
-  width: 100%;
+  width: 97%;
   height: 100vh;
+  margin-left: 25px;
 }
 
 .h1 {
@@ -217,9 +218,6 @@ input[type="submit"]:active {
   .logoutPage {
     width: 980px !important;
   }
-  .btn {
-    display: none;
-  }
 
   .cart-icon {
     display: flex;
@@ -282,10 +280,12 @@ input[type="submit"]:active {
   }
 
   .cartImg {
-    margin-left: 30px !important;
+    width:250px !important;
+    margin-left: 20px !important;
   }
   .cartBody {
     flex-direction: column !important;
+    
   }
 
   .cartQuantity {
@@ -309,6 +309,12 @@ input[type="submit"]:active {
     text-align: center;
   }
 
+  .leaflet-container {
+    width: 90%;
+    height: 50vh;
+    margin-left: 16px ;
+  }
+
   /* .navbar-nav > li > a {
     background-color: rgb(44, 125, 160);
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -318,18 +324,6 @@ input[type="submit"]:active {
     padding: 30px 10px !important;
   } */
 
-  #infowords {
-    padding: 10px 10px !important;
-  }
-
-  .buttonsAllCases {
-    flex-direction: row !important;
-    gap: 0 5px !important;
-  }
-
-  .title3 {
-    width: 100vw !important;
-  }
 
   #logo {
     margin: 0;

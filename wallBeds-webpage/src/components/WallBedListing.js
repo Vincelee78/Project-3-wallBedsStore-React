@@ -4,6 +4,7 @@ import WallBedContext from './WallBedContext'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { baseUrl } from "../api/url";
 
 
 
@@ -11,8 +12,6 @@ import axios from "axios";
 
 
 export default function WallBedListing() {
-
-  const url = "https://wallbeds-project3.herokuapp.com/api/"
 
   const [data, setData] = useState([]);
   const [search, setSearch] = useState([]);
@@ -38,7 +37,7 @@ export default function WallBedListing() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    const search = await axios.get(url + "search", {
+    const search = await axios.get(baseUrl + "search", {
       params: {
         name: data.name,
         minCost: data.minCost,
@@ -47,9 +46,9 @@ export default function WallBedListing() {
         bedOrientation: parseInt(data.bedOrientation),
         mattressType: parseInt(data.mattressType),
         frameColour: parseInt(data.frameColour),
-        woodColour: parseInt(data.woodColour.map(a=>(a))),
+        woodColour: parseInt(data.woodColour.map(a => (a))),
       }
-      
+
     });
     setSearch(search.data);
     setData(search.data);
@@ -139,25 +138,20 @@ export default function WallBedListing() {
 
         <div className=" wallBedCard d-flex justify-content-evenly flex-wrap mt-5 align-content-around ">
           {data.map((b) => {
-            
-              return <div class="card " key={b._id}>
-                <img src={b.image_url} class="card-img-top p-3 " style={{ "width": "400px", "height": "400px" }} alt="image_url" />
-                <div class="card-body d-flex justify-content-center">
-                  <Link to={"/product/" + b.id} class='card-text border p-2' style={{
-                    "font-family": "Lato,sans-serif", "text-decoration": "none", 'color': 'black', 'text-transform': 'uppercase',
-                    'letter-spacing': '2px', 'text-align': 'center',
-                  }}>{b.name}</Link>
-                </div>
-              </div>
 
-            }
-          
+            return <div class="card " key={b._id}>
+              <img src={b.image_url} class="card-img-top p-3 " style={{ "width": "400px", "height": "400px" }} alt="image_url" />
+              <div class="card-body d-flex justify-content-center">
+                <Link to={"/product/" + b.id} class='card-text border p-2' style={{
+                  "font-family": "Lato,sans-serif", "text-decoration": "none", 'color': 'black', 'text-transform': 'uppercase',
+                  'letter-spacing': '2px', 'text-align': 'center',
+                }}>{b.name}</Link>
+              </div>
+            </div>
+          }
           )}
         </div>
       </div>
     </div>
-
-
-
   </React.Fragment>);
 }

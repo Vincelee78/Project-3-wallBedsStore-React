@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios';
-import WallBedsProvider from "./WallBedsProvider";
-import LandingPage from "./LandingPage";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-toastify/dist/ReactToastify.css';
-import RegisterForm from "./RegisterForm";
-import WallBedDetails from "./WallBedDetails";
-import WallBedListing from "./WallBedListing";
 // import react router stuff
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Cart from "./Cart";
-import LoginPage from "./LoginPage";
-import LogoutPage from "./LogoutPage";
-import AboutUs from "./About";
-import UserPage from "./Userpage";
-import DirectionsPage from "./Directions";
-import SuccessfulPayment from "./SuccessPurchase";
-import UnsuccessfulPayment from "./CancelPurchase";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-toastify/dist/ReactToastify.css';
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import WallBedsProvider from "./components/WallBedsProvider";
+import LandingPage from "./components/LandingPage";
+import RegisterForm from "./components/RegisterForm";
+import WallBedDetails from "./components/WallBedDetails";
+import WallBedListing from "./components/WallBedListing";
+import Cart from "./components/Cart";
+import LoginPage from "./components/LoginPage";
+import LogoutPage from "./components/LogoutPage";
+import AboutUs from "./components/About";
+import UserPage from "./components/Userpage";
+import DirectionsPage from "./components/Directions";
+import SuccessfulPayment from "./components/SuccessPurchase";
+import UnsuccessfulPayment from "./components/CancelPurchase";
 import { ToastContainer } from "react-toastify";
-
+import './App.css';
 
 export default function App() {
 
@@ -105,82 +105,80 @@ export default function App() {
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-nav">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 main-nav">
 
-              <li class="nav-item nav-link dropdown">
-                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
-                  data-bs-toggle="dropdown">HOME</a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <Link to="/" class="dropdown-item" href="#">Home Page</Link>
-                  </li>
-                  <li>
-                    <Link to="/directions" class="dropdown-item" href="#">Directions</Link>
-                  </li>
+                <li class="nav-item nav-link dropdown">
+                  <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
+                    data-bs-toggle="dropdown">HOME</a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <Link to="/" class="dropdown-item" href="#">Home Page</Link>
+                    </li>
+                    <li>
+                      <Link to="/directions" class="dropdown-item" href="#">Directions</Link>
+                    </li>
 
-                </ul>
-              </li>
+                  </ul>
+                </li>
 
-              <li>
-                <Link to="/shop_All_Beds" class="navlink mt-3">CATALOGUE</Link>
-              </li>
+                <li>
+                  <Link to="/shop_All_Beds" class="navlink mt-3">CATALOGUE</Link>
+                </li>
 
-              <li>
-                <Link to="/about" class="navlink mt-3" >ABOUT </Link>
-              </li>
+                <li>
+                  <Link to="/about" class="navlink mt-3" >ABOUT </Link>
+                </li>
 
-              <li>
-                <Link to="/users/account" class="navlink mt-3">ACCOUNT</Link>
-              </li>
+                <li>
+                  <Link to="/users/account" class="navlink mt-3">ACCOUNT</Link>
+                </li>
 
-              <li class="font-sans p-0 m-0 d-flex justify-content-end">
-                <a href="/cart" role="button" class="pe-lg-4 mt-lg-2 text-end " style={{ 'font-size': '1.4em' }}>
-                  <span class='cart-icon'>
-                    <i class="fas fa-shopping-cart "></i>
-                  </span>
+                <li class="font-sans p-0 m-0 d-flex justify-content-end">
+                  <a href="/cart" role="button" class="pe-lg-4 mt-lg-2 text-end " style={{ 'font-size': '1.4em' }}>
+                    <span class='cart-icon'>
+                      <i class="fas fa-shopping-cart "></i>
+                    </span>
+                  </a>
+                </li>
+
+
+                <li><a href="" class="user" style={{ 'text-decoration': 'none' }}>
+
+
+                  <div class="d-flex justify-content-center me-4 mb-2 userSection">Welcome, {localStorage.getItem("username") || 'Guest'}</div>
+
+                  <div class='user d-flex'>
+                    <a
+                      href="/users/login"
+                      class="me-3 user"
+                      style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
+                    >Login</a>
+
+
+                    <a
+                      href="/users/logout"
+                      class="me-3 user"
+                      style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
+                    >Logout</a>
+
+                    <a
+                      href="/register"
+                      class="me-4 user"
+                      style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
+                    >Register</a>
+                  </div>
+
                 </a>
-              </li>
+                </li>
+              </ul>
 
-
-              <li><a href="" class="user" style={{ 'text-decoration': 'none' }}>
-
-              
-                <div class="d-flex justify-content-center me-4 mb-2 userSection">Welcome, {localStorage.getItem("username") || 'Guest'}</div>
-
-                <div class='user d-flex'>
-                  <a
-                    href="/users/login"
-                    class="me-3 user"
-                    style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
-                  >Login</a>
-
-
-                  <a
-                    href="/users/logout"
-                    class="me-3 user"
-                    style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
-                  >Logout</a>
-
-                  <a
-                    href="/register"
-                    class="me-4 user"
-                    style={{ 'display': 'block', 'textDecoration': 'none', 'color': 'grey' }}
-                  >Register</a>
-                </div>
-
-              </a>
-              </li>
-            </ul>
-          
-          </div>
+            </div>
           </div>
         </nav>
         <ToastContainer autoClose={3000} limit={5} />
       </div>
       <Switch>
-        {/* <UserProvider> */}
 
-        {/* <CartProvider> */}
         <WallBedsProvider>
           {/* Home route */}
           <Route exact path="/">
@@ -234,8 +232,7 @@ export default function App() {
           </Route>
 
         </WallBedsProvider>
-        {/* </CartProvider> */}
-        {/* </UserProvider> */}
+
       </Switch>
     </Router>
   );

@@ -3,11 +3,11 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { loadStripe } from "@stripe/stripe-js";
 import { useHistory } from "react-router";
+import { baseUrl } from "../api/url";
+import '../App.css';
 
 
 export default function Cart() {
-
-    const url = "https://wallbeds-project3.herokuapp.com/api/"
 
 
     const [cart, setCart] = useState([]);
@@ -26,16 +26,13 @@ export default function Cart() {
 
         async function getCart() {
 
-            const cart = await axios.get(url + 'cart', {
+            const cart = await axios.get(baseUrl + 'cart', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
                 },
             });
             setCart(cart.data);
-
-
         }
-
 
         //if token is set, get cart data
         if (localStorage.getItem("accessToken")) {
@@ -85,7 +82,7 @@ export default function Cart() {
         try {
             const data = await axios({
                 method: "post",
-                url: url + 'cart/quantity/update',
+                url: baseUrl + 'cart/quantity/update',
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 },
@@ -128,7 +125,7 @@ export default function Cart() {
         try {
             const { data } = await axios({
                 method: "post",
-                url: url + 'cart/delete',
+                url: baseUrl + 'cart/delete',
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 },
@@ -161,14 +158,13 @@ export default function Cart() {
             try {
                 const session = await axios({
                     method: "get",
-                    url: url + 'checkout',
+                    url: baseUrl + 'checkout',
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                     },
 
                 });
                 setStripeSession(session.data);
-                console.log(session.data)
             } catch (error) {
                 //update cart if no stock
                 // if (error.response.status === 417) {
@@ -231,14 +227,14 @@ export default function Cart() {
                                 <div class="mt-8 card my-3 mx-2">
                                     <div class="card-body">
                                         <div class="py-1 d-flex cartBody">
-                                            <div>
-                                                <img class='cartImg' src={b.wallBed.image_url} alt={b.name} style={{ 'width': '80%', 'height': '70%' }} />
+                                            <div class=''>
+                                                <img class='cartImg' src={b.wallBed.image_url} alt={b.name} style={{ 'width': '500px', 'object-fit': 'contain'}} />
                                             </div>
 
                                             <div class="ml-4 flex-1 d-flex flex-column ">
                                                 <div class='card-title'>
                                                     <div class="d-flex justify-content-between text-base font-medium ">
-                                                        <p class="ms-lg-5 ms-0 cartBedName" style={{ 'font-size': '25px' }}>
+                                                        <p class="ms-lg-5 ms-0 cartBedName" style={{ 'font-size': '25px','text-transform': 'uppercase' }}>
                                                             <b>{b.wallBed.name}</b>
                                                         </p>
                                                         <div >
@@ -273,7 +269,7 @@ export default function Cart() {
                                                         </form>
                                                     </div>
                                                     <div>
-                                                        <button type="submit" class="cartBtn btn btn-danger btn-sm" style={{ 'height': '40px' }} onClick={() =>
+                                                        <button type="submit" class="cartBtn btn btn-danger btn-sm mb-3" style={{ 'height': '38px' }} onClick={() =>
                                                             removeFromCart({ productId: b.product_id })
                                                         } >Remove</button>
                                                     </div>
@@ -319,10 +315,7 @@ export default function Cart() {
         return (
             <div class='ms-3'>
                 Please log in in to access your cart
-
             </div>
         )
-
     }
-
 }

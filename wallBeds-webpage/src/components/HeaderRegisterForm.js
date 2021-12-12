@@ -1,10 +1,10 @@
 import React from "react";
-
+import '../App.css';
 
 export default function Headers () {
 
   return (
-    <div style={{ "marginBottom": "10px" }}>
+    <div style={{ "marginBottom": "10px" }} >
       <h1 className="h1 text-start">
         <svg
           width="60px"
@@ -35,10 +35,10 @@ export default function Headers () {
             </g>
           </g>
         </svg>
-        <span class='ms-2 mt-3'>Login</span>
+        <span class='ms-2 mt-3 fs-4'>Register an account</span>
       </h1>
       <p style={{ 'fontSize': '14', 'lineHeight': '1.3', 'marginTop': '20px' }}>
-        Please enter your details to login
+        Please enter your details in the form below
       </p>
       
     </div>

@@ -6,6 +6,7 @@ import { GiSleepingBag } from "react-icons/gi";
 import { toast } from "react-toastify";
 import { GiBed } from "react-icons/gi";
 import axios from "axios";
+import { baseUrl } from "../api/url";
 
 
 
@@ -13,7 +14,6 @@ import axios from "axios";
 
 export default function WallBedDetails(props) {
 
-    const url = "https://wallbeds-project3.herokuapp.com/api/"
 
     const { productId } = useParams();
     const [product, setProduct] = useState({});
@@ -61,7 +61,7 @@ export default function WallBedDetails(props) {
         if (localStorage.getItem('accessToken')) {
             const data = await axios({
                 method: "post",
-                url: url + 'cart/addToCart',
+                url: baseUrl + 'cart/addToCart',
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 },
@@ -101,7 +101,7 @@ export default function WallBedDetails(props) {
 
                     </img>
                     <div class=" col-lg-6 pe-2">
-                        <h1 class="mb-4 indi-title" style={{'text-transform': 'uppercase', 'font-size':'26px'}}>{product.name}</h1>
+                        <h1 class="mb-4 indi-title" style={{ 'text-transform': 'uppercase', 'font-size': '26px' }}>{product.name}</h1>
                         <h5>Colours: {woodColour.map((a) => (
                             <span class=" badge rounded-pill bg-secondary mb-2">{a.name}</span>
                         )
@@ -171,5 +171,4 @@ export default function WallBedDetails(props) {
             </React.Fragment>
             : null}
     </React.Fragment>
-        ;
 }

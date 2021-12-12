@@ -1,10 +1,11 @@
 import React from "react";
+import '../App.css';
 
 
-export default function Headers () {
+export default function Headers() {
 
   return (
-    <div style={{ "marginBottom": "10px" }} >
+    <div style={{ "marginBottom": "10px" }}>
       <h1 className="h1 text-start">
         <svg
           width="60px"
@@ -21,7 +22,7 @@ export default function Headers () {
                 y="0"
                 width="150"
                 height="150"
-                
+
               />
               <g transform="translate(40.000000, 32.000000)" fill="#FFFFFF">
                 <g id="Group">
@@ -35,12 +36,12 @@ export default function Headers () {
             </g>
           </g>
         </svg>
-        <span class='ms-2 mt-3'>Register an account</span>
+        <span class='ms-2 mt-3 fs-4'>Login</span>
       </h1>
       <p style={{ 'fontSize': '14', 'lineHeight': '1.3', 'marginTop': '20px' }}>
-        Please enter your details in the form below
+        Please enter your details to login
       </p>
-      
+
     </div>
   );
 };
