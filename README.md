@@ -49,8 +49,7 @@ The backend website for the site owner can be accessed at the following link:
 
 https://wallbeds-project3.herokuapp.com/
 
-The backend express.js uses tailwindcss, bootstrap and css. The react.js frontend uses bootstrap and css. The tailwindcss is complied using the inline css feature under the <style> tag in the base.hbs of the backend express.js.
- 
+The backend express.js uses tailwindcss, bootstrap and css. The react.js frontend uses bootstrap and css.
 
  ## <a name="c">3. Website Features and Navigation</a>
  The website is free to browse for everyone, however user accounts need to be created to access cart and do checkout. The features of this website are listed below:
