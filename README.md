@@ -25,7 +25,7 @@ There are two parts to this project. The front-end of this project is done with 
 The schema diagram for mySQL database can be found [here.](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639099995/mySQL_relationship_final_tq5zw7.jpg)
 
 
-### Functional requirements:
+#### Functional requirements:
 #### Features: 
 There are different categories of wall beds the user can click on and check its description, photos, mattress type, bed orientation and their prices.
 There is an add to cart option for users to purchase the wall bed they want. They also can pay by credit card to checkout their cart items.
