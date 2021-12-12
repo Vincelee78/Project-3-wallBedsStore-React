@@ -162,7 +162,7 @@ The frontend react features are mobile responsive. The backend express.js uses t
 
 #### 6.1 Future Features To Implement:
 - A embedded video feature for users to watch how the wall bed is opened in its closed position.
-- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=ydBJWLaaAcISYfnKxyKzPw). 
+- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=KtBqOjqCxvfnsseobCLixA). 
 - Test results were done on 3 mobile devices
 1. [Oppo R17 pro](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639322960/MNXA0772_zoxfzs.jpg)
 2. [Oppo R17 pro](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639322960/ANQB0566_cwgviy.jpg)
