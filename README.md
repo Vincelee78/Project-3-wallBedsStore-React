@@ -131,7 +131,7 @@ The organization of the site content will contain the landing page with the navi
 ### Surface:
 #### Colours:
 * White background with black and dark brown fonts in the landing page for better contrast and easy visualization. 
-* Usage of [coolors](https://coolors.co/) to select my colour scheme.
+* Usage of [coolors website](https://coolors.co/) as a guide in choosing my colour scheme.
 * Images used will not be too bright colours as I am using a white background.
 * Usage of traditional fonts such as 'Stencil Std, Fantasy' and 'Times New Roman, Times, serif'.
 * Adequate white spaces between characters and lines in description for easy reading.
