@@ -113,11 +113,12 @@ The UI/UX design for this project was catered for the ease of use for the user. 
 
 ### 5.1.1 User Interface
 #### Structure:
-The organization of the site content will contain the landing page with the navigation bar and site’s logo on the top. The landing page will show the hero image of the open and closed image of a featured wall bed, and clicking on 'shop all beds' will bring the user to another page where it show the different wall bed categories and their respective images. In this page, filtering the wall beds is possible using a search feature. Clicking on the wall beds' categories will show their respective options, their description and the add to cart feature.
-* The total unit price and subtotal will be shown when the user selects the wall bed he/she wants to purchase. This website caters to the local residents in Singapore so there are no additional shipping costs as it is included in the unit cost price.
-*	Refund is allowed when the furniture arrives in a damaged condition. User has 3 days to file a claim after they receive the bed and provide photo evidence under at the bottom of the landing page where our contact details, location and email can be found.
-*	The database will store the user's shipping and order details and will be shown in their user account in the front end.
-*	The order status will also be shown in the user account.
+The organization of the site content will contain the landing page with the navigation bar and site’s logo on the top left. The landing page will show the hero image of an open and closed image of a featured wall bed, and clicking on 'shop all beds' will bring the user to another page where it show the different wall bed categories and their respective images. In this page, filtering the wall beds is possible using a search feature. Clicking on the wall beds' categories will show their respective options, their description and the add to cart feature.
+* The total unit price and subtotal will be shown when the user selects the wall bed he/she wants to purchase. This website caters to the local residents in Singapore so there are no additional shipping costs as it is included in the total cost price.
+*	The refund is allowed explained at the footer of the landing page.
+*	The user's order details and payment status will be shown in the account page.
+*	The shopping cart will be indicated as a cart icon in the navigation bar.
+*	The user can login, logout and register in the navigation bar at the top.
 
 ### Skeleton:
 #### Layout:
@@ -141,7 +142,7 @@ The frontend react features are mobile responsive. The backend express.js uses t
  
  
  ## <a name="f">6.Testing</a>
- Based on the user's needs and objectives, these are the guidelines for the features that were implemented.
+ Based on the user's needs and objectives, these are the testing guidelines for the features that were implemented.
 | User Stories| Features|
 | ------ | ------ |
  | I navigate over the Home option on the navigation bar and click on the directions option | A map will be shown in the box with a message explaining the location of the company's showroom. Clicking on the top marker of the nearest MRT station will cause a popup to show up 'MountBatten MRT' and  the bottom marker will show 'Space-Saving Furniture Systems' where the showroom of the company is located. |
