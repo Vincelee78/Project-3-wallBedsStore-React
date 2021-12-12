@@ -46,7 +46,7 @@ https://www
 
 The backend website for the site owner can be accessed at the following link:
 
-https://www
+https://wallbeds-project3.herokuapp.com/
 
 The backend express.js uses tailwindcss, bootstrap and css. The react.js frontend uses bootstrap and css. The tailwindcss is complied using the inline css feature under the <style> tag in the base.hbs of the backend express.js.
  
@@ -148,7 +148,7 @@ Although the website makes prolific use of tables in the backend , most componen
  | I click on the catalogue page in the navigation bar| I am directed to the about page where it will explain what is space-saving furniture and the background information of the company.|
  | I click on the About page in the navigation bar| I am directed to the catalogue page where the images of the products and its respective names are shown. A search filter feature is also shown on the left side of the page.|
 | I log in with my email and password| I am directed to the catalogue page where the images of the products are with an confirmation message 'Login sucessful, (myemail)'). If my entered my email or password wrongly, I would get an error message saying 'login failed!'|
-| I enter search fields 'Cozy' name , maximum cost $2000,  | The products  |
+| I enter search fields 'desk' name , maximum cost $2000, Bed sizes 'single bed, Bed Orientation 'Horizontal', Mattress Type 'Foam', Bed Frame colour 'Aluminium', Wood Panel colours, 'Walnut and click on Filter Wall Beds | The filtered product that appears is Cozy Wall Bed Desk Single |
 | I click on the Cozy Wall Bed Desk Single | I am directed to the Cozy Wall Bed Desk Single details page, with Walnut colour and its respective features, single bed, foam mattress, Horizontal bed orientation, Aluminium frame colour etc, |
 | I click on the Add to cart-$2000| A success message is shown saying 'Item added to cart'  and I am directed to the shopping cart page with the name, description, its respective fields options, the total unit cost $2000 on the right and the subtotal $2000 on the bottom.|
 | I click Catalogue and click on Revolving Wall Bed and Add to Cart | I will be directed to the shopping cart with the same success message. The Cozy Wall Bed Desk Single and Revolving Wall Bed will be in the cart with their respective images and options. The subtotal will now be $4500. |
@@ -159,10 +159,6 @@ Although the website makes prolific use of tables in the backend , most componen
 | I click on the 'account' in the navigation bar | The order items: Relvolving Wall Bed, Quantity 3, Total unit cost $7500 will be shown. The date ordered: 10th December 2021, Order Reference: c8da6950-599c-11ec-910b-c35d93746f41, Order Status: Paid, will be shown.|
 | I click on logout | A message showing 'Are you sure you want to log out?' I click on yes and a success message 'Logout successful' is shown, I am redirected to the Login page.|
 
-
-#### (i) Known Bugs
-- When clicking on the radio button to filter the criteria in all cases, if there are more than 1 case result, the radio button will not be checked on the first click. The results will be filtered on the first click though.
-- If this happens, clicking on the radio button again will check it.
 
 ### 6.1 Future Features To Implement
 - A embedded video feature for users to watch how the wall bed is opened in its closed position.
