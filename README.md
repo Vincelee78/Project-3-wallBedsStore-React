@@ -145,8 +145,8 @@ The frontend react features are mobile responsive. The backend express.js uses t
 | User Stories| Features|
 | ------ | ------ |
  | I navigate over the Home option on the navigation bar and click on the directions option | A map will be shown in the box with a message explaining the location of the company's showroom. Clicking on the top marker of the nearest MRT station will cause a popup to show up 'MountBatten MRT' and  the bottom marker will show 'Space-Saving Furniture Systems' where the showroom of the company is located. |
- | I click on the catalogue page in the navigation bar| I am directed to the about page where it will explain what is space-saving furniture and the background information of the company.|
- | I click on the About page in the navigation bar| I am directed to the catalogue page where the images of the products and its respective names are shown. A search filter feature is also shown on the left side of the page.|
+ | I click on the catalogue page in the navigation bar| I am directed to the catalogue page where the images of the products and its respective names are shown. A search filter feature is also shown on the left side of the page.|
+ | I click on the About page in the navigation bar| I am directed to the about page where it will explain what is space-saving furniture and the background information of the company.|
 | I log in with my email and password| I am directed to the catalogue page where the images of the products are with an confirmation message 'Login sucessful, (myemail)'). If my entered my email or password wrongly, I would get an error message saying 'login failed!'|
 | I enter search fields 'desk' name , maximum cost $2000, Bed sizes 'single bed, Bed Orientation 'Horizontal', Mattress Type 'Foam', Bed Frame colour 'Aluminium', Wood Panel colours, 'Walnut and click on Filter Wall Beds | The filtered product that appears is Cozy Wall Bed Desk Single |
 | I click on the Cozy Wall Bed Desk Single | I am directed to the Cozy Wall Bed Desk Single details page, with Walnut colour and its respective features, single bed, foam mattress, Horizontal bed orientation, Aluminium frame colour etc, |
