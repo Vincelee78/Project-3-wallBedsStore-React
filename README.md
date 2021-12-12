@@ -164,12 +164,13 @@ The frontend react features are mobile responsive. The backend express.js uses t
 - A embedded video feature for users to watch how the wall bed is opened in its closed position.
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=ydBJWLaaAcISYfnKxyKzPw). 
 - Test results were done on 3 mobile devices
-1. [Iphone SE 2020](https://drive.google.com/file/d/1B06e0L3hfUrrEeajgfzpnTTRQsVkN9NI/view?usp=sharing)
-2. [Iphone SE 2020](https://drive.google.com/file/d/1jlnrQgIrxTtGkpZ26uqcvULjYThx2won/view?usp=sharing)
-3. [Iphone7](https://drive.google.com/file/d/17JSsa8ndR0jqm9YPSC4i6wlzV6iq9ueP/view?usp=sharing)
-4. [Iphone7](https://drive.google.com/file/d/1i-CZn-8A3UUucZ7DTT-Ph3HM76dxyXoy/view?usp=sharing)
-5. [Oppo R17 pro](https://drive.google.com/file/d/1lqkfbubAylYw5RjCdXd7EkBEhw-S28CS/view?usp=sharing)
-6. [Oppo R17 pro](https://drive.google.com/file/d/1tOywxp3MgakxsQFZ-tI2SM-UOcrHR4CN/view?usp=sharing)
+1. [Oppo R17 pro](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639322960/MNXA0772_zoxfzs.jpg)
+2. [Oppo R17 pro](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639322960/ANQB0566_cwgviy.jpg)
+3. [Iphone SE 2020](https://drive.google.com/file/d/1B06e0L3hfUrrEeajgfzpnTTRQsVkN9NI/view?usp=sharing)
+4. [Iphone SE 2020](https://drive.google.com/file/d/1jlnrQgIrxTtGkpZ26uqcvULjYThx2won/view?usp=sharing)
+5. [Iphone7](https://drive.google.com/file/d/17JSsa8ndR0jqm9YPSC4i6wlzV6iq9ueP/view?usp=sharing)
+6. [Iphone7](https://drive.google.com/file/d/1i-CZn-8A3UUucZ7DTT-Ph3HM76dxyXoy/view?usp=sharing)
+
 - The web application is mobile responsive.
 
  ## <a name="g">7. Credits and Acknowledgement</a>
