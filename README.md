@@ -66,7 +66,7 @@ The backend express.js uses tailwindcss, bootstrap and css. The react.js fronten
  * About
  <br/>There is an about page where it will provide background information to the user about space-saving furniture and our company.
  
-### 3.1 Navigation
+#### 3.1 Navigation
 The following tree shows a general direction in which one might navigate through the website:
  
  ![Image](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639123199/New_save_final_wuye4v.jpg)
@@ -160,7 +160,7 @@ Although the website makes prolific use of tables in the backend , most componen
 | I click on logout | A message showing 'Are you sure you want to log out?' I click on yes and a success message 'Logout successful' is shown, I am redirected to the Login page.|
 
 
-### 6.1 Future Features To Implement
+#### 6.1 Future Features To Implement:
 - A embedded video feature for users to watch how the wall bed is opened in its closed position.
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
 - Test results were done on 3 mobile devices
