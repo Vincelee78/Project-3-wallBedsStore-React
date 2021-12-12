@@ -1,5 +1,5 @@
 ## TCG-Project-3-React-Space Saving Furniture Systems
-The name of this project is called Space Saving Furniture Systems and it is an eCommerce platform for selling space-saving wall beds. The project is aimed at home owners, backbacker hotels owners, student domoritory owners, office owners who have a relatively small place or users who just want more space in their rooms. By providing these target consumers with these wall beds, it will solve their needs by freeing up more space in their rooms.
+The name of this project is called Space Saving Furniture Systems and it is an eCommerce platform for selling space-saving wall beds. The project is aimed at home owners, backbacker hotel owners, student domoritory owners, office owners who have a relatively small place or users who just want more space in their rooms. By providing these target consumers with these wall beds, it will solve their needs by freeing up more space in their rooms.
 
 ## My goal/motivation for creating this project:
 I have observed how small and compact flats here are. Built-to-order (BTO) flats are getting more compact with each project. Thus, the need for effective usage of space is in demand. People are finding ways to minimize space usage when in reality, the solution is to maximize what you have. How? By introducing space saving furniture for consumers to purchase.
