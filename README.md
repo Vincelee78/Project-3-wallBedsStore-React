@@ -27,10 +27,11 @@ The schema diagram for mySQL database can be found [here.](https://res.cloudinar
 
 ### Functional requirements:
 #### Features: 
-There are different categories of wall beds the user can click on and check the description, the photos, the dimensions of the wall bed according to the mattress size, the materials the bed is made from and their prices.
+There are different categories of wall beds the user can click on and check its description, photos, mattress type, bed orientation and their prices.
 There is an add to cart option for users to purchase the wall bed they want. They also can pay by credit card to checkout their cart items.
-Content: Each category of wall bed has a brief description and their key features, the delivery information and the price for each wall bed according to mattress size.
-Non-functional requirements:
+#### Content: 
+Each category of wall bed has a brief description and their key features, the delivery information and the price for each wall bed.
+#### Non-functional requirements:
 •	Page should load fast for users to easy navigate between the different wall beds
 •	It should look good visually on most mobile sizes as mobile users can purchase the beds using their mobiles
 •	Site’s language is in English as most people in Singapore use English as their mode of communication
