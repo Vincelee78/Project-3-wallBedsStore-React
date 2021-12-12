@@ -108,7 +108,7 @@ The following tree shows a general direction in which one might navigate through
 <br> This project uses CSS to add visual colors, adjust the size of the features and also positioning and animation of the features, and ensure it is mobile responsive.
 
  ## <a name="e">5. Design</a>
-5.1 UI/UX
+### 5.1 UI/UX
 The UI/UX design for this project was catered for the ease of use for the user. The design process for the website are as follows:
 
 ### 5.1.1 User Interface
@@ -136,7 +136,7 @@ Usage of traditional fonts such as 'Stencil Std, Fantasy' and 'Times New Roman, 
 Adequate white spaces between characters and lines in description for easy reading.
 
 
-5.2.2 User Experience
+#### 5.2.2 User Experience:
 Although the website makes prolific use of tables in the backend , most components except the tables are mobile-friendly. The frontend react features are mobile responsive. The backend express.js uses tailwindcss to create a responsive design. The default tailwind font family can be found in the documentation [here](https://tailwindcss.com/docs/font-family)
  
  
