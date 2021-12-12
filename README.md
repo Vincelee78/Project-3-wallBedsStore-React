@@ -138,8 +138,18 @@ The organization of the site content will contain the landing page with the navi
 
 
 #### 5.2.2 User Experience:
-The frontend react features are mobile responsive. The backend express.js uses tailwindcss to create a responsive design. The default tailwind font family can be found in the documentation [here](https://tailwindcss.com/docs/font-family)
- 
+The frontend react features are mobile responsive.
+- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=KtBqOjqCxvfnsseobCLixA). 
+- Test results were done on 3 mobile devices
+1. [Oppo R17 pro](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639322960/MNXA0772_zoxfzs.jpg)
+2. [Oppo R17 pro](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639322960/ANQB0566_cwgviy.jpg)
+3. [Iphone SE 2020](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639323117/IMG_6034_mok9f3.png)
+4. [Iphone SE 2020](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639323116/IMG_6033_x7lnuf.png)
+5. [Iphone7](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639323189/PRFX1874_aqhmgg.jpg)
+6. [Iphone7](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639323190/TYWR6574_wrldzy.jpg)
+- The web application is mobile responsive.
+
+The backend express.js uses tailwindcss to create a responsive design. The default tailwind font family can be found in the documentation [here](https://tailwindcss.com/docs/font-family)
  
  ## <a name="f">6.Testing</a>
  Based on the user's needs and objectives, these are the testing guidelines for the features that were implemented.
@@ -163,16 +173,6 @@ The frontend react features are mobile responsive. The backend express.js uses t
 
 #### 6.1 Future Features To Implement:
 - A embedded video feature for users to watch how the wall bed is opened in its closed position.
-- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=KtBqOjqCxvfnsseobCLixA). 
-- Test results were done on 3 mobile devices
-1. [Oppo R17 pro](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639322960/MNXA0772_zoxfzs.jpg)
-2. [Oppo R17 pro](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639322960/ANQB0566_cwgviy.jpg)
-3. [Iphone SE 2020](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639323117/IMG_6034_mok9f3.png)
-4. [Iphone SE 2020](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639323116/IMG_6033_x7lnuf.png)
-5. [Iphone7](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639323189/PRFX1874_aqhmgg.jpg)
-6. [Iphone7](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639323190/TYWR6574_wrldzy.jpg)
-
-- The web application is mobile responsive.
 
  ## <a name="g">7. Credits and Acknowledgement</a>
 * Credits to https://www.qoo10.sg/shop/spacesaving for the company's vision and wall beds data.
