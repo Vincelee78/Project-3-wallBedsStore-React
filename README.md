@@ -151,7 +151,7 @@ The frontend react features are mobile responsive.
 
 The backend express.js uses tailwindcss to create a responsive design. The default tailwind font family can be found in the documentation [here](https://tailwindcss.com/docs/font-family)
  
- ## <a name="f">6.Testing</a>
+ ## <a name="f">6. Testing</a>
  Based on the user's needs and objectives, these are the testing guidelines for the features that were implemented.
 | User Stories| Features|
 | ------ | ------ |
