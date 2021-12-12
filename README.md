@@ -42,11 +42,11 @@ Non-functional requirements:
 ## <a name="b">2. Deployment</a>
 This project is deployed on Netlify. The front end(react.js) website for consumers can be accessed at the following link:
 
-https://www
+https://project3-spacesavingfurnituresystems-vincent.netlify.app/
 
 The backend website for the site owner can be accessed at the following link:
 
-https://www
+https://wallbeds-project3.herokuapp.com/
 
 The backend express.js uses tailwindcss, bootstrap and css. The react.js frontend uses bootstrap and css. The tailwindcss is complied using the inline css feature under the <style> tag in the base.hbs of the backend express.js.
  
@@ -66,7 +66,7 @@ The backend express.js uses tailwindcss, bootstrap and css. The react.js fronten
  * About
  <br/>There is an about page where it will provide background information to the user about space-saving furniture and our company.
  
-### 3.1 Navigation
+#### 3.1 Navigation
 The following tree shows a general direction in which one might navigate through the website:
  
  ![Image](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639123199/New_save_final_wuye4v.jpg)
@@ -108,7 +108,7 @@ The following tree shows a general direction in which one might navigate through
 <br> This project uses CSS to add visual colors, adjust the size of the features and also positioning and animation of the features, and ensure it is mobile responsive.
 
  ## <a name="e">5. Design</a>
-5.1 UI/UX
+### 5.1 UI/UX
 The UI/UX design for this project was catered for the ease of use for the user. The design process for the website are as follows:
 
 ### 5.1.1 User Interface
@@ -136,7 +136,7 @@ Usage of traditional fonts such as 'Stencil Std, Fantasy' and 'Times New Roman, 
 Adequate white spaces between characters and lines in description for easy reading.
 
 
-5.2.2 User Experience
+#### 5.2.2 User Experience:
 Although the website makes prolific use of tables in the backend , most components except the tables are mobile-friendly. The frontend react features are mobile responsive. The backend express.js uses tailwindcss to create a responsive design. The default tailwind font family can be found in the documentation [here](https://tailwindcss.com/docs/font-family)
  
  
@@ -148,7 +148,7 @@ Although the website makes prolific use of tables in the backend , most componen
  | I click on the catalogue page in the navigation bar| I am directed to the about page where it will explain what is space-saving furniture and the background information of the company.|
  | I click on the About page in the navigation bar| I am directed to the catalogue page where the images of the products and its respective names are shown. A search filter feature is also shown on the left side of the page.|
 | I log in with my email and password| I am directed to the catalogue page where the images of the products are with an confirmation message 'Login sucessful, (myemail)'). If my entered my email or password wrongly, I would get an error message saying 'login failed!'|
-| I enter search fields 'Cozy' name , maximum cost $2000,  | The products  |
+| I enter search fields 'desk' name , maximum cost $2000, Bed sizes 'single bed, Bed Orientation 'Horizontal', Mattress Type 'Foam', Bed Frame colour 'Aluminium', Wood Panel colours, 'Walnut and click on Filter Wall Beds | The filtered product that appears is Cozy Wall Bed Desk Single |
 | I click on the Cozy Wall Bed Desk Single | I am directed to the Cozy Wall Bed Desk Single details page, with Walnut colour and its respective features, single bed, foam mattress, Horizontal bed orientation, Aluminium frame colour etc, |
 | I click on the Add to cart-$2000| A success message is shown saying 'Item added to cart'  and I am directed to the shopping cart page with the name, description, its respective fields options, the total unit cost $2000 on the right and the subtotal $2000 on the bottom.|
 | I click Catalogue and click on Revolving Wall Bed and Add to Cart | I will be directed to the shopping cart with the same success message. The Cozy Wall Bed Desk Single and Revolving Wall Bed will be in the cart with their respective images and options. The subtotal will now be $4500. |
@@ -160,13 +160,9 @@ Although the website makes prolific use of tables in the backend , most componen
 | I click on logout | A message showing 'Are you sure you want to log out?' I click on yes and a success message 'Logout successful' is shown, I am redirected to the Login page.|
 
 
-#### (i) Known Bugs
-- When clicking on the radio button to filter the criteria in all cases, if there are more than 1 case result, the radio button will not be checked on the first click. The results will be filtered on the first click though.
-- If this happens, clicking on the radio button again will check it.
-
-### 6.1 Future Features To Implement
+#### 6.1 Future Features To Implement:
 - A embedded video feature for users to watch how the wall bed is opened in its closed position.
-- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
+- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=ydBJWLaaAcISYfnKxyKzPw). 
 - Test results were done on 3 mobile devices
 1. [Iphone SE 2020](https://drive.google.com/file/d/1B06e0L3hfUrrEeajgfzpnTTRQsVkN9NI/view?usp=sharing)
 2. [Iphone SE 2020](https://drive.google.com/file/d/1jlnrQgIrxTtGkpZ26uqcvULjYThx2won/view?usp=sharing)
@@ -176,7 +172,7 @@ Although the website makes prolific use of tables in the backend , most componen
 6. [Oppo R17 pro](https://drive.google.com/file/d/1tOywxp3MgakxsQFZ-tI2SM-UOcrHR4CN/view?usp=sharing)
 - The web application is mobile responsive.
 
- ### <a name="g">7. Credits and Acknowledgement</a>
+ ## <a name="g">7. Credits and Acknowledgement</a>
 * Credits to https://www.qoo10.sg/shop/spacesaving for the company's vision and wall beds data.
 * Credits to https://shop.smartbeds.it for their wall bed images and their descriptions.
 * Credits to https://www.amazingspace.sg for their page on 'What is space saving furniture' and their wall bed image.
