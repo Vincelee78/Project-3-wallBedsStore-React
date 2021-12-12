@@ -55,7 +55,7 @@ The backend express.js uses tailwindcss, bootstrap and css. The react.js fronten
  The website is free to browse for everyone, however user accounts need to be created to access cart and do checkout. The features of this website are listed below:
  
  * Product Listing, searching, filtering and browsing.
- <br/>The website supports searching, sorting, filtering and browsing products. The products are listed in a card graphical view. It can be filtered by their different category options, maximum and minimum cost, name, etc.
+ <br/>The website supports searching, filtering and browsing products. The products are listed in a card graphical view. It can be filtered by their different category options, maximum and minimum cost, name, etc.
  
  * Cart, Checkout, Order Details
  <br/>A logged in user can add products to cart, checkout and view their order details.
