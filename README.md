@@ -58,7 +58,7 @@ The backend express.js uses tailwindcss, bootstrap and css. The react.js fronten
  <br/>The website supports searching, filtering and browsing products. The products are listed in a card graphical view. It can be filtered by their different category options, maximum and minimum cost, name, etc.
  
  * Cart, Checkout, Order Details
- <br/>A logged in user can add products to cart, checkout and view their order details.
+ <br/>A logged in user can add products to cart, checkout and view their order details under the 'Account' page.
 
  * Directions
  <br/>There is directions page on the website. The user can locate the location of the company's showroom on the marker in the map and the nearest mrt station to our showroom.
