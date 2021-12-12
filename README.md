@@ -61,7 +61,7 @@ The backend express.js uses tailwindcss, bootstrap and css. The react.js fronten
  <br/>A logged in user can add products to cart, checkout and view their order details under the 'Account' page.
 
  * Directions
- <br/>There is directions page on the website. The user can locate the location of the company's showroom on the marker in the map and the nearest mrt station to our showroom.
+ <br/>There is a directions page on the website. The user can locate the location of the company's showroom on the marker in the map and the nearest mrt station to our showroom.
  
  * About
  <br/>There is an about page where it will provide background information to the user about space-saving furniture and our company.
