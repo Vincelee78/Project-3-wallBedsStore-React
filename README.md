@@ -26,10 +26,10 @@ The schema diagram for mySQL database can be found [here.](https://res.cloudinar
 
 
 #### Functional requirements:
-#### Features: 
+* Features: 
 There are different categories of wall beds the user can click on and check its description, photos, mattress type, bed orientation and their prices.
 There is an add to cart option for users to purchase the wall bed they want. They also can pay by credit card to checkout their cart items.
-#### Content: 
+* Content: 
 Each category of wall bed has a brief description and their key features, its image and the price for each wall bed.
 #### Non-functional requirements:
 * Page should load fast for users to easy navigate between the different wall beds
