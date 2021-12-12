@@ -32,12 +32,12 @@ There is an add to cart option for users to purchase the wall bed they want. The
 #### Content: 
 Each category of wall bed has a brief description and their key features, its image and the price for each wall bed.
 #### Non-functional requirements:
-•	Page should load fast for users to easy navigate between the different wall beds
-•	It should look good visually on most mobile sizes as mobile users can purchase the beds using their mobiles
-•	Site’s language is in English as most people in Singapore use English as their mode of communication
-•	We do not store passwords and credit card numbers as a privacy requirement
-•	We have access Tokens, and verified signatures and other security protection to protect sensitive data and also against hacking.
-•	Selling wall beds are legal as all the furniture sold is safe to use and complies with the Government regulations.
+* Page should load fast for users to easy navigate between the different wall beds
+*	It should look good visually on most mobile sizes as mobile users can purchase the beds using their mobiles
+*	Site’s language is in English as most people in Singapore use English as their mode of communication
+*	We do not store passwords and credit card numbers as a privacy requirement
+*	We have access Tokens, and verified signatures and other security protection to protect sensitive data and also against hacking.
+*	Selling wall beds are legal as all the furniture sold is safe to use and complies with the Government regulations.
 
 
 ## <a name="b">2. Deployment</a>
