@@ -42,7 +42,7 @@ Non-functional requirements:
 ## <a name="b">2. Deployment</a>
 This project is deployed on Netlify. The front end(react.js) website for consumers can be accessed at the following link:
 
-https://www
+https://project3-spacesavingfurnituresystems-vincent.netlify.app/
 
 The backend website for the site owner can be accessed at the following link:
 
@@ -162,7 +162,7 @@ Although the website makes prolific use of tables in the backend , most componen
 
 #### 6.1 Future Features To Implement:
 - A embedded video feature for users to watch how the wall bed is opened in its closed position.
-- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=84WEjVlEU9HRktwiAVtipg). 
+- The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=ydBJWLaaAcISYfnKxyKzPw). 
 - Test results were done on 3 mobile devices
 1. [Iphone SE 2020](https://drive.google.com/file/d/1B06e0L3hfUrrEeajgfzpnTTRQsVkN9NI/view?usp=sharing)
 2. [Iphone SE 2020](https://drive.google.com/file/d/1jlnrQgIrxTtGkpZ26uqcvULjYThx2won/view?usp=sharing)
