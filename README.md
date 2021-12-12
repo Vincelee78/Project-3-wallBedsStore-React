@@ -172,7 +172,7 @@ Although the website makes prolific use of tables in the backend , most componen
 6. [Oppo R17 pro](https://drive.google.com/file/d/1tOywxp3MgakxsQFZ-tI2SM-UOcrHR4CN/view?usp=sharing)
 - The web application is mobile responsive.
 
- ### <a name="g">7. Credits and Acknowledgement</a>
+ ## <a name="g">7. Credits and Acknowledgement</a>
 * Credits to https://www.qoo10.sg/shop/spacesaving for the company's vision and wall beds data.
 * Credits to https://shop.smartbeds.it for their wall bed images and their descriptions.
 * Credits to https://www.amazingspace.sg for their page on 'What is space saving furniture' and their wall bed image.
