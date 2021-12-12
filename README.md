@@ -129,15 +129,15 @@ The organization of the site content will contain the landing page with the navi
 
 ### Surface:
 #### Colours:
-White background with black and dark brown fonts in the landing page for better contrast and easy visualization. 
-Usage of [coolors](https://coolors.co/) to select my colour scheme.
-Images used will not be too bright colours as I am using a white background.
-Usage of traditional fonts such as 'Stencil Std, Fantasy' and 'Times New Roman, Times, serif'.
-Adequate white spaces between characters and lines in description for easy reading.
+* White background with black and dark brown fonts in the landing page for better contrast and easy visualization. 
+* Usage of [coolors](https://coolors.co/) to select my colour scheme.
+* Images used will not be too bright colours as I am using a white background.
+* Usage of traditional fonts such as 'Stencil Std, Fantasy' and 'Times New Roman, Times, serif'.
+* Adequate white spaces between characters and lines in description for easy reading.
 
 
 #### 5.2.2 User Experience:
-Although the website makes prolific use of tables in the backend , most components except the tables are mobile-friendly. The frontend react features are mobile responsive. The backend express.js uses tailwindcss to create a responsive design. The default tailwind font family can be found in the documentation [here](https://tailwindcss.com/docs/font-family)
+The frontend react features are mobile responsive. The backend express.js uses tailwindcss to create a responsive design. The default tailwind font family can be found in the documentation [here](https://tailwindcss.com/docs/font-family)
  
  
  ## <a name="f">6.Testing</a>
