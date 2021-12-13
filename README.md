@@ -36,14 +36,14 @@ Each category of wall bed has a brief description and their key features, its im
 *	It should look good visually on most mobile sizes as mobile users can purchase the beds using their mobiles
 *	Site’s language is in English as most people in Singapore use English as their mode of communication
 *	We do not store passwords and credit card numbers as a privacy requirement
-*	We have access Tokens, and verified signatures and other security protection to protect sensitive data and also against hacking.
+*	We have access Tokens, and verified signatures and other security protection such as hashed passswords to protect sensitive data.
 *	Selling wall beds are legal as all the furniture sold is safe to use and complies with the Government regulations.
 
 
 ## <a name="b">2. Deployment</a>
 This project is deployed on Netlify. The front end(react.js) website for consumers can be accessed at the following link:
 
-https://spacesavingfurnituresystems-vincent.netlify.app/ 
+https://spacesavingfurnituresystems-vincent.netlify.app/
 
 The backend website for the site owner can be accessed at the following link:
 
@@ -127,6 +127,7 @@ The organization of the site content will contain the landing page with the navi
 *	Search function will be in the catalogue page of the site with the image and name of the wall beds.
 *	In the navigation bar at the top, will be home, catalogue, about and account pages. Within the 'home' option of the navigation bar, it will have a dropdown bar consisting of the 'home page' and 'directions' option. Clicking on the 'directions' option will open a map showing the marker with the location of our showroom and an marker of the nearest MRT station to our showroom.
 *	The company logo is at the left of the navigation bar at the top.
+*	Token blacklists are implemented to allow users to log out via the API. Invalidating the token after logout makes sure it's not being used again for authentication purposes.
 
 ### Surface:
 #### Colours:
@@ -172,7 +173,7 @@ The backend express.js uses tailwindcss to create a responsive design. The defau
 
 
 #### 6.1 Future Features To Implement:
-- A embedded video feature for users to watch how the wall bed is opened in its closed position.
+- An embedded video feature for users to watch how the wall bed is opened in its closed position.
 
  ## <a name="g">7. Credits and Acknowledgement</a>
 * Credits to https://www.qoo10.sg/shop/spacesaving for the company's vision and wall beds data.
