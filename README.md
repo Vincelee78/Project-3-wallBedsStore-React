@@ -43,7 +43,7 @@ Each category of wall bed has a brief description and their key features, its im
 ## <a name="b">2. Deployment</a>
 This project is deployed on Netlify. The front end(react.js) website for consumers can be accessed at the following link:
 
-https://spacesavingfurnituresystems-vincent.netlify.app/ 
+https://spacesavingfurnituresystems-vincent.netlify.app/
 
 The backend website for the site owner can be accessed at the following link:
 
