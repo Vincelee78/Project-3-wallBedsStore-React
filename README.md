@@ -172,7 +172,7 @@ The backend express.js uses tailwindcss to create a responsive design. The defau
 
 
 #### 6.1 Future Features To Implement:
-- A embedded video feature for users to watch how the wall bed is opened in its closed position.
+- An embedded video feature for users to watch how the wall bed is opened in its closed position.
 
  ## <a name="g">7. Credits and Acknowledgement</a>
 * Credits to https://www.qoo10.sg/shop/spacesaving for the company's vision and wall beds data.
