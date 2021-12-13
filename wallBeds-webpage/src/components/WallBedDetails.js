@@ -10,25 +10,13 @@ import { baseUrl } from "../api/url";
 
 
 
-
-
 export default function WallBedDetails(props) {
-
 
     const { productId } = useParams();
     const [product, setProduct] = useState({});
     const context = useContext(WallBedContext);
     const [woodColour, setwoodColour] = useState([]);
-    const [cartUpdated, setCartUpdated] = useState([]);
-    const [token, setToken] = useState(['']);
     const history = useHistory()
-
-
-    useEffect(() => {
-        if (props.setToken) {
-            setToken(props.setToken)
-        }
-    })
 
 
     useEffect(() => {
@@ -39,7 +27,6 @@ export default function WallBedDetails(props) {
             setwoodColour(wantedProduct.woodColour);
         }
         getData()
-
     }, [productId])
 
 
@@ -69,7 +56,7 @@ export default function WallBedDetails(props) {
             });
 
             if (data) {
-                setCartUpdated(true);
+            
                 history.push("/cart");
                 toast.success('Item added to cart', {
                     autoClose: 3000,
@@ -78,7 +65,7 @@ export default function WallBedDetails(props) {
 
 
             } else {
-                setCartUpdated(false);
+                
                 history.push("/users/login");
                 toast.error("Please log in to add items to cart", {
                     autoClose: 3000,
@@ -94,9 +81,9 @@ export default function WallBedDetails(props) {
             <React.Fragment>
                 <div class="row mx-2 h-100">
                     <img src={product.image_url} class="wallBedImage col-lg-6 col-sm-12 d-flex align-items-center justify-content-center"
-
+                        alt='defaultImage'
                         style={{
-                            "backgroundRepeat": "no-repeat", "backgroundSize": "contain ", "backgroundPosition": "center",
+                            "backgroundRepeat": "no-repeat", "backgroundSize": "contain ", "backgroundPosition": "center",                   
                         }}>
 
                     </img>

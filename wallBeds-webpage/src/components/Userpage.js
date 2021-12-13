@@ -6,7 +6,6 @@ import { baseUrl } from "../api/url";
 
 
 
-
 export default function UserPage() {
 
     const [data, setData] = useState([]);
@@ -60,11 +59,11 @@ export default function UserPage() {
                 <div class="d-flex">
                     <img class="d-none d-lg-block"
                         src="https://st2.depositphotos.com/1502311/12020/v/380/depositphotos_120206860-stock-illustration-profile-picture-vector.jpg"
-                        style={{ 'width': '25%', 'height': '50%' }} />
+                        style={{ 'width': '25%', 'height': '50%' }} alt='defaultImage'/>
 
                     <div class="w-full p-0 px-lg-3">
                         <div class="w-full text-start">
-                            <h4 class='userContainer accountBody text-nowrap' style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items: &nbsp;</h4>
+                            <h4 class='userContainer accountBody text-nowrap ms-lg-5' style={{ 'color': 'wheat', 'font-size': '30px' }}>Order Items: &nbsp;</h4>
                             <div class=" text-white font-bold m-0 ms-lg-5 accountBody" style={{ 'display': 'flex', 'flexDirection': "row" }}>
                                 <ul style={{ 'color': 'white', 'font-size': '30px' }}>{data.map(a => (a.orderItem).map(b =>
                                     <li class="badge rounded-pill bg-secondary userContainer accountBody text-capitalize">{(b.wallBed.name)}, &nbsp;Quantity: {b.quantity}, &nbsp;Cost: ${(b.cost / 100 * (b.quantity))}</li>

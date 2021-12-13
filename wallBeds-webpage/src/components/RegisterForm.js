@@ -5,12 +5,14 @@ import Headers from "./HeaderRegisterForm";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerFormSchema } from "./FormValidator";
 import { baseUrl } from "../api/url";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 
 
 export default function RegisterForm() {
 
-
+  const redirect = useHistory();
   const { register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(registerFormSchema) });
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -39,15 +41,17 @@ export default function RegisterForm() {
   }, [User])
 
   if (User) {
-    return <div class='ms-3'>Thank you for signing up!</div>
-    // <Redirect to="/shop_All_Beds" />
+    toast.success(`Thank you for signing up!`, {
+      autoClose: 3000,
+      toastId: "register-success"
+
+    })
+    redirect.push('/users/login')
   }
-  let onError = (err, e) => {
-    console.log(err, e)
-  }
+  
 
   return (
-    <form onSubmit={handleSubmit(onSubmit, onError)} class=' d-flex flex-column align-items-start ps-4 mt-3'>
+    <form onSubmit={handleSubmit(onSubmit)} class=' d-flex flex-column align-items-start ps-4 mt-3'>
       <Headers />
       <div class='w-50 '>
         <input {...register("username")} placeholder="Full name" name='username' value={username} onChange={(evt) => setUsername(evt.target.value)} />

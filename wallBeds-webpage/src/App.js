@@ -18,25 +18,22 @@ import DirectionsPage from "./components/Directions";
 import SuccessfulPayment from "./components/SuccessPurchase";
 import UnsuccessfulPayment from "./components/CancelPurchase";
 import { ToastContainer } from "react-toastify";
+import { baseUrl } from "./api/url";
 import './App.css';
 
 export default function App() {
 
   const [token, setToken] = useState('');
 
-  const url = "https://wallbeds-project3.herokuapp.com/api/"
-
-
   let loginUser = () => {
     if (localStorage.getItem('accessToken')) {
       const getUser = async () => {
         try {
-          const response = await axios.get(url + "users/profile", {
+          const response = await axios.get(baseUrl + "users/profile", {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
             },
           });
-          // console.log(response.data)
           localStorage.setItem("username", response.data.username);
           setToken(localStorage.getItem('accessToken'));
         } catch (error) {
@@ -55,7 +52,7 @@ export default function App() {
         const refresh = async () => {
           try {
             const { accessToken } = await axios.post(
-              url + 'users/refresh',
+              baseUrl + 'users/refresh',
               {
                 refreshToken: localStorage.getItem('refreshToken')
               }
@@ -79,7 +76,7 @@ export default function App() {
 
 
   let logoutUser = async () => {
-    await axios.post(url + 'users/logout', {
+    await axios.post(baseUrl + 'users/logout', {
       refreshToken: localStorage.getItem('refreshToken')
     })
     localStorage.removeItem("accessToken");
@@ -95,7 +92,7 @@ export default function App() {
     <Router>
       <div id="nav">
         <div class="logo pt-lg-2 pt-3 ps-2">
-          <img src='https://dp.image-gmkt.com/SG/GMKT.IMG/front_image/minishop/2014/01/02/a6b99c03-175e-40eb-8edb-104c4e3c488e.s_110-w-fs-st_s.jpg' class="main-logo" />
+          <img src='https://dp.image-gmkt.com/SG/GMKT.IMG/front_image/minishop/2014/01/02/a6b99c03-175e-40eb-8edb-104c4e3c488e.s_110-w-fs-st_s.jpg' class="main-logo" alt='defaultImage'/>
           <Link to="/" href="#" style={{ 'textDecoration': 'none', 'color': 'brown' }}><header class='compName' style={{ 'font-family': 'Stencil Std, fantasy' }}><b>Space-Saving Furniture Systems</b></header></Link>
         </div>
 

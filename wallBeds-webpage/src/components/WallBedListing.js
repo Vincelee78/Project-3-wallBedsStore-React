@@ -8,13 +8,9 @@ import { baseUrl } from "../api/url";
 
 
 
-
-
-
 export default function WallBedListing() {
 
   const [data, setData] = useState([]);
-  const [search, setSearch] = useState([]);
   const [name, setName] = useState('');
   const [minCost, setminCost] = useState('');
   const [maxCost, setmaxCost] = useState('');
@@ -32,7 +28,7 @@ export default function WallBedListing() {
     }
     getWall()
   }, [])
-  console.log(context)
+  
 
   const { register, handleSubmit } = useForm();
 
@@ -50,7 +46,7 @@ export default function WallBedListing() {
       }
 
     });
-    setSearch(search.data);
+    
     setData(search.data);
   }
 
@@ -134,7 +130,7 @@ export default function WallBedListing() {
       </div>
       <div class="col-sm-10 ">
         <h3 class="ps-4" style={{ 'font-family': 'Stencil Std' }}>Wall Beds</h3>
-        <img className='w-100 wallBedImgCatalogue' src="https://www.mspgreenville.com/wp-content/uploads/2018/07/F61A4157-1500x630.jpg" style={{ "height": "450px" }} />
+        <img className='w-100 wallBedImgCatalogue' src="https://www.mspgreenville.com/wp-content/uploads/2018/07/F61A4157-1500x630.jpg" style={{ "height": "450px" }} alt='defaultImage'/>
 
         <div className=" wallBedCard d-flex justify-content-evenly flex-wrap mt-5 align-content-around ">
           {data.map((b) => {

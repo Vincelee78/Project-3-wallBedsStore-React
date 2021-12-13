@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel'
 import 'animate.css';
 import { Link } from "react-router-dom";
+import wallBedImage1 from '../images/wallbeds-slide-1.jpg';
+import wallBedImage2 from '../images/wallbeds-slide-2.jpg';
+import wallBedImage3 from '../images/wallbeds-slide-4.jpg';
 
 export default class LandingPage extends React.Component {
     state = {
@@ -18,7 +21,7 @@ export default class LandingPage extends React.Component {
                     <Carousel.Item interval={3000}>
                         <img
                             className="d-block w-100" style={{ 'height': '650px', 'filter': 'brightness(110%)', 'opacity': '0.8' }}
-                            src="https://www.smartbeds.it/images/smartbeds-slide-1.jpg"
+                            src={wallBedImage1}
                             alt="First slide"
                         />
                         <Carousel.Caption className='text-end' style={{ 'padding-bottom': '250px', 'filter': 'brightness(120%)' }}>
@@ -29,7 +32,7 @@ export default class LandingPage extends React.Component {
                     <Carousel.Item interval={3000}>
                         <img
                             className="d-block w-100" style={{ 'height': '650px', 'filter': 'brightness(110%)', 'opacity': '0.8' }}
-                            src="https://www.smartbeds.it/images/smartbeds-slide-2.jpg"
+                            src={wallBedImage2}
                             alt="Second slide"
                         />
 
@@ -41,7 +44,7 @@ export default class LandingPage extends React.Component {
                     <Carousel.Item interval={3000}>
                         <img
                             className="d-block w-100" style={{ 'height': '650px', 'filter': 'brightness(110%)', 'opacity': '0.8' }}
-                            src="https://www.smartbeds.it/images/smartbeds-slide-4.jpg"
+                            src={wallBedImage3}
                             alt="Third slide"
                         />
 

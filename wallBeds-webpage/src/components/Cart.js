@@ -11,11 +11,9 @@ export default function Cart() {
 
 
     const [cart, setCart] = useState([]);
-    // const { user, token } = useContext(UserContext);
     const [cartUpdated, setCartUpdated] = useState(false);
     const [stripeSession, setStripeSession] = useState(null);
     const [cartItem, checkoutCart] = useState(['']);
-    const [user, setUser] = useState(['']);
     const [quantity, setNewQuantity] = useState('');
     const [cartItemQty, setCartItemQty] = useState([]);
     const redirect = useHistory();
@@ -23,7 +21,6 @@ export default function Cart() {
 
     useEffect(() => {
         //get cart function
-
         async function getCart() {
 
             const cart = await axios.get(baseUrl + 'cart', {
@@ -34,7 +31,7 @@ export default function Cart() {
             setCart(cart.data);
         }
 
-        //if token is set, get cart data
+        // if token is set, get cart data
         if (localStorage.getItem("accessToken")) {
             const cart = getCart();
             if (cart) {
@@ -48,9 +45,9 @@ export default function Cart() {
             setCart([]);
             setCartUpdated(false);
         }
-    }, [cartUpdated]);
+    }, []);
 
-    console.log(cart)
+    
 
 
     //total price
@@ -77,9 +74,13 @@ export default function Cart() {
 
 
     // update cart quantity form
-    async function onUpdate(formData) {
-        alert('Cart Updated!')
+    // async function onUpdate(formData) {
+    async function onUpdate(evt) {
+        // alert('Cart Updated!')
+        // console.log(evt)
+        evt.preventDefault();
         try {
+            
             const data = await axios({
                 method: "post",
                 url: baseUrl + 'cart/quantity/update',
@@ -87,12 +88,12 @@ export default function Cart() {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 },
                 data: {
-                    productId: formData.productId,
-                    newQuantity: formData.newQuantity,
+                    productId: evt.target.productId.value,
+                    newQuantity: evt.target.newQuantity.value,
                 }
-
+                
             });
-
+            // console.log(data)
             if (data) {
                 // setCartUpdated(true);
                 toast.success("Item quantity updated.", {
@@ -111,6 +112,7 @@ export default function Cart() {
                 setTimeout(() => {
                     redirect.push("/users/login")
                 }, 2000);
+                
             }
         } catch (error) {
             toast.error("Error on updating quantity. Please try again.", {
@@ -166,17 +168,6 @@ export default function Cart() {
                 });
                 setStripeSession(session.data);
             } catch (error) {
-                //update cart if no stock
-                // if (error.response.status === 417) {
-                //     toast.update("checkoutCart", {
-                //         render: "Cart Updated. Please review your cart and try again.",
-                //         isLoading: false,
-                //         type: "error",
-                //         closeButton: true,
-                //     });
-                //     setOutOfStock(true);
-                //     setCartUpdated(true);
-                // } else {
                 toast.update("checkoutCart", {
                     render: "Something went wrong. Please try again.",
                     autoClose: 3000,
@@ -260,8 +251,10 @@ export default function Cart() {
 
                                                 <div class="d-flex align-items-end justify-content-center justify-content-lg-end m-0 ms-lg-5 cartQuantity">
                                                     <div class='mx-2 '>
-                                                        <form onSubmit={() => { onUpdate({ productId: b.product_id, newQuantity: cartItemQty }) }} >
+                                                        {/* <form onSubmit={() => { onUpdate({ productId: b.product_id, newQuantity: cartItemQty }) }} > */}
+                                                        <form onSubmit={onUpdate} >
                                                             <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
+                                                            <input type="hidden" name='productId' value={b.product_id}/>
                                                             <label style={{ 'color': 'brown' }}> Quantity: </label>
                                                             <input type="text" name='newQuantity' value={b.quantity} onChange={evt => handleQtyChange(evt, b)}
                                                                 style={{ 'width': '50px', 'border': '1px solid black', 'text-align': 'center' }} /><br />
@@ -314,7 +307,7 @@ export default function Cart() {
     } else {
         return (
             <div class='ms-3'>
-                Please log in in to access your cart
+                Please log in to access your cart
             </div>
         )
     }

@@ -13,7 +13,7 @@ export default function LogoutPage(props) {
     const redirect = useHistory();
 
     const onSubmit = async () => {
-    //     await axios.post(url + 'users/logout', {
+    //     await axios.post(baseUrl + 'users/logout', {
     //         refreshToken: localStorage.getItem('refreshToken')
     //     })
 
@@ -29,7 +29,7 @@ export default function LogoutPage(props) {
         localStorage.removeItem("username")
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
-        setlogoutUser();
+        // setlogoutUser();
         setUser('');
 
 
@@ -40,8 +40,9 @@ export default function LogoutPage(props) {
             toastId: "logout-success"
         })
 
-        window.location.reload();
+        
         redirect.push("/users/login")
+        window.location.reload();
     }
 
 
