@@ -115,7 +115,7 @@ The UI/UX design for this project was catered for the ease of use for the user. 
 #### Structure:
 The organization of the site content will contain the landing page with the navigation bar and site’s logo on the top left. The landing page will show the hero image of an open and closed image of a featured wall bed, and clicking on 'shop all beds' will bring the user to another page where it show the different wall bed categories and their respective images. In this page, filtering the wall beds is possible using a search feature. Clicking on the wall beds' categories will show their respective options, their description and the add to cart feature.
 * The total unit price and subtotal will be shown when the user selects the wall bed he/she wants to purchase. This website caters to the local residents in Singapore so there are no additional shipping costs as it is included in the total cost price.
-*	The refund is allowed explained at the footer of the landing page.
+*	The refund policy is explained at the footer of the landing page.
 *	The user's order details and payment status will be shown in the account page.
 *	The shopping cart will be indicated as a cart icon in the navigation bar.
 *	The user can login, logout and register in the navigation bar at the top.
