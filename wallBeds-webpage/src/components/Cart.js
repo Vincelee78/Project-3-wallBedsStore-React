@@ -134,6 +134,7 @@ export default function Cart() {
                 toast.info("Item removed from cart.", {
                     autoClose: 3000,
                 });
+                window.location.reload();
             }
         } catch (error) {
             toast.error("Something went wrong. Please try again.", {
