@@ -139,7 +139,7 @@ The organization of the site content will contain the landing page with the navi
 
 
 #### 5.2.2 User Experience:
-The frontend react features are mobile responsive.
+The frontend react features are mobile responsive. In order to achieve mobile responsiveness, my strategy is to add css code to flex the product images and their listings into one column in small mobile devices. For larger mobile devices such as ipad, I used the grid system so there will be 2 columns instead of the default 3 columns in large size screens. I have implemented code so that the navigation bar collapses to a toggle button when viewed on a smaller mobile device.
 - The test results can be found [here](https://search.google.com/test/mobile-friendly/result?id=KtBqOjqCxvfnsseobCLixA). 
 - Test results were done on 3 mobile devices
 1. [Oppo R17 pro](https://res.cloudinary.com/dtrwtlldr/image/upload/v1639322960/MNXA0772_zoxfzs.jpg)
