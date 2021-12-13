@@ -127,6 +127,7 @@ The organization of the site content will contain the landing page with the navi
 *	Search function will be in the catalogue page of the site with the image and name of the wall beds.
 *	In the navigation bar at the top, will be home, catalogue, about and account pages. Within the 'home' option of the navigation bar, it will have a dropdown bar consisting of the 'home page' and 'directions' option. Clicking on the 'directions' option will open a map showing the marker with the location of our showroom and an marker of the nearest MRT station to our showroom.
 *	The company logo is at the left of the navigation bar at the top.
+*	Token blacklists are implemented to allow users to log out via the API. Invalidating the token after logout makes sure it's not being used again for authentication purposes.
 
 ### Surface:
 #### Colours:
