@@ -61,7 +61,7 @@ export default function App() {
             localStorage.setItem('accessToken', accessToken);
             console.log(accessToken)
           } catch (error) {
-            // console.log(error)
+
           };
 
         }
@@ -75,24 +75,11 @@ export default function App() {
   }, [token])
 
 
-  let logoutUser = async () => {
-    await axios.post(baseUrl + 'users/logout', {
-      refreshToken: localStorage.getItem('refreshToken')
-    })
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
-    localStorage.removeItem("username");
-
-  }
-
-
-
-
   return (
     <Router>
       <div id="nav">
         <div class="logo pt-lg-2 pt-3 ps-2">
-          <img src='https://dp.image-gmkt.com/SG/GMKT.IMG/front_image/minishop/2014/01/02/a6b99c03-175e-40eb-8edb-104c4e3c488e.s_110-w-fs-st_s.jpg' class="main-logo" alt='defaultImage'/>
+          <img src='https://dp.image-gmkt.com/SG/GMKT.IMG/front_image/minishop/2014/01/02/a6b99c03-175e-40eb-8edb-104c4e3c488e.s_110-w-fs-st_s.jpg' class="main-logo" alt='defaultImage' />
           <Link to="/" href="#" style={{ 'textDecoration': 'none', 'color': 'brown' }}><header class='compName' style={{ 'font-family': 'Stencil Std, fantasy' }}><b>Space-Saving Furniture Systems</b></header></Link>
         </div>
 
@@ -201,7 +188,7 @@ export default function App() {
           </Route>
 
           <Route exact path="/users/logout">
-            <LogoutPage setlogoutUser={logoutUser} />
+            <LogoutPage />
           </Route>
 
           <Route exact path="/users/account">

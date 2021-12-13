@@ -6,47 +6,37 @@ import { baseUrl } from "../api/url";
 
 
 
-export default function LogoutPage(props) {
-
-    const [User, setUser] = useState(null);
-    const setlogoutUser = props.setlogoutUser;
+export default function LogoutPage() {
     const redirect = useHistory();
 
-    const onSubmit = async () => {
-    //     await axios.post(baseUrl + 'users/logout', {
-    //         refreshToken: localStorage.getItem('refreshToken')
-    //     })
-
-        // localStorage.removeItem("username")
-        // localStorage.removeItem("accessToken");
-        // localStorage.removeItem("refreshToken");
-        // setlogoutUser();
-        // setUser('');
-        // await axios.post(url + 'users/logout', {
-        //     refreshToken: localStorage.getItem('refreshToken')
-        // })
+    const onSubmit =  async (evt) => {
+        evt.preventDefault();
+        if (localStorage.getItem('accessToken')){
+        await axios.post(baseUrl + 'users/logout', {
+            refreshToken: localStorage.getItem('refreshToken')
+        })
 
         localStorage.removeItem("username")
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
-        // setlogoutUser();
-        setUser('');
 
-
-    }
-    if (User == '') {
         toast.success("Logout sucessful", {
             autoClose: 3000,
             toastId: "logout-success"
         })
 
-        
         redirect.push("/users/login")
         window.location.reload();
-    }
 
+    } else {
+        toast.error("You must be logged in to log out!", {
+            autoClose: 3000,
+            toastId: "logout-error"
+        })
 
-
+        redirect.push("/users/login")
+    } 
+}
 
     return (
         <React.Fragment>

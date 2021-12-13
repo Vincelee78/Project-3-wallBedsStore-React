@@ -47,7 +47,7 @@ export default function Cart() {
         }
     }, []);
 
-    
+
 
 
     //total price
@@ -74,13 +74,11 @@ export default function Cart() {
 
 
     // update cart quantity form
-    // async function onUpdate(formData) {
     async function onUpdate(evt) {
-        // alert('Cart Updated!')
-        // console.log(evt)
+        alert('Cart Updated!')
         evt.preventDefault();
         try {
-            
+
             const data = await axios({
                 method: "post",
                 url: baseUrl + 'cart/quantity/update',
@@ -91,9 +89,9 @@ export default function Cart() {
                     productId: evt.target.productId.value,
                     newQuantity: evt.target.newQuantity.value,
                 }
-                
+
             });
-            // console.log(data)
+
             if (data) {
                 // setCartUpdated(true);
                 toast.success("Item quantity updated.", {
@@ -112,7 +110,7 @@ export default function Cart() {
                 setTimeout(() => {
                     redirect.push("/users/login")
                 }, 2000);
-                
+
             }
         } catch (error) {
             toast.error("Error on updating quantity. Please try again.", {
@@ -177,7 +175,7 @@ export default function Cart() {
             }
         }
     }
-    // }
+    
 
 
     //checkout with stripe if session id is set
@@ -219,13 +217,13 @@ export default function Cart() {
                                     <div class="card-body">
                                         <div class="py-1 d-flex cartBody">
                                             <div class=''>
-                                                <img class='cartImg' src={b.wallBed.image_url} alt={b.name} style={{ 'width': '500px', 'object-fit': 'contain'}} />
+                                                <img class='cartImg' src={b.wallBed.image_url} alt={b.name} style={{ 'width': '500px', 'object-fit': 'contain' }} />
                                             </div>
 
                                             <div class="ml-4 flex-1 d-flex flex-column ">
                                                 <div class='card-title'>
                                                     <div class="d-flex justify-content-between text-base font-medium ">
-                                                        <p class="ms-lg-5 ms-0 cartBedName" style={{ 'font-size': '25px','text-transform': 'uppercase' }}>
+                                                        <p class="ms-lg-5 ms-0 cartBedName" style={{ 'font-size': '25px', 'text-transform': 'uppercase' }}>
                                                             <b>{b.wallBed.name}</b>
                                                         </p>
                                                         <div >
@@ -254,7 +252,7 @@ export default function Cart() {
                                                         {/* <form onSubmit={() => { onUpdate({ productId: b.product_id, newQuantity: cartItemQty }) }} > */}
                                                         <form onSubmit={onUpdate} >
                                                             <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
-                                                            <input type="hidden" name='productId' value={b.product_id}/>
+                                                            <input type="hidden" name='productId' value={b.product_id} />
                                                             <label style={{ 'color': 'brown' }}> Quantity: </label>
                                                             <input type="text" name='newQuantity' value={b.quantity} onChange={evt => handleQtyChange(evt, b)}
                                                                 style={{ 'width': '50px', 'border': '1px solid black', 'text-align': 'center' }} /><br />

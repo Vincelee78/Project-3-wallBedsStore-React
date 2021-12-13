@@ -26,7 +26,7 @@ export default function LoginPage(props) {
       email: formData.email,
       password: formData.password
     });
-    console.log(response.data)
+    
     if (response.data.accessToken) {
       localStorage.setItem('accessToken', response.data.accessToken);
       localStorage.setItem('refreshToken', response.data.refreshToken);
@@ -46,7 +46,6 @@ export default function LoginPage(props) {
       })
     }
   }
-
 
   return (
 
