@@ -175,7 +175,7 @@ export default function Cart() {
             }
         }
     }
-    
+
 
 
     //checkout with stripe if session id is set
@@ -249,7 +249,6 @@ export default function Cart() {
 
                                                 <div class="d-flex align-items-end justify-content-center justify-content-lg-end m-0 ms-lg-5 cartQuantity">
                                                     <div class='mx-2 '>
-                                                        {/* <form onSubmit={() => { onUpdate({ productId: b.product_id, newQuantity: cartItemQty }) }} > */}
                                                         <form onSubmit={onUpdate} >
                                                             <input type="hidden" name="_csrf" value="{{@root.csrfToken}}" />
                                                             <input type="hidden" name='productId' value={b.product_id} />

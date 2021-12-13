@@ -61,7 +61,7 @@ export default function App() {
             localStorage.setItem('accessToken', accessToken);
             console.log(accessToken)
           } catch (error) {
-
+            console.log(error)
           };
 
         }
@@ -83,7 +83,7 @@ export default function App() {
           <Link to="/" href="#" style={{ 'textDecoration': 'none', 'color': 'brown' }}><header class='compName' style={{ 'font-family': 'Stencil Std, fantasy' }}><b>Space-Saving Furniture Systems</b></header></Link>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light">
           <div class="row d-flex flex-row">
             <button class="navbar-toggler d-flex justify-content-end border-0 d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>

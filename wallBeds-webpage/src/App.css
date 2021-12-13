@@ -170,11 +170,9 @@ input[type="submit"]:active {
   color: red;
 }
 
-
 /* mobile responsive */
 /* 0 to 768px */
 @media only screen and (min-width: 0px) and (max-width: 768px) {
-  
   /* company name in landing page css */
   .compName {
     font-size: 15px;
@@ -191,6 +189,7 @@ input[type="submit"]:active {
   .navbar {
     padding-top: 15px !important;
     padding-right: 10px !important;
+    
   }
 
   /* navbar toggler for mobile devices */
@@ -227,7 +226,6 @@ input[type="submit"]:active {
   /* landing page Login, Logout, register css */
   .user {
     flex-direction: column;
-    margin: 0 !important;
     margin-left: 40px !important;
   }
 
@@ -276,19 +274,18 @@ input[type="submit"]:active {
     margin-left: 2px !important;
   }
 
-/* central wording in carousel css */
+  /* central wording in carousel css */
   .animated {
     display: none;
   }
 
   .cartImg {
-    width:250px !important;
+    width: 250px !important;
     margin-left: 20px !important;
   }
 
   .cartBody {
     flex-direction: column !important;
-    
   }
 
   .cartQuantity {
@@ -306,12 +303,11 @@ input[type="submit"]:active {
     height: auto !important;
   }
 
-
   /* leaflet map css */
   .leaflet-container {
     width: 90%;
     height: 50vh;
-    margin-left: 16px ;
+    margin-left: 16px;
   }
 
   /* Carousel image css */
@@ -323,4 +319,3 @@ input[type="submit"]:active {
   }
 }
 /* end of mobile css */
-
