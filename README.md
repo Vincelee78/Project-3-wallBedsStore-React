@@ -36,7 +36,7 @@ Each category of wall bed has a brief description and their key features, its im
 *	It should look good visually on most mobile sizes as mobile users can purchase the beds using their mobiles
 *	Site’s language is in English as most people in Singapore use English as their mode of communication
 *	We do not store passwords and credit card numbers as a privacy requirement
-*	We have access Tokens, and verified signatures and other security protection such as hashed passswords to protect sensitive data.
+*	We have access Tokens, and verified signatures and other security protection such as hashed passwords to protect sensitive data.
 *	Selling wall beds are legal as all the furniture sold is safe to use and complies with the Government regulations.
 
 
