@@ -13,8 +13,6 @@ export default function Cart() {
     const [cart, setCart] = useState([]);
     const [cartUpdated, setCartUpdated] = useState(false);
     const [stripeSession, setStripeSession] = useState(null);
-    const [cartItem, checkoutCart] = useState(['']);
-    const [quantity, setNewQuantity] = useState('');
     const [cartItemQty, setCartItemQty] = useState([]);
     const redirect = useHistory();
 
