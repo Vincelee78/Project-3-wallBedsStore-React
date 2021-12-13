@@ -79,7 +79,7 @@ export default function WallBedDetails(props) {
     return <React.Fragment>
         {product ?
             <React.Fragment>
-                <div class="row mx-2 h-100">
+                <div class="row mx-2 h-100 h-xs-50">
                     <img src={product.image_url} class="wallBedImage col-lg-6 col-sm-12 d-flex align-items-center justify-content-center"
                         alt='defaultImage'
                         style={{
