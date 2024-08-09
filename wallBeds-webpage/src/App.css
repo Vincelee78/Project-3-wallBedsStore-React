@@ -19,6 +19,33 @@ body {
   margin-right: auto;
 }
 
+.custom-btn {
+  padding: 0.25rem 0.5rem; /* Adjust padding as needed */
+  font-size: 0.775rem; /* Adjust font size as needed */
+  border-radius: 0.25rem; /* Adjust border radius as needed */
+  margin-right: 0.5rem; /* Adjust margin as needed */
+}
+
+.custom-dropdown-menu {
+  text-align: center;
+  width: fit-content;
+  min-width: 0;
+}
+
+.custom-dropdown-item {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  display: block;
+  text-align: center;
+}
+
+.navbar-nav .dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
 ul {
   margin: 0 !important;
   padding: 0 !important;

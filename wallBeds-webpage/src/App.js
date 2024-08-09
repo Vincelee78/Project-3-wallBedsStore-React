@@ -80,7 +80,7 @@ export default function App() {
       <div id="nav">
         <div class="logo pt-lg-2 pt-3 ps-2">
           <img src='https://dp.image-gmkt.com/SG/GMKT.IMG/front_image/minishop/2014/01/02/a6b99c03-175e-40eb-8edb-104c4e3c488e.s_110-w-fs-st_s.jpg' class="main-logo" alt='defaultImage' />
-          <Link to="/" href="#" style={{ 'textDecoration': 'none', 'color': 'brown' }}><header class='compName' style={{ 'font-family': 'Stencil Std, fantasy' }}><b>Space-Saving Furniture Systems</b></header></Link>
+          <Link to="/" href="#" style={{ 'textDecoration': 'none', 'color': 'brown' }}><header class='compName' style={{ 'font-family': 'Stencil Std, fantasy','fontSize': '32px'  }}><b>Space-Saving Furniture Systems</b></header></Link>
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-expand-md navbar-light">
@@ -94,12 +94,12 @@ export default function App() {
                 <li class="nav-item nav-link dropdown">
                   <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown"
                     data-bs-toggle="dropdown">HOME</a>
-                  <ul class="dropdown-menu">
+                  <ul class="dropdown-menu item custom-dropdown-menu">
                     <li>
-                      <Link to="/" class="dropdown-item" href="#">Home Page</Link>
+                      <Link to="/" class="dropdown-item custom-dropdown-item" href="#">Home Page</Link>
                     </li>
                     <li>
-                      <Link to="/directions" class="dropdown-item" href="#">Directions</Link>
+                      <Link to="/directions" class="dropdown-item custom-dropdown-item" href="#">Directions</Link>
                     </li>
 
                   </ul>

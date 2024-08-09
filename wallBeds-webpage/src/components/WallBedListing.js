@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { baseUrl } from "../api/url";
+import wallBedImage from "../images/wallbed-content.jpg";
 
 
 
@@ -70,13 +71,13 @@ export default function WallBedListing() {
 
         <form class="px-2" onSubmit={handleSubmit(onSubmit)}>
           <input type="hidden" name="_csrf" value="{{csrfToken}}" />
-          <h3 class="m-1 mt-3 pl-3 font-serif font-bold">Advanced Filter: </h3>
+          <h5 class="m-1 mt-3 pl-3 font-serif font-bold">Advanced Filter: </h5>
           <div class="m-1 pl-3 pr-2 flex">
-            <button type="submit" class="text-white btn btn-success btn-sm px-2 rounded-3 me-2">Filter
+            <button type="submit" class="text-white btn btn-success btn-sm px-2 rounded-3 me-2 custom-btn">Filter
               Wall Beds</button>
-            <a href="/shop_All_Beds" class="btn btn-primary btn-sm px-2 ml-2 rounded-3">Reset</a>
+            <a href="/shop_All_Beds" class="btn btn-primary btn-sm px-2 ml-2 rounded-3 custom-btn">Reset</a>
           </div>
-          <div class="m-1 pl-3 pr-2 font-light text-sm">Enter filter and click
+          <div class="m-1 pl-3 pr-2 font-light text-sm small" >Enter filter and click
             <b> Filter Wall Beds </b>
             to filter. Click
             <b> Reset </b>
@@ -84,9 +85,9 @@ export default function WallBedListing() {
           </div>
 
           <input {...register("name")} placeholder="Name" name="name" value={name} onChange={(evt) => setName(evt.target.value)} />
-          <br />
+          
           <input {...register("minCost")} placeholder="Minimum Cost" name='minCost' value={minCost} onChange={(evt) => setminCost(evt.target.value)} />
-          <br />
+          
           <input {...register("maxCost")} placeholder="Maximum Cost" name='maxCost' value={maxCost} onChange={(evt) => setmaxCost(evt.target.value)} />
 
           <div class='my-1'> Bed Sizes:
@@ -128,24 +129,24 @@ export default function WallBedListing() {
         </form>
 
       </div>
-      <div class="col-sm-10 ">
+      <div class="col-sm-9 ">
         <h3 class="ps-4" style={{ 'font-family': 'Stencil Std' }}>Wall Beds</h3>
-        <img className='w-100 wallBedImgCatalogue' src="https://www.mspgreenville.com/wp-content/uploads/2018/07/F61A4157-1500x630.jpg" style={{ "height": "450px" }} alt='defaultImage'/>
+        <img className='w-100 wallBedImgCatalogue' src={wallBedImage} style={{ "height": "300px" }} alt='defaultImage'/>
 
-        <div className=" wallBedCard d-flex justify-content-evenly flex-wrap mt-5 align-content-around ">
-          {data.map((b) => {
-
-            return <div class="card " key={b._id}>
-              <img src={b.image_url} class="card-img-top p-3 " style={{ "width": "400px", "height": "400px" }} alt="image_url" />
-              <div class="card-body d-flex justify-content-center">
-                <Link to={"/product/" + b.id} class='card-text border p-2' style={{
-                  "font-family": "Lato,sans-serif", "text-decoration": "none", 'color': 'black', 'text-transform': 'uppercase',
-                  'letter-spacing': '2px', 'text-align': 'center',
-                }}>{b.name}</Link>
-              </div>
-            </div>
-          }
-          )}
+        <div className="wallBedCard d-flex justify-content-center flex-wrap mt-5 align-items-start gap-4">
+    {data.map((b) => {
+      return (
+        <div class="card" key={b._id} style={{ "width": "18rem" }}>
+          <img src={b.image_url} class="card-img-top p-3" style={{ "height": "300px", "object-fit": "cover" }} alt="image_url" />
+          <div class="card-body d-flex justify-content-center">
+            <Link to={"/product/" + b.id} class='card-text border p-2' style={{
+              "font-family": "Lato,sans-serif", "text-decoration": "none", 'color': 'black', 'text-transform': 'uppercase',
+              'letter-spacing': '2px', 'text-align': 'center',
+            }}>{b.name}</Link>
+          </div>
+        </div>
+           );
+          })}
         </div>
       </div>
     </div>

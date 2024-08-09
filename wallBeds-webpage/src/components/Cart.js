@@ -145,7 +145,36 @@ export default function Cart() {
     };
 
 
-    // checkout cart
+    // // checkout cart
+    // const checkoutcart = async () => {
+    //     if (cart.length === 0) {
+    //         toast.error("Your cart is empty. Please add items to cart.", {
+    //             toastId: "checkoutCart",
+    //             autoClose: 3000,
+    //         });
+    //     } else {
+    //         //get stripe session id
+    //         try {
+    //             const session = await axios({
+    //                 method: "get",
+    //                 url: baseUrl + 'checkout',
+    //                 headers: {
+    //                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+    //                 },
+
+    //             });
+    //             setStripeSession(session.data);
+    //         } catch (error) {
+    //             toast.update("checkoutCart", {
+    //                 render: "Something went wrong. Please try again.",
+    //                 autoClose: 3000,
+    //                 type: "error",
+    //                 isLoading: false,
+    //             });
+    //         }
+    //     }
+    // }
+
     const checkoutcart = async () => {
         if (cart.length === 0) {
             toast.error("Your cart is empty. Please add items to cart.", {
@@ -153,7 +182,7 @@ export default function Cart() {
                 autoClose: 3000,
             });
         } else {
-            //get stripe session id
+            // Get stripe session id from backend
             try {
                 const session = await axios({
                     method: "get",
@@ -161,9 +190,25 @@ export default function Cart() {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                     },
-
                 });
+    
                 setStripeSession(session.data);
+    
+                // Initialize Stripe with the publishable key from the backend
+                // const stripe = await loadStripe(session.data.publishableKey);
+                const stripe = loadStripe('pk_test_51JtOlaGkAJALrYglTKKou5xAdwP3A1tvxNt9RMnuI1Sjjkxmvh30Ve5QiB5DPO9HF11vrvHmbKwX0QH7El3weEiF005CItRQ7U');
+    
+                // Redirect to Stripe's checkout
+                const { error } = await stripe.redirectToCheckout({
+                    sessionId: session.data.sessionId,
+                });
+    
+                if (error) {
+                    toast.error("Something went wrong. Please try again.", {
+                        toastId: "checkoutCartError",
+                        autoClose: 3000,
+                    });
+                }
             } catch (error) {
                 toast.update("checkoutCart", {
                     render: "Something went wrong. Please try again.",
@@ -173,34 +218,76 @@ export default function Cart() {
                 });
             }
         }
-    }
+    };
 
 
+
+    // //checkout with stripe if session id is set
+    // useEffect(() => {
+    //     //checkout with stripe
+    //     async function checkout() {
+    //         const stripe = loadStripe('pk_test_51JtOlaGkAJALrYglTKKou5xAdwP3A1tvxNt9RMnuI1Sjjkxmvh30Ve5QiB5DPO9HF11vrvHmbKwX0QH7El3weEiF005CItRQ7U');
+    //         if (stripeSession) {
+    //             stripe.redirectToCheckout({
+    //                 sessionId: stripeSession.sessionId,
+    //             });
+    //         }
+    //     }
+    //     if (stripeSession) {
+    //         try {
+    //             checkout();
+    //         } catch (error) {
+    //             toast.update("checkoutCart", {
+    //                 render: "Something went wrong. Please try again.",
+    //                 isLoading: false,
+    //                 autoClose: 3000,
+    //                 type: "error",
+    //             });
+    //         }
+    //     }
+    // }, [stripeSession]);
 
     //checkout with stripe if session id is set
     useEffect(() => {
-        //checkout with stripe
-        async function checkout() {
-            const stripe = await loadStripe(stripeSession.publishableKey);
-            if (stripeSession) {
-                stripe.redirectToCheckout({
+    //checkout with stripe
+    async function checkout() {
+        try {
+            const stripe = await loadStripe('pk_test_51JtOlaGkAJALrYglTKKou5xAdwP3A1tvxNt9RMnuI1Sjjkxmvh30Ve5QiB5DPO9HF11vrvHmbKwX0QH7El3weEiF005CItRQ7U');
+            if (stripe && stripeSession && stripeSession.sessionId) {
+                const result = await stripe.redirectToCheckout({
                     sessionId: stripeSession.sessionId,
                 });
-            }
-        }
-        if (stripeSession) {
-            try {
-                checkout();
-            } catch (error) {
-                toast.update("checkoutCart", {
-                    render: "Something went wrong. Please try again.",
-                    isLoading: false,
+
+                if (result.error) {
+                    // Handle any errors that occur during the redirection
+                    console.error(result.error.message);
+                    toast.error("Error during checkout: " + result.error.message, {
+                        autoClose: 3000,
+                    });
+                }
+            } else {
+                console.error("Stripe or session ID is not available.");
+                toast.error("Stripe session ID is missing or undefined.", {
                     autoClose: 3000,
-                    type: "error",
                 });
             }
+        } catch (error) {
+            console.error("Checkout failed: ", error);
+            toast.update("checkoutCart", {
+                render: "Something went wrong. Please try again.",
+                isLoading: false,
+                autoClose: 3000,
+                type: "error",
+            });
         }
-    }, [stripeSession]);
+    }
+
+    if (stripeSession) {
+        checkout();
+    }
+}, [stripeSession]);
+
+
 
     if (localStorage.getItem('accessToken') && cart.length) {
         return (
