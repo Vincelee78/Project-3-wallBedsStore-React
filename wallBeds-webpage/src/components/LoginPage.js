@@ -25,6 +25,8 @@ export default function LoginPage(props) {
     const response = await axios.post(baseUrl + "users/login", {
       email: formData.email,
       password: formData.password
+    }, {
+      withCredentials: true // This sends cookies with the request
     });
     
     if (response.data.accessToken) {

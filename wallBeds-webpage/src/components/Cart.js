@@ -184,32 +184,55 @@ export default function Cart() {
         } else {
             // Get stripe session id from backend
             try {
-                const session = await axios({
-                    method: "get",
-                    url: baseUrl + 'checkout',
+                // const session = await axios({
+                //     method: "get",
+                //     url: baseUrl + 'checkout',
+                //     headers: {
+                //         Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                //     },
+                // });
+    
+                // setStripeSession(session.data);
+    
+                // // Initialize Stripe with the publishable key from the backend
+                // // const stripe = await loadStripe(session.data.publishableKey);
+                // const stripe = loadStripe('pk_test_51JtOlaGkAJALrYglTKKou5xAdwP3A1tvxNt9RMnuI1Sjjkxmvh30Ve5QiB5DPO9HF11vrvHmbKwX0QH7El3weEiF005CItRQ7U');
+    
+                // // Redirect to Stripe's checkout
+                // const { error } = await stripe.redirectToCheckout({
+                //     sessionId: session.data.sessionId,
+                // });
+    
+                // if (error) {
+                //     toast.error("Something went wrong. Please try again.", {
+                //         toastId: "checkoutCartError",
+                //         autoClose: 3000,
+                //     });
+                // }
+
+                // Using fetch to start a checkout session
+                const response = await fetch(baseUrl + 'checkout/create-session', {
+                    method: 'POST',
                     headers: {
-                        Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`, // Assuming you're using Bearer token authentication
                     },
                 });
-    
-                setStripeSession(session.data);
-    
-                // Initialize Stripe with the publishable key from the backend
-                // const stripe = await loadStripe(session.data.publishableKey);
-                const stripe = loadStripe('pk_test_51JtOlaGkAJALrYglTKKou5xAdwP3A1tvxNt9RMnuI1Sjjkxmvh30Ve5QiB5DPO9HF11vrvHmbKwX0QH7El3weEiF005CItRQ7U');
-    
-                // Redirect to Stripe's checkout
-                const { error } = await stripe.redirectToCheckout({
-                    sessionId: session.data.sessionId,
-                });
-    
-                if (error) {
-                    toast.error("Something went wrong. Please try again.", {
-                        toastId: "checkoutCartError",
-                        autoClose: 3000,
-                    });
+        
+                const data = await response.json();
+        
+                if (data.sessionId) {
+                    const stripe = await loadStripe(data.publishableKey);
+                    const result = await stripe.redirectToCheckout({ sessionId: data.sessionId });
+                    if (result.error) {
+                        throw result.error;
+                    }
+                } else {
+                    console.error('Failed to create checkout session:', data);
+                    toast.error("Checkout session creation failed.");
                 }
             } catch (error) {
+                console.error("Checkout error:", error);
                 toast.update("checkoutCart", {
                     render: "Something went wrong. Please try again.",
                     autoClose: 3000,
@@ -247,45 +270,45 @@ export default function Cart() {
     //     }
     // }, [stripeSession]);
 
-    //checkout with stripe if session id is set
-    useEffect(() => {
-    //checkout with stripe
-    async function checkout() {
-        try {
-            const stripe = await loadStripe('pk_test_51JtOlaGkAJALrYglTKKou5xAdwP3A1tvxNt9RMnuI1Sjjkxmvh30Ve5QiB5DPO9HF11vrvHmbKwX0QH7El3weEiF005CItRQ7U');
-            if (stripe && stripeSession && stripeSession.sessionId) {
-                const result = await stripe.redirectToCheckout({
-                    sessionId: stripeSession.sessionId,
-                });
+//     checkout with stripe if session id is set
+//     useEffect(() => {
+//     checkout with stripe
+//     async function checkout() {
+//         try {
+//             const stripe = await loadStripe('pk_test_51JtOlaGkAJALrYglTKKou5xAdwP3A1tvxNt9RMnuI1Sjjkxmvh30Ve5QiB5DPO9HF11vrvHmbKwX0QH7El3weEiF005CItRQ7U');
+//             if (stripe && stripeSession && stripeSession.sessionId) {
+//                 const result = await stripe.redirectToCheckout({
+//                     sessionId: stripeSession.sessionId,
+//                 });
 
-                if (result.error) {
-                    // Handle any errors that occur during the redirection
-                    console.error(result.error.message);
-                    toast.error("Error during checkout: " + result.error.message, {
-                        autoClose: 3000,
-                    });
-                }
-            } else {
-                console.error("Stripe or session ID is not available.");
-                toast.error("Stripe session ID is missing or undefined.", {
-                    autoClose: 3000,
-                });
-            }
-        } catch (error) {
-            console.error("Checkout failed: ", error);
-            toast.update("checkoutCart", {
-                render: "Something went wrong. Please try again.",
-                isLoading: false,
-                autoClose: 3000,
-                type: "error",
-            });
-        }
-    }
+//                 if (result.error) {
+//                     Handle any errors that occur during the redirection
+//                     console.error(result.error.message);
+//                     toast.error("Error during checkout: " + result.error.message, {
+//                         autoClose: 3000,
+//                     });
+//                 }
+//             } else {
+//                 console.error("Stripe or session ID is not available.");
+//                 toast.error("Stripe session ID is missing or undefined.", {
+//                     autoClose: 3000,
+//                 });
+//             }
+//         } catch (error) {
+//             console.error("Checkout failed: ", error);
+//             toast.update("checkoutCart", {
+//                 render: "Something went wrong. Please try again.",
+//                 isLoading: false,
+//                 autoClose: 3000,
+//                 type: "error",
+//             });
+//         }
+//     }
 
-    if (stripeSession) {
-        checkout();
-    }
-}, [stripeSession]);
+//     if (stripeSession) {
+//         checkout();
+//     }
+// }, [stripeSession]);
 
 
 

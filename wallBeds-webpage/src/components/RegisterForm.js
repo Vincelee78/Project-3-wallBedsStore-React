@@ -32,7 +32,8 @@ export default function RegisterForm() {
       billing_address: formData.billing_address,
       shipping_address: formData.shipping_address,
       phone: formData.phone,
-
+    }, {
+      withCredentials: true // This sends cookies with the request
     });
     setUser(user.data)
   }
